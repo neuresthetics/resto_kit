@@ -1,6 +1,6 @@
 # resto_kit
 
-**A private, job-agnostic personal knowledge base and decision-support system for water damage restoration work, built to be loaded into an AI voice assistant for faster, more consistent field decisions.**
+**A systematic, job-agnostic personal knowledge base and decision-support system for water damage restoration work, built to be loaded into an AI voice assistant for faster, more consistent field decisions.**
 
 ## Purpose
 
