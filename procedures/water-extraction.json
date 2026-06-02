@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "procedure": "water-extraction",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Safe and systematic removal of standing water, saturated materials, and bulk contaminants while maintaining engineering controls to prevent aerosolization, cross-contamination, and technician exposure.",
+    "purpose": "Execute controlled water removal after initial assessment and containment setup. Minimize secondary damage and health risks through disciplined extraction sequencing and documentation.",
+    "references": [
+      "core/categories.md",
+      "core/psychrometry.md",
+      "logic/safety-red-flags.md",
+      "procedures/containment-and-controls.json",
+      "procedures/initial-assessment.json",
+      "equipment/air-movers-dehumidifiers.md",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Guide technician through extraction sequence verbally with safety gates and decision branches."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Maintain engineering controls throughout. Engineering > Administrative > PPE",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses or full-face respirator (per category)",
+      "steel-toe boots",
+      "Tyvek or equivalent suit if Category 3 or mold"
+    ],
+    "upgrade_triggers": "Category 3 water, visible mold, strong odors, confined space work, or any safety-red-flags.md items still active"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "pre_extraction_verification",
+      "title": "Pre-Extraction Verification & Control Confirmation",
+      "voice_prompt": "Before touching any water or materials, confirm that engineering controls from containment-and-controls.json are fully in place and verified. Negative pressure holding? Barriers sealed? Air scrubber running with HEPA?",
+      "actions": [
+        "Verify containment integrity and negative pressure differential (target -0.02 to -0.05 in. w.c. or per spec)",
+        "Confirm HEPA air scrubber(s) operating and filters loaded",
+        "Check that all personnel are in upgraded PPE appropriate to category and mold status",
+        "Ensure electrical circuits in wet areas are GFCI protected or isolated",
+        "Review any red flags still open from initial-assessment"
+      ],
+      "decision_point": {
+        "question": "Are engineering controls verified active and containment secure?",
+        "yes_path": "Proceed to step 2",
+        "no_path": {
+          "action": "STOP extraction. Return to containment-and-controls.json to correct deficiencies before proceeding.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "controls_required_from_initial_assessment"
+      ]
+    },
+    {
+      "step": 2,
+      "phase": "electrical_and_equipment_safety",
+      "title": "Electrical Isolation & Equipment Setup",
+      "voice_prompt": "Set up extraction equipment safely. All power in affected areas must be GFCI protected. Stage pumps, extractors, and hoses inside containment only.",
+      "actions": [
+        "Locate and test all GFCI outlets or use portable GFCI pigtails for every piece of electrical equipment",
+        "Stage submersible pumps, carpet extractors, or truckmount hoses inside the containment zone",
+        "Route hoses and cords to minimize trip hazards and maintain containment seal",
+        "Prime pumps and test equipment function before introducing to water",
+        "Have spill kit and absorbent materials ready for any equipment leaks"
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "bulk_water_removal",
+      "title": "Bulk / Standing Water Extraction",
+      "voice_prompt": "Remove as much standing water as possible first using pumps or extractors. Work from deepest areas outward. Avoid splashing or creating aerosols.",
+      "actions": [
+        "Use submersible pumps or wet vacs to remove ponded water from floors and low areas",
+        "For carpeted areas: extract as much water as possible with carpet wand before any pad removal decisions",
+        "Direct extracted water into containment or approved sanitary drain (never storm drain for Category 2/3)",
+        "Monitor extraction rate vs inflow if active leak still present — stabilize first if needed",
+        "Document approximate gallons removed and time"
+      ],
+      "red_flag_triggers": [
+        "Active leak source not isolated",
+        "Electrical hazards in standing water",
+        "Structural instability underfoot"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "saturated_material_decisions",
+      "title": "Saturated Material Assessment & Selective Removal",
+      "voice_prompt": "Decide what must be removed now versus what can be dried in place. Porous materials that cannot be dried within 24-48 hours or are grossly contaminated should be removed.",
+      "actions": [
+        "Evaluate carpet and pad: extract thoroughly; remove pad if saturated >24hrs or Category 2/3",
+        "Check baseboards, drywall, and insulation for saturation depth using moisture meter",
+        "Remove and bag affected baseboard, drywall sections, or insulation only if they fail drying criteria or are moldy",
+        "Cut and remove only what's necessary — preserve as much as safely possible for in-place drying",
+        "Bag and seal all removed contaminated materials inside containment before moving to disposal"
+      ],
+      "decision_point": {
+        "question": "Is material removal required now, or can we proceed to drying in place?",
+        "criteria": "Use core/drying_standards.md and psychrometric calculations. If moisture content cannot be reduced to acceptable levels within 48-72 hours, remove.",
+        "yes_path": "Remove and document removed materials",
+        "no_path": "Proceed to drying-setup.json with in-place drying plan"
+      }
+    },
+    {
+      "step": 5,
+      "phase": "aerosol_and_cross_contamination_control",
+      "title": "Aerosol & Cross-Contamination Control During Extraction",
+      "voice_prompt": "Extraction can aerosolize contaminants. Keep air scrubbers running, minimize aggressive disturbance, and work methodically from cleanest to most contaminated zones if possible.",
+      "actions": [
+        "Maintain negative pressure and HEPA scrubbing the entire time extraction is active",
+        "Avoid high-pressure washing or aggressive demolition that creates mist",
+        "Use low-velocity extraction tools where possible",
+        "If mold is present or Category 3, consider full-face respirator or PAPR during disturbance",
+        "Wipe down tools and equipment with disinfectant before removing from containment"
+      ],
+      "reference": "procedures/containment-and-controls.json for ongoing monitoring requirements"
+    },
+    {
+      "step": 6,
+      "phase": "waste_handling_and_removal",
+      "title": "Contaminated Waste Segregation & Removal",
+      "voice_prompt": "All removed materials and extracted water from Category 2/3 must be treated as contaminated. Bag, seal, and remove properly without breaking containment until job complete.",
+      "actions": [
+        "Double-bag or use approved biohazard bags for moldy or Category 3 materials",
+        "Label bags clearly with job address, date, and contents",
+        "Stage waste inside containment until extraction phase complete",
+        "Coordinate with customer or waste hauler for proper disposal (never regular trash for Category 3)",
+        "Decontaminate any reusable tools before exiting containment"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "post_extraction_inspection",
+      "title": "Post-Extraction Inspection & Handoff to Drying",
+      "voice_prompt": "After bulk water is gone, re-inspect with moisture meter. Confirm no standing water remains. Document what was removed and what is left for drying.",
+      "actions": [
+        "Perform final moisture scan of floors, walls, and cavities",
+        "Photograph post-extraction condition",
+        "Update moisture map with new readings",
+        "Confirm engineering controls still holding (pressure, barriers, air quality)",
+        "Prepare handoff notes for drying-setup.json team or next phase"
+      ],
+      "outputs": {
+        "required": [
+          "Updated moisture readings and map",
+          "List of materials removed with quantities and justification",
+          "Photo documentation of extraction phase",
+          "Confirmation that containment and negative pressure maintained throughout",
+          "Any remaining wet materials flagged for drying phase"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "no_standing_water_remaining": true,
+    "contaminated_materials_properly_removed_or_documented": true,
+    "engineering_controls_maintained": true,
+    "documentation_complete_for_drying_handoff": true
+  },
+  "next_procedures": {
+    "primary": "drying-setup.json or structural-drying.json",
+    "if_still_wet_materials": "equipment-placement.json then monitoring-and-adjustment.json",
+    "if_containment_active": "Continue referencing containment-and-controls.json until job sign-off"
+  },
+  "field_notes": "Extraction is the highest-risk phase for spreading contaminants via aerosol or tracking. The voice assistant should repeatedly reinforce staying inside containment, maintaining negative pressure, and GFCI use. Never rush this phase — thorough extraction dramatically reduces drying time and secondary damage. If Category 3 or mold, treat every action as if it could generate airborne hazards."
+}

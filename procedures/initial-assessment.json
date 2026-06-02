@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "procedure": "initial-assessment",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "First on-site evaluation to classify water damage, identify immediate hazards, determine water category, detect visible or suspected mold, establish scope, and trigger appropriate engineering controls before any extraction, demolition, or drying activities begin.",
+    "purpose": "Reduce cognitive load and prevent cross-contamination or exposure by forcing systematic hazard recognition and control selection at the very start of the job.",
+    "references": [
+      "core/categories.md",
+      "core/classes.md",
+      "logic/safety-red-flags.md",
+      "procedures/containment-and-controls.json",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Walk technician through steps verbally. Support decision branching without requiring the tech to memorize standards."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls > Administrative > PPE",
+    "mandatory_ppe_minimum": [" gloves", "safety glasses", "steel-toe boots", "high-visibility vest"],
+    "upgrade_triggers": "Category 3 water, visible mold, strong odors, confined space, or any item from safety-red-flags.md"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "arrival_and_safety",
+      "title": "Arrival, Staging & Initial Safety Check",
+      "voice_prompt": "Arrived on site. First, do a 360 of the exterior for safety hazards like downed power lines, structural damage, or blocked access. Any immediate dangers?",
+      "actions": [
+        "Park vehicle safely with egress clear",
+        "Perform 360 exterior walk for obvious structural, electrical, or gas hazards",
+        "Identify staging area upwind and uphill from affected zone if possible",
+        "Don minimum PPE"
+      ],
+      "decision_point": {
+        "question": "Any immediate life-safety or structural hazards preventing safe entry?",
+        "yes_path": {
+          "action": "STOP. Secure perimeter. Contact appropriate emergency services or utility company. Do not enter structure until cleared.",
+          "next": "end_procedure"
+        },
+        "no_path": "Proceed to step 2"
+      }
+    },
+    {
+      "step": 2,
+      "phase": "customer_interview",
+      "title": "Customer Interview & Loss History",
+      "voice_prompt": "Talk to the customer or responsible party. When did the water event start? What was the source? Any previous water issues or known mold? How many rooms affected? Any health symptoms reported?",
+      "actions": [
+        "Record date/time of loss and discovery",
+        "Identify claimed water source (roof leak, appliance, flood, sewer, etc.)",
+        "Note duration of exposure and any prior attempts to mitigate",
+        "Ask about occupant health complaints (respiratory, skin, etc.)",
+        "Document any known pre-existing conditions in the structure"
+      ],
+      "key_outputs": ["loss_history", "claimed_source", "occupant_symptoms"]
+    },
+    {
+      "step": 3,
+      "phase": "exterior_perimeter",
+      "title": "Exterior & Perimeter Assessment",
+      "voice_prompt": "Walk the full perimeter. Check roofline, gutters, grading, foundation, and any obvious water intrusion points. Note standing water, erosion, or drainage issues.",
+      "actions": [
+        "Inspect roof, flashing, gutters, and downspouts for obvious defects",
+        "Check soil grading and drainage away from foundation",
+        "Look for exterior cracks, efflorescence, or water stains on foundation",
+        "Note any standing water or poor drainage that could affect drying"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "interior_walkthrough_non_intrusive",
+      "title": "Interior Non-Intrusive Walkthrough",
+      "voice_prompt": "Enter carefully. Do a visual and olfactory scan without touching or disturbing materials yet. Look up, down, and all around. Smell for musty odors.",
+      "actions": [
+        "Visual scan of ceilings, walls, floors, and contents for water stains, discoloration, buckling, or warping",
+        "Smell test for musty, sewage, or chemical odors",
+        "Note temperature and humidity feel (hot/humid vs cool/dry)",
+        "Identify all potentially affected rooms and approximate square footage",
+        "Look for signs of previous water damage or repairs"
+      ],
+      "red_flag_triggers": [
+        "Visible mold growth on surfaces",
+        "Strong musty or sewage odor",
+        "Buckled or saturated drywall that may collapse",
+        "Electrical outlets or panels in affected area showing water intrusion"
+      ]
+    },
+    {
+      "step": 5,
+      "phase": "hazard_identification_and_category",
+      "title": "Hazard Identification & Water Category Determination",
+      "voice_prompt": "Based on what you've seen and smelled, classify the water. Is it clean (Category 1), gray (Category 2), or black/contaminated (Category 3)? Any visible mold?",
+      "actions": [
+        "Determine water category using core/categories.md criteria",
+        "Document justification for category choice",
+        "Check for visible mold or conditions conducive to mold (wet + organic material + time)",
+        "Run safety-red-flags.md checklist mentally or via assistant"
+      ],
+      "decision_point": {
+        "water_category": {
+          "1": "Clean water from sanitary source. Lower containment likely sufficient.",
+          "2": "Gray water with some contamination. Elevated PPE and possible containment.",
+          "3": "Black water or grossly contaminated. HIGH RISK. Must initiate containment-and-controls.json before any extraction or disturbance."
+        },
+        "visible_mold_or_strong_musty_odor": {
+          "true": "Treat as potential mold job. Immediately trigger procedures/containment-and-controls.json and consider S-520 level protocols. Upgrade to full-face respirator or PAPR if available."
+        }
+      }
+    },
+    {
+      "step": 6,
+      "phase": "engineering_controls_decision",
+      "title": "Engineering Controls Decision Point",
+      "voice_prompt": "Stop here. Based on category, mold presence, or any red flags, do we need full containment, negative air, or source isolation before we touch anything?",
+      "actions": [
+        "If Category 3, visible mold, confined space, or safety-red-flags triggered → PAUSE all intrusive work",
+        "Reference procedures/containment-and-controls.json for setup requirements (barriers, negative pressure, HEPA air scrubbing, electrical isolation, etc.)",
+        "Establish containment perimeter before moving equipment or removing materials"
+      ],
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "any safety_red_flag == true",
+        "poor_ventilation_or_confined_space == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 7,
+      "phase": "moisture_detection_mapping",
+      "title": "Moisture Detection & Preliminary Mapping",
+      "voice_prompt": "Now that controls are decided or in place, begin non-destructive moisture detection. Use moisture meter and thermal imager if available. Map affected areas.",
+      "actions": [
+        "Use pinless or pin-type moisture meter on walls, floors, baseboards",
+        "Take readings in affected and adjacent unaffected areas for comparison",
+        "Use thermal camera to identify hidden moisture patterns if available",
+        "Document all readings with locations (sketch or photo with annotations)",
+        "Identify hidden moisture in cavities, under flooring, or in insulation"
+      ],
+      "note": "Do not cut or remove materials until engineering controls are active if Category 3 or mold present."
+    },
+    {
+      "step": 8,
+      "phase": "scope_and_documentation",
+      "title": "Scope Definition & Job Documentation",
+      "voice_prompt": "Summarize findings. What is the affected area? What category? What controls are needed? What is the recommended next step?",
+      "actions": [
+        "Photograph all key findings (before any disturbance)",
+        "Create simple moisture map or annotated floor plan",
+        "State water category and justification clearly",
+        "Define engineering control plan selected",
+        "Estimate affected square footage and affected materials (drywall, carpet, hardwood, insulation, etc.)",
+        "Note any contents that need immediate attention or protection"
+      ],
+      "outputs": {
+        "required": [
+          "Photo documentation package",
+          "Moisture reading log",
+          "Water category determination with rationale",
+          "Engineering control selection and justification",
+          "Preliminary scope of work for customer communication"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "category_determined": true,
+    "engineering_controls_decided_or_active": true,
+    "documentation_started": true
+  },
+  "next_procedures": {
+    "if_controls_required": "containment-and-controls.json (complete setup and verification before extraction)",
+    "if_safe_to_proceed": "water-extraction.json or drying-setup.json depending on job type and controls status"
+  },
+  "field_notes": "This procedure is deliberately front-loaded with hazard recognition and engineering control decisions. Never skip the engineering controls decision point (step 6). It is the single most important step for protecting the technician, the structure, and the customer from cross-contamination and exposure."
+}

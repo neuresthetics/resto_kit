@@ -10,40 +10,6 @@ This repo exists to make daily work easier and more consistent. It holds my pers
 
 1 Jun 2026 first push.
 
-## fs
+## generation layers:
 
-resto_kit/
-├── core/                    # Foundational knowledge (words)
-│   ├── categories.md
-│   ├── classes.md
-│   ├── psychrometry.md
-│   └── dry-standards.md
-│
-├── procedures/              # Step-by-step flows (general)
-│   ├── initial-assessment.md
-│   ├── extraction.md
-│   ├── drying.md
-│   └── monitoring.md
-│
-├── logic/                   # Decision trees & rules (the gold)
-│   ├── category-class-matrix.md
-│   ├── material-response.md
-│   ├── equipment-sizing.md
-│   └── safety-red-flags.md
-│
-├── equipment/               # Calculations and practical setup
-│   ├── air-movers.md
-│   ├── dehumidifiers.md
-│   └── crawlspace-notes.md
-│
-├── voice/                   # Modes + prompt styles
-│   ├── modes.md             # Rookie / Tech / Deep / Smartass
-│   └── field-commands.md
-│
-├── templates/               # Reusable checklists (general)
-│   └── daily-checklist.md
-│
-├── personal/                # Your field notes & lessons (generalized)
-│   └── observations.md
-│
-└── README.md
+core > equipment > procedures > logic > voice

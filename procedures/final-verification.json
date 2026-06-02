@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "procedure": "final-verification",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Final verification that all drying goals have been achieved, no hidden moisture or secondary damage remains, engineering controls are properly demobilized, and the job is ready for customer sign-off. Includes structured final moisture confirmation, structural/contents inspection, safe teardown of containment and equipment, comprehensive documentation, and clear closeout criteria.",
+    "purpose": "Confirm with data that the job is truly complete and dry. Prevent callbacks from hidden moisture or secondary issues. Safely remove all engineering controls and equipment. Deliver a complete, defensible documentation package that supports billing, insurance, and warranty. Give the customer clear education and sign-off so there are no surprises after the crew leaves.",
+    "references": [
+      "core/psychrometry.md",
+      "core/categories.md",
+      "core/drying-standards.md",
+      "logic/equipment-sizing.md",
+      "logic/safety-red-flags.md",
+      "procedures/drying-setup.json",
+      "procedures/monitoring-and-adjustment.json",
+      "procedures/containment-and-controls.json",
+      "procedures/structural-drying.json",
+      "procedures/contents-restoration.json",
+      "equipment/dehumidifiers.md",
+      "equipment/air-movers.md",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Guide technician through the final verification visit with clear data collection gates, engineering control teardown steps, customer communication points, and documentation requirements so the job closes cleanly without callbacks or liability gaps."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls (containment, negative pressure, HEPA scrubbing) must remain fully active and verified until the very end of final verification. Only after all moisture confirmation, inspections, and documentation are complete should controlled teardown begin. Electrical safety, GFCI protection, and proper PPE discipline continue through demobilization.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses",
+      "steel-toe boots",
+      "hearing protection when equipment is still running",
+      "Tyvek or equivalent if Category 2/3, visible mold, strong odors, or any active red flags remain"
+    ],
+    "upgrade_triggers": "Category 2 or 3 water, visible or suspected mold, strong musty/sewage odors, confined space, poor ventilation, any active safety red flags, rising or persistent moisture readings, new odors, or visible secondary damage during final inspection"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "pre_verification_gate",
+      "title": "Pre-Verification Safety & Engineering Controls Gate",
+      "voice_prompt": "Before taking any final readings or starting teardown, confirm that containment, negative pressure, and all engineering controls are still fully intact and effective. This is the last hard safety gate before we declare the job complete.",
+      "actions": [
+        "Visually inspect all poly barriers, seals, tape, zippers, and airlocks for damage, gaps, or breaches",
+        "Verify negative pressure is still holding in the target range using manometer or qualitative test",
+        "Confirm HEPA air scrubbers are running with acceptable filter loading and proper exhaust routing",
+        "Check that all remaining drying equipment is on correct GFCI-protected circuits",
+        "Look and smell for any new signs of mold, secondary damage, or control failure since last monitoring visit",
+        "Confirm customer access restrictions and safety signage are still in place"
+      ],
+      "decision_point": {
+        "question": "Are all engineering controls verified and stable for final verification?",
+        "yes_path": "Proceed to step 2",
+        "no_path": {
+          "action": "Pause final verification. Correct containment, pressure, filtration, or electrical issues using containment-and-controls.json before continuing. Re-verify after corrections.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "water_category >= 2",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true",
+        "any_safety_red_flag_active == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 2,
+      "phase": "final_moisture_verification",
+      "title": "Final Psychrometric & Moisture Verification",
+      "voice_prompt": "Take final readings at all the same fixed locations established during drying setup and monitoring. Confirm that every material and area has met or exceeded the drying goals set in drying-setup.json. No guessing — this is the data that closes the job.",
+      "actions": [
+        "Record date, time, and current outdoor conditions for context",
+        "Take psychrometric readings (temp, RH, GPP) at the same 3-5 fixed locations inside and outside the affected area using the same calibrated meter",
+        "Take final moisture meter readings (pin or pinless) on the exact same representative materials and locations used throughout the job",
+        "Compare all final readings against the specific drying goals and EMC targets defined in drying-setup.json",
+        "Check any previously elevated or suspect areas one more time, including wall cavities, subfloors, and insulation zones",
+        "Document any remaining borderline readings with justification for why they are acceptable or require further action"
+      ],
+      "key_outputs": [
+        "final_psychrometric_readings",
+        "final_material_moisture_map",
+        "drying_goal_achievement_status",
+        "borderline_reading_justifications"
+      ],
+      "red_flag_triggers": [
+        "Any material still above its target EMC or drying goal",
+        "GPP or RH higher than drying-setup targets in multiple locations",
+        "New or previously undetected elevated moisture in hidden areas",
+        "Visible mold, musty odor, or secondary damage discovered during final inspection"
+      ],
+      "reference": "procedures/drying-setup.json"
+    },
+    {
+      "step": 3,
+      "phase": "structural_contents_inspection",
+      "title": "Structural & Contents Final Inspection",
+      "voice_prompt": "Walk every affected area one final time. Look inside cavities, under floors, behind appliances, and in any place moisture could hide. Check that all contents that were to be cleaned or dried on-site are truly dry and free of secondary issues.",
+      "actions": [
+        "Perform visual and olfactory inspection of all structural assemblies (walls, floors, ceilings, cavities) for staining, swelling, warping, or new mold",
+        "Verify that any flood cuts, weep holes, or access points created during structural drying are properly documented and ready for final repair recommendations",
+        "Inspect all contents that were cleaned or dried on-site for dryness, odor, staining, or mold",
+        "Confirm that any pack-out items have been properly inventoried, labeled, and staged for return or storage per contents-restoration.json",
+        "Check for any customer-reported issues or new complaints since last visit",
+        "Document any remaining concerns with photos and clear recommendations for repair or follow-up"
+      ],
+      "key_outputs": [
+        "final_structural_inspection_notes",
+        "final_contents_status",
+        "hidden_moisture_findings",
+        "repair_recommendations"
+      ],
+      "red_flag_triggers": [
+        "Visible mold or musty odor in previously unaffected areas",
+        "New staining, swelling, or warping discovered",
+        "Contents still damp or showing secondary damage",
+        "Customer reports new issues not previously documented"
+      ],
+      "reference": "procedures/structural-drying.json"
+    },
+    {
+      "step": 4,
+      "phase": "controls_teardown",
+      "title": "Engineering Controls Teardown & Demobilization",
+      "voice_prompt": "Only after final moisture verification and inspection are complete, begin safe, controlled teardown of containment, negative air, and HEPA equipment. Never tear down controls before you are certain the job is dry.",
+      "actions": [
+        "Confirm with customer that final verification is complete and they are ready for demobilization",
+        "Shut down and remove drying equipment in reverse order of placement (air movers first, then dehumidifiers)",
+        "Carefully remove poly barriers, tape, and seals while minimizing dust and debris spread",
+        "Remove negative air machines and HEPA scrubbers last; change filters if heavily loaded before removal",
+        "Wipe down and disinfect all reusable equipment and tools before loading",
+        "Restore the space to pre-job condition as much as possible (remove trip hazards, clean up debris from controls)",
+        "Perform final visual sweep of the entire work area for any remaining equipment, tape, or debris"
+      ],
+      "decision_point": {
+        "question": "Has final moisture verification passed and is the customer ready for demobilization?",
+        "yes_path": "Proceed with controlled teardown",
+        "no_path": {
+          "action": "Do not begin teardown. Return to step 2 or escalate per monitoring-and-adjustment.json if goals are not met.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "water_category >= 2",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 5,
+      "phase": "customer_walkthrough",
+      "title": "Customer Walkthrough, Education & Sign-Off",
+      "voice_prompt": "Walk the customer through the entire affected area. Show them what was done, what the final readings show, and what they need to watch for going forward. Get clear sign-off before you leave.",
+      "actions": [
+        "Walk the customer through every room and area that was affected",
+        "Show before/after photos and explain the drying process in plain language",
+        "Point out any remaining repair needs (drywall, flooring, paint) and provide clear recommendations",
+        "Educate the customer on what normal drying looks like versus warning signs of hidden moisture or mold",
+        "Explain any warranty or follow-up inspection terms clearly",
+        "Review the final documentation package with the customer and answer any questions",
+        "Obtain customer signature on the job completion and sign-off form"
+      ],
+      "key_outputs": [
+        "customer_walkthrough_notes",
+        "education_points_covered",
+        "customer_questions_and_answers",
+        "signed_completion_form"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "documentation_package",
+      "title": "Comprehensive Documentation Package Assembly",
+      "voice_prompt": "Assemble every photo, reading, log, and note into one clean, organized package. This is what protects you, the company, and the customer if questions come up later.",
+      "actions": [
+        "Compile all before, during, and after photos with clear labels and timestamps",
+        "Assemble the complete moisture reading log showing initial, progress, and final readings against goals",
+        "Include all equipment placement diagrams, daily logs, and adjustment records",
+        "Attach the final psychrometric data and drying goal achievement confirmation",
+        "Include contents inventory and restoration outcomes if applicable",
+        "Add any customer communications, change orders, or scope adjustments",
+        "Prepare a concise job summary and closeout report for the customer and insurance carrier"
+      ],
+      "key_outputs": [
+        "complete_photo_log",
+        "moisture_reading_history",
+        "equipment_and_adjustment_logs",
+        "final_drying_goal_confirmation",
+        "job_closeout_report"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "job_closeout",
+      "title": "Job Closeout, Warranty & Follow-Up Recommendations",
+      "voice_prompt": "Close the job properly. Make sure everyone knows what was done, what the warranty covers, and when any follow-up should happen. Leave the customer confident and the file complete.",
+      "actions": [
+        "Confirm all equipment, tools, and debris have been removed from the property",
+        "Verify that the customer has received copies of all key documentation",
+        "Review warranty terms (typically 30-90 days on drying work) and what is covered versus what requires a new service call",
+        "Provide clear written recommendations for any remaining repairs, monitoring, or professional follow-up",
+        "Schedule any agreed-upon follow-up inspection if required by scope or insurance",
+        "Thank the customer and leave contact information for questions",
+        "Mark the job as complete in the company system and archive all documentation"
+      ],
+      "key_outputs": [
+        "warranty_terms_reviewed",
+        "follow_up_recommendations",
+        "customer_contact_confirmation",
+        "job_closed_in_system"
+      ]
+    }
+  ]
+}

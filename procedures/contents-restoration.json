@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "procedure": "contents-restoration",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Systematic assessment, cleaning, drying, packing, and disposition of personal property and contents affected by water damage. Prioritizes safety on contaminated jobs, maximizes salvage value, supports insurance documentation, and integrates with engineering controls and structural drying.",
+    "purpose": "Handle contents professionally to prevent secondary damage, cross-contamination, and loss of customer property while maintaining defensible records for claims and liability protection.",
+    "references": [
+      "core/categories.md",
+      "core/psychrometry.md",
+      "logic/safety-red-flags.md",
+      "procedures/containment-and-controls.json",
+      "procedures/initial-assessment.json",
+      "procedures/water-extraction.json",
+      "procedures/structural-drying.json",
+      "procedures/monitoring-and-adjustment.json",
+      "procedures/final-verification.json",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant or used as reference. Guide technician through safe, documented contents handling with clear decision points for on-site vs. pack-out, cleaning methods, and integration with containment."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls first (containment, negative pressure, HEPA) when handling Category 2/3 or mold-affected contents. Never move contaminated contents through clean areas without proper bagging and isolation. PPE upgrade mandatory for biohazards or strong odors.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses or face shield",
+      "steel-toe boots",
+      "N95 or higher respirator (P100 for mold/Category 3)",
+      "Tyvek suit or equivalent for Category 3 or visible mold"
+    ],
+    "upgrade_triggers": "Category 3 water, visible or suspected mold, sewage, strong musty or chemical odors, bloodborne pathogens, or any red flags from safety-red-flags.md. Pack-out to licensed facility recommended for heavily contaminated or high-volume contents."
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "initial_assessment",
+      "title": "Contents Inventory & Initial Contamination Assessment",
+      "voice_prompt": "Before touching anything, do a quick walkthrough of all affected contents. Note what items are present, their condition, water category impact, and any signs of contamination like mold, sewage residue, or strong odors. Start a written or photo inventory.",
+      "actions": [
+        "Photograph overall scene and key items before any movement (wide shots + close-ups of damage)",
+        "Identify high-value, sentimental, or insurance-critical items first (electronics, documents, jewelry, art)",
+        "Check for Category 3 indicators: sewage, flood water with debris, visible mold growth on or near contents, strong odors",
+        "Note items that are obviously non-salvageable (delaminated particleboard, heavily saturated porous materials with contamination)",
+        "Determine if contents work can happen on-site inside existing containment or requires dedicated contents zone / pack-out"
+      ],
+      "decision_point": {
+        "question": "Is there significant Category 3 contamination, visible mold on contents, or high volume/complexity that warrants professional pack-out to an off-site cleaning facility?",
+        "yes_path": "Initiate pack-out protocol. Reference containment-and-controls.json for safe removal and bagging procedures. Proceed to step 2 for categorization but prioritize isolation.",
+        "no_path": "Proceed with on-site assessment and cleaning under current engineering controls. Continue to step 2."
+      },
+      "key_outputs": [
+        "initial_photo_inventory",
+        "contamination_assessment_notes",
+        "high_priority_items_list"
+      ]
+    },
+    {
+      "step": 2,
+      "phase": "categorization",
+      "title": "Categorize Contents: Salvage, Clean, Pack-Out, or Discard",
+      "voice_prompt": "For each item or group, decide: Can it be cleaned and dried on-site? Does it need professional off-site restoration? Is it a total loss? Be conservative on porous items in contaminated water.",
+      "actions": [
+        "Use a simple traffic-light system or tags: Green = clean/salvage on-site, Yellow = cleanable but careful, Red = discard or pack-out to specialist",
+        "Apply criteria: Non-porous hard surfaces (glass, metal, sealed wood) usually cleanable. Porous (carpet, upholstery, drywall, insulation, paper) often discarded if Category 3 or moldy.",
+        "For electronics and appliances: Most require professional evaluation; do not attempt to power on wet units. Pack-out recommended.",
+        "Documents and photos: If wet but clean water, air dry or freeze-dry option. Contaminated = professional recovery or discard.",
+        "Update inventory with category decision and justification for insurance"
+      ],
+      "decision_point": {
+        "question": "Are there items that require immediate isolation or pack-out due to heavy contamination or high value?",
+        "yes_path": "Bag or wrap contaminated items in sealed plastic, label clearly (owner, date, contamination type, 'Contents Restoration - Do Not Open'), move to staging area inside containment or prepare for transport. Update job scope.",
+        "no_path": "Continue on-site processing for cleanable items."
+      },
+      "red_flags": [
+        "Visible mold growth on soft goods or paper goods",
+        "Sewage or flood debris embedded in porous materials",
+        "Items with strong persistent odors after initial cleaning attempt"
+      ],
+      "key_outputs": [
+        "categorized_inventory_list",
+        "discard_justification_log",
+        "pack_out_list"
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "engineering_controls_setup",
+      "title": "Engineering Controls & PPE Confirmation for Contents Work",
+      "voice_prompt": "Before any cleaning or movement of potentially contaminated contents, confirm engineering controls are active and appropriate. This is a hard gate.",
+      "actions": [
+        "Verify containment is in place and sealed if working with Category 2/3 or mold-affected items (per containment-and-controls.json)",
+        "Confirm negative pressure is holding and HEPA scrubber is running with clean filters",
+        "Set up dedicated contents work zone if possible (separate from structural drying if space allows) with its own airflow direction",
+        "Don upgraded PPE: Tyvek, respirator, gloves, eye protection. Double-glove for biohazard risk.",
+        "Prepare decontamination station at exit point (boot wash, glove removal, suit doffing procedure)"
+      ],
+      "mandatory_if": "Category 3 water, visible/suspected mold on or near contents, strong odors, or any safety red flags active",
+      "decision_point": {
+        "question": "Are engineering controls verified and PPE appropriate for the contamination level?",
+        "yes_path": "Proceed to cleaning protocols (step 4)",
+        "no_path": "Pause and correct controls or escalate to supervisor before touching contents. Reference containment-and-controls.json."
+      },
+      "references": [
+        "procedures/containment-and-controls.json"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "cleaning_protocols",
+      "title": "Execute Cleaning by Material Type",
+      "voice_prompt": "Clean items using the least aggressive effective method first. Always HEPA vacuum before wet cleaning to avoid spreading particulates. Work from least to most contaminated areas.",
+      "actions": [
+        "Hard non-porous surfaces (glass, metal, plastic, sealed stone): HEPA vacuum or damp wipe with appropriate cleaner, then disinfect if Category 3.",
+        "Upholstery and fabrics (clean water only): HEPA vacuum thoroughly, spot clean with extraction if needed, or professional on-site cleaning. Category 3/mold = usually discard or pack-out.",
+        "Electronics and appliances: Do NOT attempt powered cleaning or drying on-site unless trained. Wipe exterior, bag, and prepare for professional contents restoration facility. Tag 'Do Not Power On'.",
+        "Documents, photos, books: If clean water and important, air dry flat between blotters or prepare for freeze-drying service. Contaminated = professional recovery service or discard.",
+        "Clothing and linens: HEPA vacuum, wash in hot water with detergent if Category 1/2, or professional laundry for contaminated loads. Label clearly.",
+        "Always work inside containment for contaminated items. Wipe tools and surfaces between items to prevent cross-contamination."
+      ],
+      "note": "When in doubt on porous or high-value items, default to pack-out to IICRC-certified contents restoration facility. Better to over-protect than under-restore.",
+      "key_outputs": [
+        "cleaning_log_per_item_type",
+        "before_after_photos"
+      ]
+    },
+    {
+      "step": 5,
+      "phase": "drying_contents",
+      "title": "Drying of Cleanable Contents (On-Site)",
+      "voice_prompt": "For items you decided to dry on-site, apply controlled drying using psychrometric principles. Do not force-dry contaminated porous materials.",
+      "actions": [
+        "Only dry items that passed categorization as cleanable and non-porous or lightly affected porous goods.",
+        "Use ambient or slightly warmed air with good airflow (reference equipment-placement.json and structural-drying.json for techniques). Avoid high heat on electronics or sensitive materials.",
+        "Monitor moisture with appropriate meters (pin or pinless for wood, probes for other materials). Target EMC appropriate for the material.",
+        "For documents/photos: Air dry in controlled low-humidity environment or professional freeze-dry.",
+        "If drying takes too long or conditions change (rising humidity), reconsider pack-out or discard."
+      ],
+      "decision_point": {
+        "question": "Are the contents drying successfully without new damage or mold risk, and within project timeline?",
+        "yes_path": "Continue monitoring and proceed toward packing/storage when dry.",
+        "no_path": "Escalate to pack-out or discard decision. Update customer and insurance adjuster."
+      },
+      "references": [
+        "core/psychrometry.md",
+        "procedures/structural-drying.json"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "packing_and_storage",
+      "title": "Pack, Label, Secure & Arrange Transport or Storage",
+      "voice_prompt": "Once cleaned and/or dried, properly pack and label everything for return to customer, storage, or off-site restoration. Clear labeling prevents mix-ups and supports claims.",
+      "actions": [
+        "Use sturdy boxes or totes appropriate for item type. Pad delicate items.",
+        "Label every container clearly on multiple sides: Job #, Owner name, Room of origin, Date, Contents description summary, Contamination level (Clean / Category 2 / Category 3), 'Restored' or 'For Professional Cleaning'.",
+        "Create a master inventory log that matches box labels (photo of each box + list inside).",
+        "For items going to off-site facility: Use tamper-evident seals or signed chain-of-custody if required by insurance.",
+        "Stage packed items in a clean, dry, secure area away from active work zones. Cover if dust or overspray risk exists.",
+        "Coordinate with customer or storage facility for pickup/delivery timing. Update them on what was salvaged vs. discarded."
+      ],
+      "key_outputs": [
+        "packed_inventory_with_labels",
+        "chain_of_custody_docs_if_applicable",
+        "customer_update_on_contents_status"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "documentation_and_handoff",
+      "title": "Final Documentation, Insurance Support & Handoff",
+      "voice_prompt": "Complete the contents file with photos, logs, decisions, and communications. This is critical for insurance reimbursement and protecting everyone involved.",
+      "actions": [
+        "Compile complete before/after photo set for all significant items and groups",
+        "Finalize categorized inventory with outcomes (cleaned on-site, packed-out, discarded with justification)",
+        "Document all cleaning methods used, drying data if applicable, and any professional services engaged (e.g., document recovery company)",
+        "Update the main job file or software with contents scope, costs, and timeline impact",
+        "Provide customer with clear written summary of what was done with their property and any ongoing recommendations (e.g., monitor for odors, professional follow-up)",
+        "If items remain in storage or at restoration facility, note expected return date and contact info"
+      ],
+      "outputs": {
+        "required": [
+          "complete_contents_inventory",
+          "photo_documentation_set",
+          "decision_justification_log",
+          "customer_communication_record",
+          "insurance_claim_support_package"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "inventory_complete_with_photos": true,
+    "categorization_decisions_documented": true,
+    "engineering_controls_verified_for_contaminated_work": true,
+    "cleaning_or_packout_executed_per_decisions": true,
+    "packing_and_labeling_complete": true,
+    "documentation_and_customer_update_done": true
+  },
+  "next_procedures": {
+    "primary": "final-verification.json",
+    "parallel_or_follow_up": "monitoring-and-adjustment.json (if contents drying is ongoing alongside structure)",
+    "if_packout_required": "Coordinate with external contents restoration facility; update job file accordingly"
+  },
+  "field_notes": "Contents restoration is often the most emotionally charged part of a job for the customer. Take extra time on high-value or sentimental items. When contamination is present, default to conservative decisions (pack-out or discard) — it is almost always the right call for liability and health reasons. Good documentation here directly translates to smoother insurance claims and fewer callbacks. Always keep engineering controls tight when moving or cleaning contaminated contents; cross-contamination is a fast way to turn a Category 2 job into a much larger problem."
+}

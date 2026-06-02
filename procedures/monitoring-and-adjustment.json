@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "procedure": "monitoring-and-adjustment",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Ongoing verification that drying is progressing toward psychrometric goals, equipment is performing as intended, engineering controls remain effective, and no secondary damage, mold growth, or new hazards develop. Includes structured data collection, progress analysis, equipment adjustments, and clear decision points for continuing, adjusting, escalating, or completing the drying phase.",
+    "purpose": "Keep the drying process safe, on track, and efficient. Catch rising moisture, control failures, or secondary issues early. Adjust equipment and goals based on real data. Document everything for defensibility, billing support, and clean handoff. Determine precisely when drying goals are met so the job moves to final verification without over-drying or leaving hidden moisture.",
+    "references": [
+      "core/psychrometry.md",
+      "core/categories.md",
+      "core/drying-standards.md",
+      "logic/equipment-sizing.md",
+      "logic/safety-red-flags.md",
+      "procedures/drying-setup.json",
+      "procedures/equipment-placement.json",
+      "procedures/containment-and-controls.json",
+      "procedures/final-verification.json",
+      "procedures/structural-drying.json",
+      "equipment/dehumidifiers.md",
+      "equipment/air-movers.md",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Guide technician through daily or shift-based monitoring with clear data collection points, engineering control verification gates, adjustment logic, and documentation requirements so nothing critical is missed between visits."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls (containment, negative pressure, HEPA scrubbing) must be re-verified at the start of every monitoring visit and remain active throughout. Any degradation triggers immediate correction before further data collection or adjustments. Electrical safety and PPE discipline continue for the life of the job.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses",
+      "steel-toe boots",
+      "hearing protection when multiple air movers are running",
+      "Tyvek or equivalent if Category 2/3, visible mold, strong odors, or any active red flags"
+    ],
+    "upgrade_triggers": "Category 2 or 3 water, visible or suspected mold, strong musty/sewage odors, confined space, poor ventilation, any active safety red flags, rising moisture readings, new odors, or visible secondary damage"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "pre_monitoring_verification",
+      "title": "Pre-Monitoring Verification & Engineering Controls Gate",
+      "voice_prompt": "Before taking any readings or making adjustments, walk the job and confirm that containment, negative pressure, HEPA scrubbing, and all engineering controls are still intact and effective. This is a hard gate on every visit, especially on Category 2/3 or mold jobs.",
+      "actions": [
+        "Visually inspect all poly barriers, seals, tape, and zippers for damage, gaps, or breaches",
+        "Verify negative pressure is still holding in the target range (check manometer or use containment-and-controls.json targets)",
+        "Confirm HEPA air scrubbers are running with acceptable filter loading and proper exhaust routing",
+        "Check that all drying equipment is still on the correct circuits and GFCIs are not tripped",
+        "Look and smell for any new signs of mold, secondary damage, or control failure since last visit",
+        "Confirm customer access restrictions and safety signage are still in place"
+      ],
+      "decision_point": {
+        "question": "Are all engineering controls verified and stable?",
+        "yes_path": "Proceed to step 2",
+        "no_path": {
+          "action": "Pause data collection. Correct containment, pressure, filtration, or electrical issues using containment-and-controls.json or safety-red-flags.md before continuing. Re-verify after corrections.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "water_category >= 2",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true",
+        "any_safety_red_flag_active == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 2,
+      "phase": "data_collection",
+      "title": "Psychrometric & Moisture Data Collection",
+      "voice_prompt": "Take consistent, repeatable readings at the same locations every visit. Record ambient conditions, equipment performance, and material moisture levels so you can see real trends, not guesses.",
+      "actions": [
+        "Record date, time, and weather/outdoor conditions for context",
+        "Take psychrometric readings (temp, RH, GPP) at the same 3-5 fixed locations inside and outside containment using the same calibrated meter",
+        "Take moisture meter readings (pin or pinless as appropriate) on the same representative materials and locations established in drying-setup or equipment-placement",
+        "Check and record dehumidifier condensate removal volume or rate since last visit (empty collection or note auto-pump total)",
+        "Visually inspect for new water, staining, swelling, or mold growth on previously unaffected surfaces",
+        "Note any customer-reported changes (new odors, visible issues, comfort complaints)"
+      ],
+      "key_outputs": [
+        "current_psychrometric_readings",
+        "material_moisture_map_or_readings",
+        "dehumidifier_performance_data",
+        "visual_inspection_notes"
+      ],
+      "red_flag_triggers": [
+        "Moisture readings higher than previous visit in multiple locations",
+        "New visible mold or musty odor in previously unaffected areas",
+        "GPP or RH rising instead of falling",
+        "Standing water reappearing or new leaks"
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "equipment_performance_check",
+      "title": "Equipment Performance Assessment & Basic Adjustments",
+      "voice_prompt": "Check that every piece of equipment is actually doing its job. Dehumidifiers should be removing water. Fans should be moving air in the right directions. Filters should not be overloaded. Make small adjustments now before problems grow.",
+      "actions": [
+        "Verify each dehumidifier is powered on, set to the correct mode/target, and actively removing moisture (check condensate line flow or collection)",
+        "Confirm air movers are running at intended speeds and directions; feel for proper airflow patterns and dead zones",
+        "Check air scrubber/negative air machine filters for loading; change if approaching capacity or if pressure drop is excessive",
+        "Listen and feel for unusual vibrations, noises, or hot spots on equipment",
+        "Verify all drains are clear and flowing; clear any clogs immediately",
+        "Make minor placement or speed tweaks if airflow is obviously short-circuiting or missing wet materials"
+      ],
+      "mandatory_if": [
+        "water_category >= 2",
+        "visible_mold == true"
+      ],
+      "red_flag_triggers": [
+        "Dehumidifier not removing water or tripping repeatedly",
+        "Air movers not running or creating excessive dust/particulates",
+        "HEPA filters heavily loaded or damaged",
+        "Equipment causing new damage (vibration, heat, water leaks)"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "controls_integrity_check",
+      "title": "Engineering Controls Integrity & Environmental Check",
+      "voice_prompt": "Re-confirm that containment and negative pressure are still protecting the rest of the building and that we're not pushing contaminants around. This step protects everyone — workers, occupants, and the building itself.",
+      "actions": [
+        "Re-check negative pressure differential under full equipment load",
+        "Inspect containment barriers for any new breaches, sagging, or pressure-related stress",
+        "Verify air scrubber exhaust is still properly routed and not re-entraining into the building or other containments",
+        "Check for any new odors, visible dust migration, or pressure imbalances in adjacent unaffected areas",
+        "Confirm that monitoring points and access paths remain safe and uncontaminated",
+        "Document any control degradation and corrective actions taken"
+      ],
+      "decision_point": {
+        "question": "Are engineering controls still fully effective with no signs of breach or failure?",
+        "yes_path": "Proceed to step 5",
+        "no_path": {
+          "action": "Stop adjustments. Re-establish containment and negative pressure per containment-and-controls.json before resuming drying operations. Escalate to supervisor or project manager if breach is significant.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 5,
+      "phase": "progress_analysis",
+      "title": "Progress Analysis vs Drying Goals",
+      "voice_prompt": "Compare today's readings to the baseline and goals set in drying-setup. Calculate the drying rate and trend. Decide if we are on track, ahead, behind, or if something needs to change.",
+      "actions": [
+        "Compare current GPP, RH, and material moisture readings to the drying goals and timeline from drying-setup.json",
+        "Calculate approximate daily drying rate (drop in GPP or moisture content per day) and compare to expected curve",
+        "Evaluate EMC (equilibrium moisture content) progress for key materials if data available",
+        "Assess whether current equipment configuration and settings are sufficient or if more/less capacity is needed",
+        "Check timeline: are we ahead of, on, or behind the planned drying duration?",
+        "Identify any materials or zones that are drying significantly slower than others"
+      ],
+      "key_outputs": [
+        "drying_progress_summary",
+        "trend_analysis_notes",
+        "goal_vs_actual_comparison",
+        "adjustment_recommendations"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "adjustment_decision",
+      "title": "Adjustment Decision & Execution",
+      "voice_prompt": "Based on the data and progress analysis, decide what changes are needed. Move equipment, change settings, add or remove units, extend timeline, or escalate. Document the rationale clearly.",
+      "actions": [
+        "If on track and controls stable: make only minor tweaks and document 'continue current plan'",
+        "If drying too slow in specific zones: reposition air movers for better directed flow or add supplemental equipment",
+        "If dehumidifiers are maxed out or underperforming: consider upsizing, adding units, or checking for hidden moisture sources",
+        "If moisture is rising or new issues appear: pause, investigate root cause, and escalate per safety-red-flags.md",
+        "If goals are met within tolerance: prepare for completion decision in step 7",
+        "Record all changes made, new settings, and expected impact on timeline"
+      ],
+      "decision_point": {
+        "question": "Based on progress data, what is the correct action?",
+        "options": [
+          "Continue current configuration with minor tweaks",
+          "Adjust equipment placement or settings and re-monitor",
+          "Add or remove equipment and re-evaluate",
+          "Escalate due to rising moisture, new mold, or control failure",
+          "Drying goals achieved — proceed to completion decision"
+        ]
+      },
+      "red_flag_triggers": [
+        "Moisture increasing despite equipment running",
+        "New visible mold growth or strong musty odor development",
+        "Engineering controls failing repeatedly",
+        "Secondary damage appearing (warping, staining, swelling beyond original scope)"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "documentation_and_handoff",
+      "title": "Documentation, Logging & Stakeholder Update",
+      "voice_prompt": "Log everything clearly so the next visit or the project manager can pick up exactly where you left off. Take photos of key readings and equipment status. Update the customer or site contact on progress and any access or noise expectations.",
+      "actions": [
+        "Complete the daily monitoring log with all readings, observations, adjustments, and photos",
+        "Update the equipment settings and placement map if any changes were made",
+        "Photograph moisture meter locations, equipment status, and any areas of concern",
+        "Note any customer communications, complaints, or access changes",
+        "If drying goals are met: clearly state 'Drying goals achieved per drying-setup targets' and prepare handoff to final-verification",
+        "If continuing: confirm next scheduled monitoring visit and any special instructions for the customer"
+      ],
+      "outputs": {
+        "required": [
+          "daily_monitoring_log_entry",
+          "psychrometric_and_moisture_data",
+          "equipment_status_and_adjustment_log",
+          "engineering_controls_verification_notes",
+          "progress_vs_goals_analysis",
+          "photos_of_readings_and_equipment",
+          "customer_or_pm_update_notes"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "engineering_controls_verified_stable": true,
+    "psychrometric_and_moisture_data_collected": true,
+    "progress_analyzed_against_goals": true,
+    "adjustments_documented_with_rationale": true,
+    "no_active_red_flags_or_secondary_damage": true,
+    "daily_log_complete_with_photos": true,
+    "ready_for_final_verification_or_next_cycle": true
+  },
+  "next_procedures": {
+    "primary": "final-verification.json (when drying goals are met)",
+    "if_continuing_drying": "monitoring-and-adjustment.json (repeat cycle)",
+    "if_structural_issues_or_hidden_moisture": "structural-drying.json",
+    "if_red_flags_or_control_failure": "initial-assessment.json or safety-red-flags.md",
+    "parallel_reference": "containment-and-controls.json (anytime controls need re-establishment)"
+  },
+  "field_notes": "Monitoring is where good drying jobs are won or lost. Consistent data collection at the same points lets you see real trends instead of guessing. Never skip the engineering controls gate on Category 2/3 or mold jobs — a breach during drying can turn a manageable job into a much larger liability. When progress stalls, look first at whether the equipment is actually moving air and removing moisture where it needs to go, then at hidden moisture sources. Good documentation here protects everyone: the tech, the company, and the customer. If you're unsure whether goals are truly met, err on the side of one more monitoring cycle with clear justification."
+}

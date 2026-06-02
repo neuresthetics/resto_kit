@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "procedure": "containment-and-controls",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Comprehensive setup, verification, maintenance, and teardown procedures for engineering controls during water damage restoration and mold remediation. Covers containment barriers, negative air pressure, HEPA air scrubbing, electrical isolation, source control, and cross-contamination prevention.",
+    "purpose": "Serve as the single authoritative reference for all engineering control requirements so that initial-assessment, extraction, drying, monitoring, and structural procedures can invoke it at the correct decision points without duplicating detailed specifications.",
+    "references": [
+      "core/categories.md",
+      "logic/safety-red-flags.md",
+      "IICRC S-500 (current edition)",
+      "IICRC S-520 (for mold when applicable)",
+      "procedures/initial-assessment.json",
+      "procedures/water-extraction.json",
+      "procedures/drying-setup.json",
+      "procedures/equipment-placement.json",
+      "procedures/monitoring-and-adjustment.json",
+      "procedures/structural-drying.json"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Provide detailed, step-by-step guidance for establishing and maintaining controls. Support technicians and voice assistants with precise targets, checklists, and troubleshooting."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls (containment, negative pressure, source isolation, ventilation) first, then administrative controls, then PPE as last line of defense.",
+    "mandatory_ppe_minimum": [
+      "Chemical-resistant gloves",
+      "Safety glasses or goggles",
+      "Steel-toe boots",
+      "High-visibility vest or clothing"
+    ],
+    "upgrade_triggers": "Category 3 water, visible or suspected mold growth, strong musty/sewage/chemical odors, confined space entry, poor natural ventilation, or any active items from safety-red-flags.md. Upgrade to full-face respirator, PAPR, or powered air-purifying respirator as appropriate. Tyvek or equivalent suit for Category 3 or mold."
+  },
+  "control_principles": {
+    "primary_goal": "Prevent cross-contamination between affected and unaffected areas, protect technician health, and contain contaminants at the source.",
+    "key_targets": {
+      "negative_pressure_differential": "-0.02 to -0.05 inches water column (in. w.c.) relative to adjacent unaffected areas. Higher differentials (up to -0.10) may be used for high-risk mold or Category 3 jobs with proper monitoring.",
+      "air_changes": "Minimum 4-6 air changes per hour in contained area during active work; higher for mold remediation per S-520.",
+      "exhaust_routing": "Exhaust negative air machines and scrubbers to the exterior, away from building intakes, windows, doors, and HVAC returns. Use flex duct if needed.",
+      "barrier_sealing": "All seams, edges, and penetrations sealed with appropriate tape or mastic. No gaps allowed."
+    }
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "control_scope_assessment",
+      "title": "Control Scope & Level Determination",
+      "voice_prompt": "Before setting up any barriers or machines, determine the required level of engineering controls based on water category, mold presence, job size, ventilation, and red flags. What controls are we implementing today?",
+      "actions": [
+        "Review findings from initial-assessment: water category, visible mold, odors, confined space status, safety red flags",
+        "Classify required containment level: None / Limited (critical barriers only) / Full containment with negative pressure / Critical environment (mold or high-risk)",
+        "Determine if negative air pressure is required (mandatory for Category 3, visible mold, or strong odors)",
+        "Identify number and placement of containment zones if multi-area job",
+        "Note any HVAC systems that must be isolated or protected"
+      ],
+      "decision_point": {
+        "question": "What is the minimum control level required for this job?",
+        "options": {
+          "category_1_no_mold_good_ventilation": "Limited or no containment. Focus on source isolation and basic dust control.",
+          "category_2_or_small_affected_area": "Limited containment with critical barriers at doorways and HVAC. Consider portable air scrubber.",
+          "category_3_or_visible_mold_or_confined_space": "Full containment with negative pressure, HEPA scrubbing, airlocks, and upgraded PPE. Reference S-520 for mold.",
+          "high_risk_or_large_area": "Multiple zones, enhanced monitoring, possible professional environmental oversight."
+        }
+      },
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true",
+        "confined_space_or_poor_ventilation == true"
+      ]
+    },
+    {
+      "step": 2,
+      "phase": "containment_barrier_setup",
+      "title": "Containment Barrier Installation",
+      "voice_prompt": "Now build the physical containment. Use 6-mil fire-retardant poly sheeting. Seal everything. Create proper entry/exit points with airlocks if negative pressure is required.",
+      "actions": [
+        "Select appropriate poly thickness and fire rating (6-mil minimum for most jobs)",
+        "Install critical barriers first: seal doorways, windows, HVAC registers, electrical outlets, and any penetrations into unaffected areas",
+        "Build full perimeter walls if full containment: floor to ceiling, sealed at top and bottom",
+        "Create airlock or vestibule at entry/exit point for negative pressure jobs (minimum 3x3 ft recommended)",
+        "Install zippered access doors or flap entries with weighted bottoms",
+        "Seal all seams with duct tape or poly tape on both sides where possible",
+        "Post appropriate signage: 'Containment Area - Authorized Personnel Only', PPE requirements, contact info"
+      ],
+      "key_outputs": [
+        "containment_diagram_or_sketch",
+        "barrier_installation_photos",
+        "sealing_checklist_completed"
+      ],
+      "red_flag_triggers": [
+        "Gaps or holes in barriers",
+        "HVAC still connected to contained area without isolation",
+        "Entry/exit points not controlled"
+      ],
+      "reference": "IICRC S-500 Section on Containment"
+    },
+    {
+      "step": 3,
+      "phase": "negative_air_pressure_setup",
+      "title": "Negative Air Pressure System Setup",
+      "voice_prompt": "Set up negative air machines to create and maintain negative pressure. Size appropriately for the volume of the contained space. Exhaust to the outside.",
+      "actions": [
+        "Calculate required CFM: roughly 1 CFM per square foot of floor area as starting point, or based on air changes per hour (target 4-6+ ACH)",
+        "Position negative air machine(s) inside the containment, preferably near the farthest point from the entry to promote good airflow sweep",
+        "Route exhaust ducting to the exterior through a window, door, or wall penetration. Seal the penetration point",
+        "Ensure exhaust is directed away from building air intakes, windows of unaffected areas, and pedestrian paths",
+        "Install manometer or differential pressure gauge across the containment barrier (one sensor inside, one outside)",
+        "Turn on machine(s) and verify negative pressure is achieved and stable (target -0.02 to -0.05 in. w.c.)",
+        "For high-risk jobs, consider redundant machines or backup power"
+      ],
+      "decision_point": {
+        "question": "Is negative pressure holding steady at target range?",
+        "yes_path": "Proceed to step 4",
+        "no_path": "Troubleshoot: check for leaks in barriers, increase CFM, reseal penetrations, verify manometer calibration. Do not proceed with intrusive work until stable."
+      },
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "hepa_air_scrubbing",
+      "title": "HEPA Air Scrubber Integration & Operation",
+      "voice_prompt": "Deploy HEPA air scrubbers to clean the air inside containment and support negative pressure. These are critical for capturing spores and particulates.",
+      "actions": [
+        "Select HEPA scrubber(s) rated for the space volume (typically 500-2000+ CFM units)",
+        "Position scrubber(s) to create good air circulation — often opposite the negative air exhaust to avoid short-circuiting",
+        "Ensure all filters are properly seated and not damaged. Check pre-filter loading",
+        "For mold or Category 3, use scrubbers with true HEPA (99.97% at 0.3 micron) and activated carbon if odors present",
+        "Run scrubbers continuously during work and for a period after to achieve air cleaning",
+        "Monitor filter loading — replace pre-filters frequently on dirty jobs; do not bypass filters"
+      ],
+      "note": "Air scrubbers can be used in conjunction with or instead of dedicated negative air machines depending on job size and equipment availability. Balance with drying equipment airflow."
+    },
+    {
+      "step": 5,
+      "phase": "electrical_isolation_and_safety",
+      "title": "Electrical Isolation, GFCI Protection & General Safety Setup",
+      "voice_prompt": "Before any equipment is energized inside wet or contained areas, ensure all electrical is properly protected and isolated where necessary.",
+      "actions": [
+        "Map all electrical circuits serving the affected and contained areas",
+        "Install GFCI protection on all circuits used for equipment in wet zones (use GFCI pigtails or breakers)",
+        "Route extension cords safely — elevate above water, secure to prevent trip hazards, protect from damage",
+        "If any circuits are compromised or in standing water, isolate them at the panel (lockout/tagout if possible)",
+        "Verify all metal equipment frames are grounded",
+        "Stage fire extinguisher and first aid kit at containment entry",
+        "Ensure adequate lighting inside containment without creating additional hazards"
+      ],
+      "red_flag_triggers": [
+        "Any electrical equipment or outlets showing signs of water intrusion",
+        "Non-GFCI protected circuits in wet areas",
+        "Damaged cords or missing ground pins"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "source_isolation_and_pre_work_prep",
+      "title": "Source Isolation, Gross Debris Removal & Pre-Intrusive Prep",
+      "voice_prompt": "With controls active, address the source of the water if still active, and remove gross standing water or debris under controlled conditions before full extraction or drying.",
+      "actions": [
+        "Stop the source of water if possible (shut off valves, repair obvious leaks, divert flow)",
+        "Remove or protect unaffected contents and materials near the containment perimeter",
+        "Extract standing water using controlled methods (wet vacs with HEPA exhaust if available) to reduce aerosolization",
+        "Remove gross saturated debris (carpet, pad, loose contents) using bagging techniques inside containment",
+        "Protect or isolate drains to prevent contamination spread into plumbing systems",
+        "Stage waste bags and labeled containers inside containment for Category 2/3 materials"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "initial_verification_and_documentation",
+      "title": "Initial Verification, Testing & Documentation of Controls",
+      "voice_prompt": "Before allowing any extraction, demolition, or drying work to begin in earnest, perform a full verification of all engineering controls.",
+      "actions": [
+        "Visually inspect all barriers for gaps, tears, or improper seals — repair immediately",
+        "Confirm negative pressure differential is stable within target range using manometer; log the reading",
+        "Perform qualitative test: hold tissue or smoke pencil at seams and entry points to verify inward airflow",
+        "Verify all HEPA scrubbers and negative air machines are operating with correct filter installation",
+        "Confirm GFCI protection is functional (test buttons)",
+        "Photograph containment setup, manometer reading, equipment placement, and signage",
+        "Complete containment verification checklist and have technician sign off",
+        "Communicate control status to customer or site contact if appropriate"
+      ],
+      "key_outputs": {
+        "required": [
+          "Containment verification checklist (signed)",
+          "Manometer / pressure differential log (initial reading)",
+          "Photos of barriers, equipment, exhaust points, and signage",
+          "Containment diagram or annotated floor plan showing zones and airflow"
+        ]
+      },
+      "decision_point": {
+        "question": "Are all engineering controls verified and documented as functional?",
+        "yes_path": "Controls active. Handoff back to calling procedure (extraction, drying, etc.). Proceed with work under active controls.",
+        "no_path": "Correct deficiencies immediately. Re-verify before proceeding with any work that could aerosolize contaminants."
+      }
+    },
+    {
+      "step": 8,
+      "phase": "ongoing_monitoring_and_adjustment",
+      "title": "Ongoing Control Monitoring, Maintenance & Adjustment During Work",
+      "voice_prompt": "Engineering controls are not set-and-forget. Re-verify integrity and performance on every site visit and after any significant change in work activity or equipment.",
+      "actions": [
+        "At start of every shift or monitoring visit: re-check pressure differential, barrier integrity, and equipment function",
+        "Monitor filter loading on scrubbers and negative air machines — replace as needed without breaking containment if possible",
+        "Watch for signs of control failure: odors escaping, visible dust migration, pressure loss, wet spots outside containment",
+        "Adjust as needed: add tape/sealant, increase CFM, reposition equipment, repair barriers",
+        "Document any adjustments or incidents in the daily log",
+        "If controls cannot be maintained, stop work and escalate (contact supervisor, environmental consultant, or pause job)"
+      ],
+      "mandatory_if": [
+        "Category 3 or mold job lasting more than one day",
+        "High dust or aerosol-generating activities (cutting, demolition, aggressive extraction)"
+      ],
+      "reference": "procedures/monitoring-and-adjustment.json for integration with moisture monitoring visits"
+    },
+    {
+      "step": 9,
+      "phase": "control_teardown_and_post_job",
+      "title": "Control Teardown, Final Verification & Demobilization",
+      "voice_prompt": "Only remove containment and controls after drying goals are met, final verification is complete, and it is safe to do so. Never tear down early on high-risk jobs.",
+      "actions": [
+        "Confirm with monitoring/final-verification that moisture goals are achieved and no hidden moisture remains",
+        "Perform final visual inspection inside former contained area for any remaining contamination or mold indicators",
+        "If mold was present, consider post-remediation verification sampling per S-520 before full teardown (or as specified by scope)",
+        "Carefully remove poly barriers from the outside in, rolling contaminated side inward to minimize dust release",
+        "Double-bag or properly contain and label all contaminated barrier materials and PPE for disposal as regulated waste if Category 3 or mold",
+        "Remove equipment, clean and disinfect reusable items per protocol",
+        "Restore HVAC if it was isolated (after filters changed if necessary)",
+        "Final photo documentation of area post-teardown",
+        "Complete job closeout notes regarding control performance and any incidents"
+      ],
+      "note": "On Category 1 jobs with no mold, containment can often be relaxed or removed earlier once extraction is complete and drying is underway. Always document the rationale."
+    }
+  ],
+  "completion_criteria": {
+    "controls_established_and_verified": true,
+    "negative_pressure_achieved_and_stable_where_required": true,
+    "barriers_intact_and_documented": true,
+    "electrical_safety_confirmed": true,
+    "technician_signoff_on_verification_checklist": true
+  },
+  "integration_notes": {
+    "called_from": [
+      "initial-assessment.json (step 6 - decision point)",
+      "water-extraction.json (step 1 - pre-extraction gate)",
+      "drying-setup.json (step 4 - confirmation for drying)",
+      "equipment-placement.json (step 1 - pre-placement gate)",
+      "monitoring-and-adjustment.json (steps 1 and 4 - verification gates)",
+      "structural-drying.json (invasive steps on high-risk materials)"
+    ],
+    "hands_back_to": "The calling procedure once verification in step 7 is complete. Controls remain active and are re-checked during monitoring visits."
+  },
+  "field_notes": "This procedure is the backbone of safe restoration work on anything beyond clean Category 1 water. Treat it as non-negotiable on Category 3, mold, or red-flag jobs. The voice assistant should refuse to proceed past any gate that requires these controls until verification is logged. Always err on the side of more containment rather than less when in doubt. Document everything — your future self, your company, and any potential liability review will thank you."
+}

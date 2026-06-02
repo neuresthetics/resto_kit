@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "procedure": "equipment-placement",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Physically position and configure drying equipment (dehumidifiers, air movers, air scrubbers) for optimal directed evaporation while strictly maintaining engineering controls, electrical safety, and containment integrity. Bridge from drying goals to active monitored drying operations.",
+    "purpose": "Ensure equipment is placed to achieve target psychrometric conditions efficiently and safely without creating new hazards, secondary damage, cross-contamination, or control failures. Make placement decisions data-driven and documented so monitoring can verify performance.",
+    "references": [
+      "core/psychrometry.md",
+      "core/categories.md",
+      "logic/equipment-sizing.md",
+      "logic/safety-red-flags.md",
+      "procedures/drying-setup.json",
+      "procedures/containment-and-controls.json",
+      "procedures/monitoring-and-adjustment.json",
+      "equipment/air-movers.md",
+      "equipment/dehumidifiers.md",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Guide technician through safe, effective equipment positioning with clear decision branches, engineering control gates, and documentation requirements."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls remain active and verified before any high-CFM equipment starts. Electrical isolation and GFCI protection are non-negotiable in any area that is or was wet. Containment and negative pressure must be confirmed under load before leaving the site.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses",
+      "steel-toe boots",
+      "hearing protection when multiple air movers are running",
+      "Tyvek or equivalent if Category 3, visible mold, or strong odors persist"
+    ],
+    "upgrade_triggers": "Category 3 water, visible or suspected mold, strong musty/sewage odors, confined space, poor ventilation, any active safety red flags, or when disturbing previously undisturbed materials during placement"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "pre_placement_verification",
+      "title": "Pre-Placement Verification & Engineering Controls Gate",
+      "voice_prompt": "Before moving or starting any drying equipment, confirm that containment, negative pressure, and all engineering controls from drying setup are still solid and appropriate for the higher airflow we're about to introduce. This is a hard gate.",
+      "actions": [
+        "Walk the entire contained area and visually inspect all barriers, seals, and poly for damage or gaps",
+        "Verify negative pressure is still holding at the target range (typically -0.02 to -0.05 in. w.c. or per containment-and-controls.json)",
+        "Confirm HEPA air scrubbers are running with clean or recently changed filters and proper exhaust routing",
+        "Check that all electrical circuits planned for equipment are GFCI protected and not overloaded",
+        "Confirm no new red flags or hazards have appeared since drying setup"
+      ],
+      "decision_point": {
+        "question": "Are all engineering controls verified and stable under the planned equipment load?",
+        "yes_path": "Proceed to step 2",
+        "no_path": {
+          "action": "Pause and correct containment, pressure, or electrical issues using containment-and-controls.json or safety-red-flags.md before placing or energizing equipment.",
+          "next": "pause"
+        }
+      },
+      "mandatory_if": [
+        "water_category >= 2",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true",
+        "any_safety_red_flag_active == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 2,
+      "phase": "power_and_electrical_setup",
+      "title": "Power Distribution & Electrical Safety Setup",
+      "voice_prompt": "Set up safe, GFCI-protected power for all equipment. Calculate load, run cords safely, and verify protection before any machine is plugged in. This step prevents shocks, trips, and fires.",
+      "actions": [
+        "Identify all available GFCI-protected circuits or temporary power distribution boxes",
+        "Calculate total amperage draw of planned equipment (dehus + air movers + scrubbers) and confirm circuits can handle it without tripping",
+        "Run extension cords and power distribution in a way that minimizes trip hazards (along walls, elevated where possible, taped or covered in traffic areas)",
+        "Label all cords and equipment with circuit identification",
+        "Test every GFCI outlet and cord before connecting equipment",
+        "Stage a backup plan for power loss or tripped breakers"
+      ],
+      "key_outputs": [
+        "power_load_calculation",
+        "circuit_map",
+        "cord_routing_diagram_or_photo"
+      ],
+      "red_flag_triggers": [
+        "Insufficient GFCI-protected power available",
+        "Wet or damaged extension cords or outlets",
+        "Overloaded circuits or daisy-chained power strips",
+        "Cords running through standing water or pinch points"
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "dehumidifier_placement",
+      "title": "Dehumidifier Placement & Setup",
+      "voice_prompt": "Position dehumidifiers for best moisture removal. Think about where the wettest air is, where you want dry air to go, drainage, and how exhaust affects containment and other equipment.",
+      "actions": [
+        "Place dehumidifier(s) to pull from the wettest or most contaminated zone when possible, or centrally for even coverage",
+        "Ensure minimum clearance around intake and exhaust per manufacturer specs (usually 12-18 inches)",
+        "Route condensate drain lines to a safe disposal point (floor drain, outside, or large collection container) without creating trip hazards or leaks back into the space",
+        "If exhausting into containment, verify it does not overwhelm negative pressure or push moist air into unaffected areas",
+        "If exhausting outside or to unaffected areas, use proper ducting and maintain containment integrity",
+        "Set initial humidity or GPP target based on drying goals from drying-setup.json",
+        "Record make, model, serial, and initial settings for each unit"
+      ],
+      "decision_point": {
+        "question": "Is the dehumidifier placement and drainage set up so it will pull moist air effectively without creating new moisture problems or control failures?",
+        "yes_path": "Proceed to step 4",
+        "no_path": {
+          "action": "Reposition, add drainage support, or adjust exhaust routing before continuing.",
+          "next": "continue_with_adjustment"
+        }
+      },
+      "note": "On Category 3 or mold jobs, consider whether dehumidifier exhaust should be HEPA-filtered or ducted out of containment. Reference containment-and-controls.json for guidance."
+    },
+    {
+      "step": 4,
+      "phase": "air_mover_placement",
+      "title": "Air Mover & Fan Placement for Directed Drying",
+      "voice_prompt": "Now place the air movers to create effective airflow across wet surfaces. Position for evaporation without blowing contaminants around or creating dead zones. Think walls, floors, ceilings, and cavities.",
+      "actions": [
+        "Use psychrometric data and material type to decide directed drying strategy (wall cavities, base of walls, floor, ceiling, or general circulation)",
+        "Position air movers to create a 'wall of air' or gentle vortex — typically 45-degree angle to wet surfaces, one unit per 10-16 linear feet of wall as a starting rule of thumb",
+        "For floors: angle movers to lift moisture off the surface without creating excessive dust or aerosol",
+        "For wall cavities or baseboards: direct airflow into or along the cavity where possible without opening more than necessary",
+        "Avoid short-circuiting (air mover intake pulling directly from another mover's exhaust)",
+        "Keep air movers out of high-traffic paths and secure cords to prevent tipping or tripping",
+        "On Category 2/3 or mold jobs, start with lower velocity or directed patterns that minimize aerosolization of particulates",
+        "Record number, type, location, angle, and speed setting for each air mover"
+      ],
+      "key_outputs": [
+        "air_mover_placement_map",
+        "airflow_strategy_notes",
+        "initial_velocity_settings"
+      ],
+      "decision_point": {
+        "question": "Does the air mover layout provide good coverage of all wet materials without creating safety issues, short-circuits, or excessive aerosolization?",
+        "yes_path": "Proceed to step 5",
+        "no_path": {
+          "action": "Adjust positions, add or remove units, or change angles before energizing at full speed.",
+          "next": "continue_with_adjustment"
+        }
+      }
+    },
+    {
+      "step": 5,
+      "phase": "air_scrubber_and_negative_air_integration",
+      "title": "Air Scrubber & Negative Air Machine Integration",
+      "voice_prompt": "Integrate HEPA air scrubbers or negative air machines with the drying equipment. Confirm they support containment and do not fight the drying airflow patterns.",
+      "actions": [
+        "Verify air scrubber intake is pulling from the contained space (not short-circuiting with drying equipment exhaust)",
+        "Confirm exhaust is routed outside the containment or through additional filtration if required",
+        "Balance total CFM so negative pressure is maintained when all drying equipment is running",
+        "Position scrubbers to capture particulates generated by air movement over contaminated surfaces",
+        "Check and record filter loading status and change schedule",
+        "If using dedicated negative air machine, confirm it is not overpowering dehumidifier performance or creating excessive noise/pressure issues"
+      ],
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true"
+      ],
+      "reference": "procedures/containment-and-controls.json"
+    },
+    {
+      "step": 6,
+      "phase": "airflow_balancing_and_test_run",
+      "title": "Initial Airflow Balancing & Test Run",
+      "voice_prompt": "Start the equipment in a controlled test run. Walk the space, feel the airflow, check containment integrity under load, and look for problems before walking away.",
+      "actions": [
+        "Energize equipment in stages (dehus first, then air movers, then scrubbers) while monitoring negative pressure",
+        "Walk every zone and feel for dead spots, excessive turbulence, or short-circuiting",
+        "Verify containment barriers are not being pushed out or pulled in excessively by the new airflow",
+        "Check that all drains are flowing, no leaks, and no new water is being introduced",
+        "Listen for unusual noises, vibrations, or electrical issues",
+        "Take quick spot psychrometric readings to confirm equipment is moving conditions in the right direction",
+        "Adjust positions or speeds as needed during the test run"
+      ],
+      "red_flag_triggers": [
+        "Negative pressure lost or reversed when equipment starts",
+        "Visible dust or particulate becoming airborne in large quantities",
+        "Containment barriers failing or detaching",
+        "Equipment tripping GFCIs or overheating",
+        "New odors or moisture appearing in unaffected areas"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "documentation_and_handoff",
+      "title": "Documentation, Placement Map & Handoff to Monitoring",
+      "voice_prompt": "Document exactly where everything is and how it's set. Take photos, draw a simple placement map, record settings, and clearly hand off to the monitoring phase so the next tech or the AI can verify performance.",
+      "actions": [
+        "Photograph overall equipment layout from multiple angles",
+        "Create or update a simple placement diagram (even a quick sketch or labeled photo) showing dehu, air mover, and scrubber locations with airflow arrows",
+        "Record make/model/serial, settings, and power circuit for every piece of equipment",
+        "Note any special considerations (crawlspace access, contents in path, HVAC interaction, customer access needs)",
+        "Update job file or digital log with equipment start time and initial readings",
+        "Communicate to customer what to expect (noise levels, equipment locations, access restrictions, monitoring schedule)"
+      ],
+      "outputs": {
+        "required": [
+          "equipment_placement_map_or_photos",
+          "equipment_inventory_and_settings_log",
+          "power_and_circuit_documentation",
+          "initial_test_run_notes",
+          "engineering_controls_status_under_load",
+          "handoff_notes_to_monitoring"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "engineering_controls_verified_under_load": true,
+    "electrical_safety_confirmed": true,
+    "equipment_positioned_for_directed_drying": true,
+    "airflow_balancing_test_passed": true,
+    "placement_documented_with_map_and_photos": true,
+    "ready_for_active_monitoring": true
+  },
+  "next_procedures": {
+    "primary": "monitoring-and-adjustment.json",
+    "parallel_or_follow_up": "containment-and-controls.json (if any control issues found during test run)",
+    "if_red_flags": "initial-assessment.json or safety-red-flags.md"
+  },
+  "field_notes": "Equipment placement is where the science of psychrometry meets the art of the job site. Good placement can cut drying time dramatically; poor placement wastes equipment, time, and money while risking secondary damage. Always treat the engineering controls gate in step 1 as non-negotiable on anything but clean Category 1 jobs. Document placement well — the monitoring phase lives or dies by how clearly you show what you set up and why. When in doubt, err on the side of more directed airflow to wet materials and stronger containment on contaminated jobs."
+}

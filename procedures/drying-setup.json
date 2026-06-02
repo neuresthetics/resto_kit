@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "procedure": "drying-setup",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Establish the controlled drying environment after extraction. Perform psychrometric baseline assessment, confirm or adjust engineering controls for the drying phase, define drying goals, and prepare the structure and equipment staging before full drying operations begin.",
+    "purpose": "Create the conditions for efficient, safe, and documented drying while preventing secondary damage, mold amplification, and cross-contamination. Bridge the gap between water removal and active drying/monitoring.",
+    "references": [
+      "core/psychrometry.md",
+      "core/categories.md",
+      "core/classes.md",
+      "logic/safety-red-flags.md",
+      "procedures/containment-and-controls.json",
+      "procedures/water-extraction.json",
+      "procedures/equipment-placement.json",
+      "procedures/monitoring-and-adjustment.json",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant. Guide technician through psychrometric assessment, control verification, and drying goal setting with clear decision branches and safety gates."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Maintain engineering controls throughout drying. Engineering > Administrative > PPE. Never relax containment or negative pressure on Category 2/3 or mold jobs during drying.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses",
+      "steel-toe boots",
+      "Tyvek or equivalent if Category 3, visible mold, or strong odors persist"
+    ],
+    "upgrade_triggers": "Category 3 water, visible or suspected mold, strong musty/sewage odors, confined space, poor ventilation, or any active items from safety-red-flags.md"
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "pre_drying_verification",
+      "title": "Pre-Drying Verification & Extraction Sign-Off",
+      "voice_prompt": "Before setting up drying equipment, confirm that bulk water extraction is complete or sufficiently advanced. Are there any remaining standing water, saturated materials that must come out first, or open red flags?",
+      "actions": [
+        "Walk the affected area and visually confirm no significant standing water remains in accessible locations",
+        "Check that all Category 3 or grossly contaminated materials identified for removal have been extracted or isolated",
+        "Review any open items from water-extraction.json or initial-assessment.json",
+        "Confirm customer has been updated on extraction progress"
+      ],
+      "decision_point": {
+        "question": "Is extraction sufficiently complete to begin controlled drying without creating secondary damage or safety issues?",
+        "yes_path": "Proceed to step 2",
+        "no_path": {
+          "action": "Return to water-extraction.json or initial-assessment.json to finish critical removal before drying setup.",
+          "next": "pause"
+        }
+      }
+    },
+    {
+      "step": 2,
+      "phase": "psychrometric_baseline",
+      "title": "Psychrometric Baseline Assessment",
+      "voice_prompt": "Take accurate readings of the current environment. Measure temperature, relative humidity, and calculate grains per pound (GPP) or dew point in both affected and unaffected areas. This is your starting point for all drying decisions.",
+      "actions": [
+        "Use a calibrated thermo-hygrometer to record dry-bulb temperature and RH in multiple locations",
+        "Calculate or read GPP (grains per pound) and dew point for each zone",
+        "Take readings inside containment (if active) and in unaffected reference areas for comparison",
+        "Document time, location, and conditions clearly (photo or log)",
+        "Note any HVAC status (on/off, what zones it serves)"
+      ],
+      "key_outputs": [
+        "baseline_temp_rh_gpp",
+        "dew_point_readings",
+        "comparison_to_unaffected_areas"
+      ],
+      "note": "Reference core/psychrometry.md for calculation methods and standard drying targets. Do not rely on 'feels dry' — use numbers."
+    },
+    {
+      "step": 3,
+      "phase": "drying_goals_definition",
+      "title": "Define Drying Goals & Timeline",
+      "voice_prompt": "Based on the psychrometric baseline and water category, set realistic drying targets. What moisture content or GPP do we need to reach? How many days is the target drying window?",
+      "actions": [
+        "Determine target equilibrium moisture content (EMC) or standard dry goals for the materials present (drywall, wood, concrete, etc.)",
+        "Set target GPP or RH for the drying environment (typically 40-60 GPP or per psychrometry chart for the temperature)",
+        "Estimate drying duration using evaporation rate principles from core/psychrometry.md",
+        "Factor in water category — Category 3 or mold jobs may require slower, more controlled drying or longer timelines",
+        "Document the drying goal and expected completion window for the customer and job file"
+      ],
+      "decision_point": {
+        "question": "Are the drying goals realistic given current conditions, equipment available, and any constraints (power, access, customer timeline)?",
+        "yes_path": "Proceed to step 4",
+        "no_path": {
+          "action": "Adjust scope, add equipment, or communicate revised timeline to customer before proceeding.",
+          "next": "continue_with_adjustment"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "phase": "engineering_controls_for_drying",
+      "title": "Engineering Controls Confirmation & Adjustment for Drying",
+      "voice_prompt": "Drying phase often requires maintaining or slightly adjusting containment and airflow. Confirm that engineering controls are still appropriate now that we're moving from extraction to evaporation.",
+      "actions": [
+        "Verify containment barriers are still intact and sealed",
+        "Confirm negative pressure is holding (target typically -0.02 to -0.05 in. w.c. or per containment-and-controls.json spec)",
+        "Check that HEPA air scrubbers are still running and filters are not overloaded",
+        "Evaluate if airflow patterns need adjustment for drying (directed drying vs. general ventilation)",
+        "Ensure all electrical connections remain GFCI protected in any remaining wet zones"
+      ],
+      "mandatory_if": [
+        "water_category == 3",
+        "visible_mold == true",
+        "strong_musty_or_sewage_odor == true",
+        "any_safety_red_flag_active == true"
+      ],
+      "reference": "procedures/containment-and-controls.json",
+      "note": "On clean Category 1 jobs with no mold risk, you may be able to relax or remove containment earlier. On Category 2/3 or mold jobs, maintain controls throughout drying."
+    },
+    {
+      "step": 5,
+      "phase": "surface_and_environment_prep",
+      "title": "Surface Preparation & Initial Airflow Setup",
+      "voice_prompt": "Prepare surfaces for efficient drying. Remove any remaining thin films of water, open cabinets and drawers, and begin establishing basic airflow patterns before placing full equipment.",
+      "actions": [
+        "Wipe or extract any remaining surface water from floors, baseboards, and accessible surfaces",
+        "Open all cabinets, drawers, and closets in affected areas to promote airflow",
+        "Remove or elevate contents that block airflow or could trap moisture",
+        "Position initial air movers or fans at low velocity to begin gentle air circulation (do not create dust or aerosolize contaminants)",
+        "If HVAC is available and safe, evaluate using it for dehumidification or fresh air exchange per psychrometry guidance"
+      ],
+      "red_flag_triggers": [
+        "Visible mold growth that was not addressed during extraction",
+        "Strong odors that intensify when disturbing materials",
+        "Electrical hazards when moving equipment or opening walls"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "equipment_staging_prep",
+      "title": "Equipment Staging & Selection Preparation",
+      "voice_prompt": "Prepare for equipment placement. Based on the psychrometric assessment and drying goals, identify what type and quantity of equipment will be needed. Do not place equipment yet — that comes in the next procedure.",
+      "actions": [
+        "Estimate required air mover and dehumidifier capacity using psychrometric load calculations",
+        "Identify power requirements and confirm GFCI-protected circuits or temporary power plan",
+        "Note any access limitations, tripping hazards, or placement constraints",
+        "Stage equipment outside containment or in clean staging area until placement is approved",
+        "Reference equipment-placement.json for detailed positioning logic and airflow patterns"
+      ],
+      "key_outputs": [
+        "preliminary_equipment_list",
+        "power_and_access_notes",
+        "drying_approach_notes"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "documentation_and_handoff",
+      "title": "Documentation & Handoff to Drying Operations",
+      "voice_prompt": "Document everything from this setup phase. Confirm drying goals, baseline conditions, control status, and next steps with the customer and your team.",
+      "actions": [
+        "Photograph baseline conditions and any key findings",
+        "Record all psychrometric readings with timestamps and locations",
+        "Document drying goals, expected timeline, and equipment plan",
+        "Update the job file or digital log with engineering control status",
+        "Communicate clearly to customer what to expect during drying (noise, equipment, access needs, timeline)"
+      ],
+      "outputs": {
+        "required": [
+          "psychrometric_baseline_log",
+          "drying_goals_statement",
+          "engineering_controls_status_for_drying",
+          "pre_drying_photo_documentation",
+          "customer_communication_notes"
+        ]
+      }
+    }
+  ],
+  "completion_criteria": {
+    "all_steps_completed": true,
+    "psychrometric_baseline_recorded": true,
+    "drying_goals_defined": true,
+    "engineering_controls_confirmed_or_adjusted": true,
+    "documentation_complete": true,
+    "ready_for_equipment_placement": true
+  },
+  "next_procedures": {
+    "primary": "equipment-placement.json",
+    "parallel_or_follow_up": "monitoring-and-adjustment.json (start monitoring as soon as equipment is running)",
+    "if_controls_need_work": "containment-and-controls.json"
+  },
+  "field_notes": "Drying setup is the critical bridge between extraction and active drying. The psychrometric baseline (step 2) and drying goals (step 3) are non-negotiable — they prevent both under-drying (secondary damage/mold) and over-drying (unnecessary equipment time and cost). Always maintain engineering controls on contaminated jobs. Never skip the verification in step 4 before moving large volumes of air."
+}

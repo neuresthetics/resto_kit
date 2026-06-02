@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "procedure": "structural-drying",
+    "version": "0.1.0",
+    "last_updated": "2026-06-02",
+    "description": "Detailed guidance for drying structural building materials and assemblies after initial extraction. Covers material-specific assessment, remove-vs-dry-in-place decisions, cavity drying techniques, floor/ceiling protocols, insulation handling, and psychrometric targets. This is a supporting reference procedure called from equipment-placement.json and monitoring-and-adjustment.json when structural materials are the focus or limiting factor.",
+    "purpose": "Provide technicians with precise, material-aware drying strategies that prevent secondary damage, hidden mold growth, and unnecessary demolition while achieving IICRC-aligned drying goals. Reduce guesswork on complex assemblies.",
+    "references": [
+      "core/psychrometry.md",
+      "core/categories.md",
+      "core/classes.md",
+      "logic/safety-red-flags.md",
+      "logic/equipment-sizing.md",
+      "procedures/containment-and-controls.json",
+      "procedures/drying-setup.json",
+      "procedures/equipment-placement.json",
+      "procedures/monitoring-and-adjustment.json",
+      "procedures/final-verification.json",
+      "IICRC S-500 (current edition)"
+    ],
+    "intended_use": "Loaded into field AI voice assistant or used as quick reference during equipment placement and daily monitoring visits. Supplies decision criteria and technique details when the main workflow reaches material-specific branches."
+  },
+  "safety_first": {
+    "hierarchy_of_controls": "Engineering controls must be active before any invasive structural work (cutting drywall, drilling cavities, removing baseboards, etc.). Never disturb potentially contaminated structural materials without containment, negative pressure, and HEPA scrubbing in place per containment-and-controls.json.",
+    "mandatory_ppe_minimum": [
+      "chemical-resistant gloves",
+      "safety glasses",
+      "N95 or higher respirator (P100 for mold or Category 3)",
+      "steel-toe boots",
+      "Tyvek or equivalent coveralls when disturbing walls, floors, or insulation on Category 2/3 or mold jobs"
+    ],
+    "upgrade_triggers": "Category 3 water, visible or suspected mold in cavities, strong musty odors, confined space, poor ventilation, or any active safety red flags. Any cutting or drilling into unknown cavities triggers full engineering controls."
+  },
+  "flow": [
+    {
+      "step": 1,
+      "phase": "structural_assessment",
+      "title": "Structural Material Assessment & Remove vs. Dry-In-Place Decision",
+      "voice_prompt": "Identify the structural materials present and determine whether they can be dried in place or must be removed. Check moisture levels, water category, time since loss, and mold risk before deciding.",
+      "actions": [
+        "Visually inspect and document all affected structural assemblies: walls, floors, ceilings, cavities",
+        "Use moisture meter (pin and pinless) and thermo-hygrometer to record surface and deep readings at standardized locations",
+        "Classify each material: drywall, dimensional lumber, engineered wood, hardwood flooring, concrete slab, plaster, insulation type",
+        "Apply remove-vs-dry criteria: Consider water category, hours since loss, visible mold, swelling, delamination risk, and drying feasibility within project timeline",
+        "Photograph and log all decision points with justification"
+      ],
+      "decision_point": {
+        "question": "Can this structural material be safely and effectively dried in place within the project timeline without risking hidden mold or structural damage?",
+        "yes_path": "Proceed to appropriate material-specific protocol (steps 2-5)",
+        "no_path": {
+          "action": "Mark for removal. Update scope, obtain customer/PM approval, and follow demolition safety protocols with full engineering controls active.",
+          "next": "pause_for_removal"
+        }
+      },
+      "key_outputs": [
+        "material_inventory_with_moisture_readings",
+        "remove_vs_dry_decisions",
+        "justification_notes",
+        "updated_scope_if_removal_needed"
+      ],
+      "red_flags": [
+        "Visible mold growth inside cavities or on structural members",
+        "Category 3 water in contact with porous structural materials for >24-48 hours",
+        "Significant swelling, buckling, or delamination already present",
+        "Unknown insulation type or suspected asbestos-containing materials"
+      ],
+      "references": [
+        "core/categories.md",
+        "logic/safety-red-flags.md",
+        "procedures/containment-and-controls.json"
+      ]
+    },
+    {
+      "step": 2,
+      "phase": "wall_cavity_drying",
+      "title": "Wall & Cavity Drying Protocol",
+      "voice_prompt": "For wall cavities that can be dried in place, select the appropriate technique: flood cuts, weep holes, negative pressure drying, or directed airflow. Confirm engineering controls are active before any cutting or drilling.",
+      "actions": [
+        "Confirm containment, negative pressure, and HEPA scrubbing are active per containment-and-controls.json before disturbing any wall surfaces",
+        "Determine cavity access method: flood cut at base (recommended for most jobs), strategic weep holes, or electrical outlet removal",
+        "For negative pressure drying: create controlled air inlet at top or opposite side of cavity and exhaust through HEPA negative air machine",
+        "For positive pressure drying: use air movers to push dry air into cavity through base cuts or holes; avoid short-circuiting",
+        "Place moisture probes or sensors in representative cavities for ongoing monitoring",
+        "Avoid aggressive drying that could cause rapid shrinkage cracking in plaster or drywall"
+      ],
+      "decision_point": {
+        "question": "Is the cavity drying method appropriate for the water category and mold risk level?",
+        "yes_path": "Implement chosen technique and proceed to monitoring",
+        "no_path": {
+          "action": "Upgrade to more conservative method (e.g., negative pressure drying or removal) and re-verify engineering controls.",
+          "next": "adjust_controls"
+        }
+      },
+      "key_outputs": [
+        "cavity_drying_method_selected",
+        "access_points_documented",
+        "initial_moisture_probe_readings",
+        "engineering_controls_verification"
+      ],
+      "red_flags": [
+        "Mold visible or strong odor when cavity is opened",
+        "Negative pressure cannot be maintained after cuts are made",
+        "Rapid increase in airborne particulates or odors after starting cavity drying"
+      ],
+      "references": [
+        "procedures/containment-and-controls.json",
+        "procedures/equipment-placement.json"
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "floor_drying",
+      "title": "Floor & Subfloor Drying Techniques",
+      "voice_prompt": "Assess floor systems and apply the correct drying approach for hardwood, engineered wood, tile, or concrete. Confirm engineering controls before any invasive work on contaminated floors.",
+      "actions": [
+        "Identify floor type and construction: solid hardwood, engineered, laminate, tile over concrete, raised wood subfloor, slab-on-grade",
+        "For hardwood: Check for cupping, buckling, or gapping. Use targeted low-velocity air movers parallel to floor; consider negative pressure under floor if accessible",
+        "For concrete slabs: Prioritize dehumidification over high-velocity air movement. Use penetrating moisture meters or calcium chloride tests if needed",
+        "For tile or stone: Focus on grout lines and subfloor beneath. Directed airflow at base of walls often helps",
+        "Remove baseboards and quarter-round when possible to allow airflow and prevent hidden mold at wall-floor junction",
+        "Document initial and daily moisture readings at standardized floor locations"
+      ],
+      "decision_point": {
+        "question": "Is the floor drying strategy matched to the material and water category?",
+        "yes_path": "Continue drying and monitor daily",
+        "no_path": {
+          "action": "Adjust technique or escalate to removal if drying progress stalls or mold risk increases.",
+          "next": "reassess"
+        }
+      },
+      "key_outputs": [
+        "floor_type_classification",
+        "drying_method_selected",
+        "baseboard_status",
+        "daily_moisture_trend_data"
+      ],
+      "red_flags": [
+        "Hardwood cupping or buckling worsening",
+        "Musty odor increasing from floor cavities",
+        "Moisture readings in subfloor rising or plateauing after 48 hours"
+      ],
+      "references": [
+        "core/psychrometry.md",
+        "procedures/containment-and-controls.json"
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "ceiling_overhead_drying",
+      "title": "Ceiling & Overhead Assembly Drying",
+      "voice_prompt": "Evaluate ceilings and overhead structures. Use appropriate techniques for drywall, plaster, or cavity spaces above. Always maintain engineering controls when working overhead on potentially contaminated assemblies.",
+      "actions": [
+        "Inspect for sagging, water stains, or active drips from above",
+        "For standard drywall ceilings: Directed airflow from below with air movers angled upward; consider small access cuts if cavity is wet",
+        "For plaster or ornate ceilings: Very conservative drying — low velocity, avoid rapid temperature changes that cause cracking",
+        "For ceiling cavities (especially with insulation): Assess from above if attic access exists; otherwise use strategic access points with full containment",
+        "Use negative pressure drying when mold risk or Category 3 water is present in overhead assemblies",
+        "Protect contents and finished surfaces below from any falling debris or condensate"
+      ],
+      "decision_point": {
+        "question": "Can the ceiling assembly be dried safely without risking collapse, cracking, or hidden mold amplification?",
+        "yes_path": "Implement technique and monitor closely",
+        "no_path": {
+          "action": "Escalate to controlled demolition or specialist consultation.",
+          "next": "pause_and_escalate"
+        }
+      },
+      "key_outputs": [
+        "ceiling_assembly_type",
+        "access_method_if_any",
+        "drying_technique_selected",
+        "safety_notes_for_overhead_work"
+      ],
+      "red_flags": [
+        "Sagging or active water from ceiling",
+        "Visible mold on ceiling or in attic space above",
+        "Plaster showing signs of delamination or cracking during drying"
+      ],
+      "references": [
+        "procedures/containment-and-controls.json",
+        "logic/safety-red-flags.md"
+      ]
+    },
+    {
+      "step": 5,
+      "phase": "insulation_handling",
+      "title": "Insulation Assessment & Handling",
+      "voice_prompt": "Determine the type and condition of insulation in walls, floors, and ceilings. Decide whether it can stay or must be removed based on water category and mold risk.",
+      "actions": [
+        "Identify insulation type if possible: fiberglass batts, cellulose, spray foam, mineral wool, rigid board",
+        "For fiberglass: Generally can be dried if only lightly wetted and no mold; however, often removed on Category 2/3 or mold jobs for liability reasons",
+        "For cellulose: High risk of mold and settling when wet — removal is usually recommended on contaminated jobs",
+        "For closed-cell spray foam: Often can remain if not heavily saturated; open-cell foam usually requires removal when wet",
+        "When removing insulation: Full engineering controls required. Double-bag, label, and dispose as contaminated waste",
+        "Document insulation decisions with photos and justification for customer and insurance file"
+      ],
+      "decision_point": {
+        "question": "Is the insulation type and condition suitable for drying in place, or does it require removal?",
+        "yes_path": "Leave in place with monitoring plan",
+        "no_path": {
+          "action": "Remove under full engineering controls. Update scope and disposal plan.",
+          "next": "removal_protocol"
+        }
+      },
+      "key_outputs": [
+        "insulation_type_identified",
+        "remove_vs_dry_decision",
+        "disposal_method_if_removed",
+        "photos_and_justification"
+      ],
+      "red_flags": [
+        "Cellulose or fiberglass heavily saturated with Category 3 water",
+        "Visible mold growth on or in insulation",
+        "Strong musty odor when insulation is disturbed"
+      ],
+      "references": [
+        "procedures/containment-and-controls.json",
+        "core/categories.md"
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "psychrometric_targets_structural",
+      "title": "Psychrometric Targets & Monitoring Points for Structural Materials",
+      "voice_prompt": "Set specific drying targets for the structural materials on this job. Know the equilibrium moisture content (EMC) goals for wood, drywall, and concrete, and establish repeatable monitoring locations.",
+      "actions": [
+        "Reference core/psychrometry.md for material-specific EMC targets at the current temperature",
+        "Typical targets: Wood structural members ~12-14% MC; Drywall ~0.5-1% moisture content or per meter scale; Concrete slab drying to ambient equilibrium",
+        "Establish fixed monitoring points: multiple locations per wall, floor, and ceiling; record both surface and deep readings where possible",
+        "Calculate expected drying rate based on current GPP differential and equipment capacity",
+        "Set daily progress checkpoints aligned with the overall drying goals from drying-setup.json",
+        "Flag any structural material that is drying significantly slower than the rest of the job for targeted adjustment"
+      ],
+      "key_outputs": [
+        "material_specific_emc_targets",
+        "fixed_monitoring_point_map",
+        "expected_drying_rate",
+        "slow_drying_materials_flagged"
+      ],
+      "note": "Always cross-reference with monitoring-and-adjustment.json for daily data collection and adjustment logic. Structural materials often determine the overall job duration.",
+      "references": [
+        "core/psychrometry.md",
+        "procedures/drying-setup.json",
+        "procedures/monitoring-and-adjustment.json"
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "documentation_handoff",
+      "title": "Documentation, Handoff Criteria & Escalation",
+      "voice_prompt": "Document all structural drying decisions, techniques used, and current status. Define clear handoff criteria to final verification or escalation triggers for the next monitoring visit.",
+      "actions": [
+        "Update the job log with structural drying method, access points created, insulation decisions, and daily moisture trends",
+        "Photograph key stages: before/after cavity access, insulation removal (if any), final structural condition",
+        "Define handoff criteria for final-verification.json: All structural materials at or below target EMC/MC, no active moisture migration, engineering controls still effective",
+        "Flag any structural concerns that require specialist input (structural engineer, industrial hygienist, etc.)",
+        "Communicate status clearly to customer or project manager, especially if removal or extended drying is needed"
+      ],
+      "decision_point": {
+        "question": "Are structural drying goals being met on schedule, or do we need to escalate or adjust the approach?",
+        "yes_path": "Continue monitoring per monitoring-and-adjustment.json until handoff to final-verification.json",
+        "no_path": {
+          "action": "Escalate: Add equipment, change technique, recommend removal, or bring in specialist. Update customer and job file immediately.",
+          "next": "escalate"
+        }
+      },
+      "key_outputs": [
+        "updated_job_log",
+        "photo_documentation",
+        "handoff_criteria_to_final_verification",
+        "escalation_notes_if_any"
+      ],
+      "references": [
+        "procedures/monitoring-and-adjustment.json",
+        "procedures/final-verification.json",
+        "procedures/containment-and-controls.json"
+      ]
+    }
+  ],
+  "handoff": {
+    "primary_next": "monitoring-and-adjustment.json",
+    "alternative_next": "final-verification.json",
+    "when_to_call_this_file": "When equipment placement or daily monitoring encounters wall cavities, hardwood floors, concrete, insulation decisions, or any structural assembly that requires material-specific guidance beyond the general drying workflow."
+  }
+}
