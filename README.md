@@ -15,3 +15,50 @@ This repo exists to make daily work easier and more consistent. It holds my pers
 ## generation layers:
 
 core > equipment > procedures (current dev) > logic > voice | feature branch(s)
+
+---
+```txt
+resto_kit/
+├── README.md
+├── dev_notes.md
+├── core/
+│   ├── categories.md
+│   ├── classes.md
+│   ├── contamination.md
+│   ├── contents-handling.md
+│   ├── corrosion-basics.md
+│   ├── documentation-standards.md
+│   ├── dry-standards.md
+│   ├── electrical-basics.md
+│   ├── fire-damage.md
+│   ├── hvac-basics.md
+│   ├── material-science.md
+│   ├── mold-conditions.md
+│   ├── odor-basics.md
+│   ├── plumbing-basics.md
+│   ├── pre-existing-conditions.md
+│   ├── psychrometry.md
+│   └── safety-fundamentals.md
+├── equipment/
+│   ├── air-filtration-devices.md
+│   ├── air-movers.md
+│   ├── dehumidifiers.md
+│   └── portable-extractor.md
+├── img/
+│   ├── resto_kit_0.jpeg
+│   ├── resto_kit_1.jpeg
+│   └── resto_kit_2.jpeg
+└── procedures/
+    ├── containment-and-controls.json
+    ├── contents-restoration.json
+    ├── drying-setup.json
+    ├── equipment-placement.json
+    ├── final-verification.json
+    ├── initial-assessment.json
+    ├── meta-file-procedural-reality.json
+    ├── monitoring-and-adjustment.json
+    ├── structural-drying.json
+    └── water-extraction.json
+
+```
+---
