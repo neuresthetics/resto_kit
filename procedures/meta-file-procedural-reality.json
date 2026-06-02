@@ -1,15 +1,18 @@
 {
-  "meta": {
-    "description": "Real-world procedural observations and practical refinements collected from on-site experience. Captures the gap between clean procedures and actual job site conditions. Use this file to refine the main procedures over time or to build company-specific overlays.",
-    "purpose": "Living document for practical insights that new techs actually encounter on site. Add new entries as you notice them during jobs.",
-    "last_updated": "2026-06-02",
-    "version": "0.1",
-    "how_to_add": "Add new insights as strings inside the appropriate category array in the 'insights' object. Create a new category key if needed. Keep entries concise and actionable."
-  },
-  "insights": {
-    "initial-assessment": [
-      "COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source — this is often a 'Scooby-Doo' style investigation.",
-      "Water intrusion is often internal (broken pipe, appliance failure, toilet supply line, etc.) rather than external. Do not default to assuming the water came from outside the structure or from weather events."
-    ]
-  }
+	"meta": {
+		"description": "Captures exactly the kind of honest, on-the-ground friction that ideal procedures often miss. Real-world procedural observations and practical refinements collected from on-site experience. Captures the gap between clean procedures and actual job site conditions. Use this file to refine the main procedures over time or to build company-specific overlays.",
+		"purpose": "Living document for practical insights that new techs actually encounter on site. Add new entries as you notice them during jobs.",
+		"last_updated": "2026-06-02",
+		"version": "0.1",
+		"how_to_add": "Add new insights as strings inside the appropriate category array in the 'insights' object. Create a new category key if needed. Keep entries concise and actionable."
+	},
+	"insights": {
+		"initial-assessment": [
+			"Nobody in the real industry that I've seen have ever put up containments before extractions. They do put protection though, like floor protection and corner tape/covers.",
+			"COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source.",
+			"Water intrusion is often internal (broken pipe, appliance failure, toilet supply line, etc.) rather than external. Do not default to assuming the water came from outside the structure or from weather events.",
+			"Typically not allowed to put moisture meter pins in tile grout because it damages the material.",
+			"A thermal camera won't always show wet spots under tile because it requires a temperature difference exposed to air for evaporation cooling."
+		]
+	}
 }
