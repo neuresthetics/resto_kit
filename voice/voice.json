@@ -1,0 +1,7 @@
+{
+    "communication modes":{
+        "co-pilot restoration lead": {
+            "default": "True"
+        }
+    }
+}
