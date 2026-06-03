@@ -2,9 +2,9 @@
 	"meta": {
 		"description": "Captures exactly the kind of honest, on-the-ground friction that ideal procedures often miss. Real-world procedural observations and practical refinements collected from on-site experience. Captures the gap between clean procedures and actual job site conditions. Use this file to refine the main procedures over time or to build company-specific overlays.",
 		"purpose": "Living document for practical insights that new techs actually encounter on site. Add new entries as you notice them during jobs.",
-		"last_updated": "2026-06-02",
-		"version": "0.1",
-		"how_to_add": "Add new insights as strings inside the appropriate category array in the 'insights' object. Create a new category key if needed. Keep entries concise and actionable."
+		"last_updated": "2026-06-03",
+		"version": "0.2",
+		"how_to_add": "Add new insights as strings inside the appropriate category array. Create a new category key if needed. Keep entries concise and actionable. All core/ topics now have placeholder arrays ready for population."
 	},
 	"insights": {
 		"initial-assessment": [
@@ -14,17 +14,71 @@
 			"Initial assessment requires lead and asbestos testing if necessary (varies per state and home year). Testing must be completed before any demo starts. However, you can safely remove baseboards and outlet covers if the drywall is in good enough shape to allow access for inspection.",
 			"Typically you know whether it is a fast or slow leak problem before leaving for the job based on the customer interview and initial description.",
 			"Do not stick moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface instead and compare readings to known dry areas in the same room.",
-      "You have to be careful with tile readings, it's common for fiber cement board to be used with many screws which can read as wet with a non-invasive meter.",
-			"Thermal cameras often will not show wet spots under tile because the tile must be exposed to air for a temperature difference to appear. Rely on pinless readings, soft spots, and sound changed with knocking or tapping.",
-      "If it's a slow leak and "
+			"You have to be careful with tile readings, it's common for fiber cement board to be used with many screws which can read as wet with a non-invasive meter.",
+			"Thermal cameras often will not show wet spots under tile because the tile must be exposed to air for a temperature difference to appear. Rely on pinless readings, soft spots, and sound changed with knocking or tapping (needs clarification).",
+			"In the real world, at the technician level, water classes 1-4 are unecessary to know, it's far more valuable to know that carpet should read 0. Material reading understanding is essential for a tech, classification may be required to fill in some places but it just isn't as practically useful."
 		],
-  "equipment": [
-    "You can use 80% of an electrical circuit, a typical one is 10-15 amps. You can't always tell what's on which breaker. Sometimes breakers are mislabled.",
-    "If you have a lot of equipment setup, you can purge all the dehus at once to test the circuit under load.",
-    "It's a good practice to place a lipped mat or tray under dehumidiers in case there is a leak."
-  ],
-  "ppe": [
-    "pro tip: when wearing a suit, slipping on boot covers first let your feet glide in and out with less friction."
-  ]
+		"equipment": [
+			"You can use 80% of an electrical circuit, a typical one is 10-15 amps. You can't always tell what's on which breaker. Sometimes breakers are mislabeled.",
+			"If you have a lot of equipment setup, you can purge all the dehus at once to test the circuit under load.",
+			"It's a good practice to place a lipped mat or tray under dehumidifiers in case there is a leak."
+		],
+		"ppe": [
+			"Pro tip: when wearing a suit, slipping on boot covers first lets your feet glide in and out with less friction."
+		],
+		"categories": [
+
+		],
+		"classes": [
+
+		],
+		"contamination": [
+
+		],
+		"contents-handling": [
+			"pro-tip: photograph every single thing. I mean everything as it's being wrapped for boxing."
+		],
+		"corrosion-basics": [
+
+		],
+		"containment": [
+			"Pro-tip: for perfect containment tape angles, shoot a laser where you want your wall and move it along as you go. Tape the ceilings and floors at the same time so the sheet hangs perfectly plumb and straight."
+		],
+		"documentation-standards": [
+
+		],
+		"dry-standards": [
+
+		],
+		"electrical-basics": [
+
+		],
+		"fire-damage": [
+
+		],
+		"hvac-basics": [
+
+		],
+		"material-science": [
+
+		],
+		"mold-conditions": [
+
+		],
+		"odor-basics": [
+
+		],
+		"plumbing-basics": [
+
+		],
+		"pre-existing-conditions": [
+
+		],
+		"psychrometry": [
+
+		],
+		"safety-fundamentals": [
+
+		]
 	}
 }
