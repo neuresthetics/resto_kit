@@ -8,11 +8,23 @@
 	},
 	"insights": {
 		"initial-assessment": [
-			"Nobody in the real industry that I've seen have ever put up containments before extractions. They do put protection though, like floor protection and corner tape/covers.",
-			"COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source.",
+			"Nobody in the real industry that I've seen have ever put up containments before extractions. They do put protection though, like floor protection and corner tape/covers. After extraction, containments to isolate COL airvolume.",
+			"COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source — this is often a 'Scooby-Doo' style investigation.",
 			"Water intrusion is often internal (broken pipe, appliance failure, toilet supply line, etc.) rather than external. Do not default to assuming the water came from outside the structure or from weather events.",
-			"Typically not allowed to put moisture meter pins in tile grout because it damages the material.",
-			"A thermal camera won't always show wet spots under tile because it requires a temperature difference exposed to air for evaporation cooling."
-		]
+			"Initial assessment requires lead and asbestos testing if necessary (varies per state and home year). Testing must be completed before any demo starts. However, you can safely remove baseboards and outlet covers if the drywall is in good enough shape to allow access for inspection.",
+			"Typically you know whether it is a fast or slow leak problem before leaving for the job based on the customer interview and initial description.",
+			"Do not stick moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface instead and compare readings to known dry areas in the same room.",
+      "You have to be careful with tile readings, it's common for fiber cement board to be used with many screws which can read as wet with a non-invasive meter.",
+			"Thermal cameras often will not show wet spots under tile because the tile must be exposed to air for a temperature difference to appear. Rely on pinless readings, soft spots, and sound changed with knocking or tapping.",
+      "If it's a slow leak and "
+		],
+  "equipment": [
+    "You can use 80% of an electrical circuit, a typical one is 10-15 amps. You can't always tell what's on which breaker. Sometimes breakers are mislabled.",
+    "If you have a lot of equipment setup, you can purge all the dehus at once to test the circuit under load.",
+    "It's a good practice to place a lipped mat or tray under dehumidiers in case there is a leak."
+  ],
+  "ppe": [
+    "pro tip: when wearing a suit, slipping on boot covers first let your feet glide in and out with less friction."
+  ]
 	}
 }
