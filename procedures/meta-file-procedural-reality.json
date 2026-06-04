@@ -1,84 +1,197 @@
 {
 	"meta": {
-		"description": "Captures exactly the kind of honest, on-the-ground friction that ideal procedures often miss. Real-world procedural observations and practical refinements collected from on-site experience. Captures the gap between clean procedures and actual job site conditions. Use this file to refine the main procedures over time or to build company-specific overlays.",
-		"purpose": "Living document for practical insights that new techs actually encounter on site. Add new entries as you notice them during jobs.",
-		"last_updated": "2026-06-03",
-		"version": "0.2",
-		"how_to_add": "Add new insights as strings inside the appropriate category array. Create a new category key if needed. Keep entries concise and actionable. All core/ topics now have placeholder arrays ready for population."
+	  "description": "Compiled real-world insights from the full RestoKit conversation thread. Uses a flat tagged structure so insights can belong to multiple relevant areas without duplication. Each entry includes source (Human = direct field observation from user, Grok = synthesis or structured input).",
+	  "last_updated": "2026-06-03",
+	  "version": "2.2",
+	  "source": "Full conversation thread with user (Jason)",
+	  "structure_note": "This uses a tagged array instead of rigid category keys. One insight can have multiple tags."
 	},
-	"insights": {
-		"initial-assessment": [
-			"Nobody in the real industry that I've seen have ever put up containments before extractions. They do put protection though, like floor protection and corner tape/covers. After extraction, containments to isolate COL airvolume.",
-			"COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source — this is often a 'Scooby-Doo' style investigation.",
-			"Water intrusion is often internal (broken pipe, appliance failure, toilet supply line, etc.) rather than external. Do not default to assuming the water came from outside the structure or from weather events.",
-			"Initial assessment requires lead and asbestos testing if necessary (varies per state and home year). Testing must be completed before any demo starts. However, you can safely remove baseboards and outlet covers if the drywall is in good enough shape to allow access for inspection.",
-			"Typically you know whether it is a fast or slow leak problem before leaving for the job based on the customer interview and initial description.",
-			"Do not stick moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface instead and compare readings to known dry areas in the same room.",
-			"You have to be careful with tile readings, it's common for fiber cement board to be used with many screws which can read as wet with a non-invasive meter.",
-			"Thermal cameras often will not show wet spots under tile because the tile must be exposed to air for a temperature difference to appear. Rely on pinless readings, soft spots, and sound changed with knocking or tapping (needs clarification).",
-			"In the real world, at the technician level, water classes 1-4 are unecessary to know, it's far more valuable to know that carpet should read 0. Material reading understanding is essential for a tech, classification may be required to fill in some places but it just isn't as practically useful."
-		],
-		"equipment": [
-			"You can use 80% of an electrical circuit, a typical one is 10-15 amps. You can't always tell what's on which breaker. Sometimes breakers are mislabeled.",
-			"If you have a lot of equipment setup, you can purge all the dehus at once to test the circuit under load.",
-			"It's a good practice to place a lipped mat or tray under dehumidifiers in case there is a leak."
-		],
-		"ppe": [
-			"Pro tip: when wearing a suit, slipping on boot covers first lets your feet glide in and out with less friction."
-		],
-		"categories": [
-
-		],
-		"classes": [
-
-		],
-		"contamination": [
-
-		],
-		"contents-handling": [
-			"pro-tip: photograph every single thing. I mean everything as it's being wrapped for boxing."
-		],
-		"corrosion-basics": [
-
-		],
-		"containment": [
-			"Pro-tip: for perfect containment tape angles, shoot a laser where you want your wall and move it along as you go. Tape the ceilings and floors at the same time so the sheet hangs perfectly plumb and straight."
-		],
-		"documentation-standards": [
-
-		],
-		"dry-standards": [
-
-		],
-		"electrical-basics": [
-
-		],
-		"fire-damage": [
-
-		],
-		"hvac-basics": [
-
-		],
-		"material-science": [
-
-		],
-		"mold-conditions": [
-
-		],
-		"odor-basics": [
-
-		],
-		"plumbing-basics": [
-
-		],
-		"pre-existing-conditions": [
-
-		],
-		"psychrometry": [
-
-		],
-		"safety-fundamentals": [
-
-		]
-	}
-}
+	"insights": [
+	  {
+		"title": "Hidden COL Investigation",
+		"text": "COL (Cause of Loss) is frequently hidden behind walls, ceilings, or under floors. Do not assume visible water intrusion from outside. Use moisture meter systematically to hunt for the source — this is often a 'Scooby-Doo' style investigation.",
+		"tags": ["initial-assessment", "contamination"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Internal Water Sources",
+		"text": "Water intrusion is often internal (broken pipe, appliance failure, toilet supply line, etc.) rather than external. Do not default to assuming the water came from outside the structure or from weather events.",
+		"tags": ["initial-assessment", "contamination"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Fast Slow Leak Knowledge",
+		"text": "Typically you know whether it is a fast or slow leak problem before leaving for the job based on the customer interview and initial description.",
+		"tags": ["initial-assessment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Lead Asbestos Testing",
+		"text": "Initial assessment requires lead and asbestos testing if necessary (varies per state and home year). Testing must be completed before any demo starts. However, you can safely remove baseboards and outlet covers if the drywall is in good enough shape.",
+		"tags": ["initial-assessment", "safety-fundamentals", "demo"],
+		"source": "Human"
+	  },
+	  {
+		"title": "No Grout Pins",
+		"text": "Do not stick moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface instead and compare readings to known dry areas.",
+		"tags": ["initial-assessment", "demo", "material-science"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Fiber Cement Readings",
+		"text": "You have to be careful with tile readings. It is common for fiber cement board to be used with many screws which can read as wet with a non-invasive meter.",
+		"tags": ["initial-assessment", "demo", "material-science"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Thermal Camera Limitations",
+		"text": "Thermal cameras often will not show wet spots under tile because the tile must be exposed to air for a temperature difference to appear. Rely on pinless readings, soft spots, and sound changed with knocking or tapping instead.",
+		"tags": ["initial-assessment", "demo", "material-science"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Category 3 Aggressive Demo",
+		"text": "In Category 3 losses that have been sitting for multiple days, expect more aggressive demo. Two days is often enough time for significant bacterial and mold growth behind tile and in wall cavities.",
+		"tags": ["demo", "mold-conditions", "initial-assessment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Extraction Before Containment",
+		"text": "Nobody in the real industry that I've seen have ever put up containments before extractions. They do put protection though, like floor protection and corner tape/covers.",
+		"tags": ["containment", "initial-assessment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Stop Water First",
+		"text": "Real-world reason extraction happens before containment: Primary goal is to stop the spread of water as fast as possible. Setting up full containment (plastic, tools, tape) is also much more difficult and messy once everything is already wet.",
+		"tags": ["containment", "initial-assessment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Post Extraction Containment",
+		"text": "After extraction, containments are built to isolate the COL air volume.",
+		"tags": ["containment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Framing Laser Taping",
+		"text": "For extra straight tape lines with lightning speed, use a framing laser.",
+		"tags": ["containment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "80 Percent Circuit",
+		"text": "You can use 80% of an electrical circuit. A typical one is 10-15 amps. You can't always tell what's on which breaker. Sometimes breakers are mislabeled.",
+		"tags": ["equipment", "electrical-basics"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Purge Dehus Load Test",
+		"text": "If you have a lot of equipment setup, you can purge all the dehus at once to test the circuit under load.",
+		"tags": ["equipment", "electrical-basics"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Lipped Mat Dehus",
+		"text": "It's a good practice to place a lipped mat or tray under dehumidifiers in case there is a leak.",
+		"tags": ["equipment"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Boot Covers First",
+		"text": "Pro tip: when wearing a suit, slipping on boot covers first lets your feet glide in and out with less friction.",
+		"tags": ["ppe", "safety-fundamentals"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Lath Plaster Demo",
+		"text": "Lath and plaster ceilings are difficult to demo, especially when conduit and plumbing are mounted on the finished side. Expect to use a carbide blade multi-tool. Sometimes fastened with screws, sometimes nails, and often has chicken wire behind it.",
+		"tags": ["demo", "material-science"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Wood Paneling Cavities",
+		"text": "Wood paneling in basements is often installed over furring strips, creating hidden cavities that must be addressed in Category 3 losses.",
+		"tags": ["demo", "material-science"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Minimize Contents Moves",
+		"text": "Be mindful of where you place things; the less you have to move them the better so plan ahead. For example, contents storage rooms, if demo'd, should be completely done and clean before contents are moved in, preventing the need for another hauling.",
+		"tags": ["demo", "contents-handling"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Pressure Caps Lines",
+		"text": "Put pressure caps on opened water supply lines, even if the valve is secure. It looks professional and avoids liability.",
+		"tags": ["plumbing-basics", "safety-fundamentals"],
+		"source": "Human"
+	  },
+	  {
+		"title": "Cut Higher Category 3",
+		"text": "In Category 3 losses with long dwell time (multiple days), treat affected walls and ceilings more aggressively. Cut higher than visible damage (typically 12–18 inches minimum on walls).",
+		"tags": ["demo", "mold-conditions"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Sort Before Packing",
+		"text": "Sort on-site first before packing. Create three piles: Trash, Pack-out (worth sending to contents facility), and Clean on-site.",
+		"tags": ["contents-handling"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Least To Most Damaged",
+		"text": "Work from least damaged areas to most damaged areas to avoid re-contaminating clean items.",
+		"tags": ["contents-handling"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Aggressive Porous Trash",
+		"text": "Be aggressive with trash on heavily contaminated porous items (fabric, particle board, insulation, etc.), especially after long dwell times. It is often cheaper and faster than trying to clean them.",
+		"tags": ["contents-handling", "fire-damage"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Photograph Before Moving",
+		"text": "Photograph everything before moving it, especially high-value items.",
+		"tags": ["contents-handling", "documentation-standards"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Clean Staging Areas",
+		"text": "Use clean staging areas with poly or ram board. Never set dirty/sooty items directly on clean surfaces.",
+		"tags": ["contents-handling", "safety-fundamentals"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Protein Natural Fire",
+		"text": "Protein fires (kitchen/grease) produce sticky, yellowish, hard-to-clean smoke. Natural fires (wood/paper) produce drier, powdery soot that is easier to clean.",
+		"tags": ["fire-damage"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Fire Job Demo Items",
+		"text": "What usually gets demo'd on fire jobs: carpet/pad, insulation, heavily affected drywall, particle board cabinets (especially on protein fires), and sometimes HVAC ductwork.",
+		"tags": ["fire-damage", "demo"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Full Gut Overkill",
+		"text": "Full gutting a house floor-to-ceiling just for smoke damage is usually overkill unless there is a very long dwell time (multiple weeks) combined with the fire getting into the HVAC system and actively pumping smoke throughout the house.",
+		"tags": ["fire-damage", "demo"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Three Weeks HVAC Smoke",
+		"text": "Three weeks of smoke sitting in a house, especially if it circulated through the HVAC, significantly increases the likelihood that porous materials and drywall will need to be removed rather than cleaned and sealed.",
+		"tags": ["fire-damage", "demo"],
+		"source": "Grok"
+	  },
+	  {
+		"title": "Crime Scene Protocol",
+		"text": "If you discover firearms, drugs, or a dead body on a job site, immediately stop work, do not touch anything, and notify your lead/supervisor right away. These situations are above field tech pay grade and require proper authorities.",
+		"tags": ["safety-fundamentals"],
+		"source": "Grok"
+	  }
+	]
+  }
