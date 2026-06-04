@@ -186,12 +186,6 @@
 		"text": "Three weeks of smoke sitting in a house, especially if it circulated through the HVAC, significantly increases the likelihood that porous materials and drywall will need to be removed rather than cleaned and sealed.",
 		"tags": ["fire-damage", "demo"],
 		"source": "Grok"
-	  },
-	  {
-		"title": "Crime Scene Protocol",
-		"text": "If you discover firearms, drugs, or a dead body on a job site, immediately stop work, do not touch anything, and notify your lead/supervisor right away. These situations are above field tech pay grade and require proper authorities.",
-		"tags": ["safety-fundamentals"],
-		"source": "Grok"
 	  }
 	]
   }
