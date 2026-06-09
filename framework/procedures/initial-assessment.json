@@ -1,35 +1,76 @@
 {
   "meta": {
     "procedure": "initial-assessment",
-    "version": "0.1.0",
-    "last_updated": "2026-06-02",
+    "version": "0.2.0",
+    "last_updated": "2026-06-08",
     "description": "First on-site evaluation to classify water damage, identify immediate hazards, determine water category, detect visible or suspected mold, establish scope, and trigger appropriate engineering controls before any extraction, demolition, or drying activities begin.",
     "purpose": "Reduce cognitive load and prevent cross-contamination or exposure by forcing systematic hazard recognition and control selection at the very start of the job.",
     "references": [
       "core/categories.md",
       "core/classes.md",
+      "core/demo-methodology.md",
+      "core/initial-assessment-principles.md",
       "logic/safety-red-flags.md",
       "procedures/containment-and-controls.json",
+      "procedures/water-extraction.json",
       "IICRC S-500 (current edition)"
     ],
     "intended_use": "Loaded into field AI voice assistant. Walk technician through steps verbally. Support decision branching without requiring the tech to memorize standards."
   },
   "safety_first": {
     "hierarchy_of_controls": "Engineering controls > Administrative > PPE",
-    "mandatory_ppe_minimum": [" gloves", "safety glasses", "steel-toe boots", "high-visibility vest"],
+    "mandatory_ppe_minimum": ["gloves", "safety glasses", "steel-toe boots", "high-visibility vest"],
     "upgrade_triggers": "Category 3 water, visible mold, strong odors, confined space, or any item from safety-red-flags.md"
   },
+  "field_techniques": [
+    {
+      "title": "Signed Authorization Before Any Physical Work",
+      "text": "The material interested party (homeowner or authorized representative) must sign the work authorization and any required releases before the technician touches anything — including shutting off water or setting up equipment. No work of any kind begins until this is complete.",
+      "source": "Human"
+    },
+    {
+      "title": "Source Isolation Verification",
+      "text": "After shutting off the angle stop or main valve, verify the water is truly stopped. For a toilet supply line failure, open the tank and hold the flapper open to confirm no additional water is entering the bowl. Visual confirmation at the source is required before moving to extraction.",
+      "source": "Human"
+    },
+    {
+      "title": "Early Stabilization of Sagging Ceilings",
+      "text": "If a ceiling is visibly sagging from water weight, set up a zip pole (or equivalent support) underneath it as soon as possible — ideally before or immediately after shutting off the water. This prevents sudden collapse during extraction or while moving through the space.",
+      "source": "Human"
+    },
+    {
+      "title": "Floor Protection Before Equipment Movement",
+      "text": "Before bringing any extraction equipment, dehumidifiers, or tools through finished hallways or unaffected areas, lay down proper floor protection (Ram Board, plastic, etc.) and corner guards. This prevents tracking contamination and damaging finished surfaces during the first day of mitigation.",
+      "source": "Human"
+    },
+    {
+      "title": "Disinfectant Application Before Full Survey (Category 2/3)",
+      "text": "On Category 2 or 3 losses, apply disinfectant spray and perform surface wiping of affected areas before conducting the full moisture survey or moving extensively through the space. This reduces cross-contamination risk and technician exposure before detailed mapping begins.",
+      "source": "Human"
+    },
+    {
+      "title": "Realistic Day 1 Scope — Mitigation + Drying Setup",
+      "text": "On an emergency water loss, Day 1 is typically limited to: signed paperwork, source isolation, bulk water extraction, basic containment where it meaningfully reduces air volume, and drying equipment setup (air movers + dehumidifiers). Full demo, detailed moisture mapping, and aggressive wall/ceiling removal usually happen on Day 2 after the equipment has run for 12–24 hours.",
+      "source": "Human"
+    },
+    {
+      "title": "Initial Moisture Readings Are on Surface Materials",
+      "text": "On first arrival, moisture meter readings are taken on whatever material is currently exposed (carpet, vinyl, tile, etc.). You cannot reliably read the subfloor until the surface material is removed or lifted. Document readings accordingly and note the material being measured.",
+      "source": "Human"
+    }
+  ],
   "flow": [
     {
       "step": 1,
       "phase": "arrival_and_safety",
       "title": "Arrival, Staging & Initial Safety Check",
-      "voice_prompt": "Arrived on site. First, do a 360 of the exterior for safety hazards like downed power lines, structural damage, or blocked access. Any immediate dangers?",
+      "voice_prompt": "Arrived on site. First, do a 360 of the exterior for safety hazards like downed power lines, structural damage, or blocked access. Any immediate dangers? Remember — no physical work begins until authorization is signed.",
       "actions": [
         "Park vehicle safely with egress clear",
         "Perform 360 exterior walk for obvious structural, electrical, or gas hazards",
         "Identify staging area upwind and uphill from affected zone if possible",
-        "Don minimum PPE"
+        "Don minimum PPE",
+        "Confirm work authorization and releases are signed before touching anything (including shutting off water or setting up equipment)"
       ],
       "decision_point": {
         "question": "Any immediate life-safety or structural hazards preventing safe entry?",
@@ -70,9 +111,10 @@
       "step": 4,
       "phase": "interior_walkthrough_non_intrusive",
       "title": "Interior Non-Intrusive Walkthrough",
-      "voice_prompt": "Enter carefully. Do a visual and olfactory scan without touching or disturbing materials yet. Look up, down, and all around. Smell for musty odors.",
+      "voice_prompt": "Enter carefully. Do a visual and olfactory scan without touching or disturbing materials yet. Look up, down, and all around. Smell for musty odors. Watch for sagging ceilings that may need immediate stabilization.",
       "actions": [
         "Visual scan of ceilings, walls, floors, and contents for water stains, discoloration, buckling, or warping",
+        "Check for visibly sagging ceilings — if present, plan to stabilize with zip pole as soon as water is shut off",
         "Smell test for musty, sewage, or chemical odors",
         "Note temperature and humidity feel (hot/humid vs cool/dry)",
         "Identify all potentially affected rooms and approximate square footage",
@@ -82,18 +124,20 @@
         "Visible mold growth on surfaces",
         "Strong musty or sewage odor",
         "Buckled or saturated drywall that may collapse",
-        "Electrical outlets or panels in affected area showing water intrusion"
+        "Electrical outlets or panels in affected area showing water intrusion",
+        "Visibly sagging ceilings"
       ]
     },
     {
       "step": 5,
       "phase": "hazard_identification_and_category",
       "title": "Hazard Identification & Water Category Determination",
-      "voice_prompt": "Based on what you've seen and smelled, classify the water. Is it clean (Category 1), gray (Category 2), or black/contaminated (Category 3)? Any visible mold?",
+      "voice_prompt": "Based on what you've seen and smelled, classify the water. Is it clean (Category 1), gray (Category 2), or black/contaminated (Category 3)? Any visible mold? On Category 2 or 3, plan to apply disinfectant and surface wipe before full survey.",
       "actions": [
         "Determine water category using core/categories.md criteria",
         "Document justification for category choice",
         "Check for visible mold or conditions conducive to mold (wet + organic material + time)",
+        "On Category 2 or 3 losses, apply disinfectant spray and perform surface wiping before conducting full moisture survey",
         "Run safety-red-flags.md checklist mentally or via assistant"
       ],
       "decision_point": {
@@ -109,6 +153,19 @@
     },
     {
       "step": 6,
+      "phase": "source_isolation_and_stabilization",
+      "title": "Source Isolation & Early Stabilization",
+      "voice_prompt": "Shut off the water at the source. Verify it has actually stopped. If a ceiling is sagging, stabilize it with a zip pole as soon as the water is off. Lay floor protection in high-traffic areas before moving equipment.",
+      "actions": [
+        "Shut off water at angle stop or main valve",
+        "Verify water has truly stopped (e.g. open toilet tank and hold flapper for supply line failures)",
+        "If ceiling is visibly sagging, set up zip pole or equivalent support immediately",
+        "Lay down floor protection (Ram Board, plastic, corner guards) in high-traffic unaffected areas before bringing in equipment",
+        "Document source isolation and any stabilization actions taken"
+      ]
+    },
+    {
+      "step": 7,
       "phase": "engineering_controls_decision",
       "title": "Engineering Controls Decision Point",
       "voice_prompt": "Stop here. Based on category, mold presence, or any red flags, do we need full containment, negative air, or source isolation before we touch anything?",
@@ -126,13 +183,14 @@
       "reference": "procedures/containment-and-controls.json"
     },
     {
-      "step": 7,
+      "step": 8,
       "phase": "moisture_detection_mapping",
       "title": "Moisture Detection & Preliminary Mapping",
-      "voice_prompt": "Now that controls are decided or in place, begin non-destructive moisture detection. Use moisture meter and thermal imager if available. Map affected areas.",
+      "voice_prompt": "Now that controls are decided or in place, begin non-destructive moisture detection. Use moisture meter and thermal imager if available. Map affected areas. Remember that initial readings are on surface materials only.",
       "actions": [
         "Use pinless or pin-type moisture meter on walls, floors, baseboards",
         "Take readings in affected and adjacent unaffected areas for comparison",
+        "Document that initial readings are on exposed surface materials (carpet, vinyl, tile, etc.) — subfloor readings come later",
         "Use thermal camera to identify hidden moisture patterns if available",
         "Document all readings with locations (sketch or photo with annotations)",
         "Identify hidden moisture in cavities, under flooring, or in insulation"
@@ -140,38 +198,42 @@
       "note": "Do not cut or remove materials until engineering controls are active if Category 3 or mold present."
     },
     {
-      "step": 8,
+      "step": 9,
       "phase": "scope_and_documentation",
       "title": "Scope Definition & Job Documentation",
-      "voice_prompt": "Summarize findings. What is the affected area? What category? What controls are needed? What is the recommended next step?",
+      "voice_prompt": "Summarize findings. What is the affected area? What category? What controls are needed? What is the recommended next step? Set realistic expectations — Day 1 is usually mitigation and drying setup, not full demo.",
       "actions": [
         "Photograph all key findings (before any disturbance)",
         "Create simple moisture map or annotated floor plan",
         "State water category and justification clearly",
         "Define engineering control plan selected",
         "Estimate affected square footage and affected materials (drywall, carpet, hardwood, insulation, etc.)",
-        "Note any contents that need immediate attention or protection"
+        "Note any contents that need immediate attention or protection",
+        "Communicate realistic Day 1 scope to customer (signed paperwork, source control, bulk extraction, basic containment, drying setup)"
       ],
       "outputs": {
         "required": [
-          "Photo documentation package",
-          "Moisture reading log",
-          "Water category determination with rationale",
-          "Engineering control selection and justification",
-          "Preliminary scope of work for customer communication"
+          "Water category with justification",
+          "Initial moisture readings and map (noting surface materials measured)",
+          "Photo documentation",
+          "Engineering controls decision",
+          "Realistic Day 1 plan communicated to customer"
         ]
       }
     }
   ],
   "completion_criteria": {
-    "all_steps_completed": true,
-    "category_determined": true,
-    "engineering_controls_decided_or_active": true,
-    "documentation_started": true
+    "authorization_signed": true,
+    "water_source_isolated_and_verified": true,
+    "water_category_determined": true,
+    "immediate_hazards_addressed_or_stabilized": true,
+    "engineering_controls_decided": true,
+    "realistic_day_1_scope_defined": true,
+    "handoff_to_extraction_or_drying_ready": true
   },
-  "next_procedures": {
-    "if_controls_required": "containment-and-controls.json (complete setup and verification before extraction)",
-    "if_safe_to_proceed": "water-extraction.json or drying-setup.json depending on job type and controls status"
-  },
-  "field_notes": "This procedure is deliberately front-loaded with hazard recognition and engineering control decisions. Never skip the engineering controls decision point (step 6). It is the single most important step for protecting the technician, the structure, and the customer from cross-contamination and exposure."
+  "next_procedures": [
+    "water-extraction.json",
+    "containment-and-controls.json",
+    "drying-setup.json"
+  ]
 }

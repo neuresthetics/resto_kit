@@ -1,13 +1,15 @@
 {
   "meta": {
     "procedure": "water-extraction",
-    "version": "0.1.0",
-    "last_updated": "2026-06-02",
+    "version": "0.2.0",
+    "last_updated": "2026-06-08",
     "description": "Safe and systematic removal of standing water, saturated materials, and bulk contaminants while maintaining engineering controls to prevent aerosolization, cross-contamination, and technician exposure.",
     "purpose": "Execute controlled water removal after initial assessment and containment setup. Minimize secondary damage and health risks through disciplined extraction sequencing and documentation.",
     "references": [
       "core/categories.md",
       "core/psychrometry.md",
+      "core/demo-methodology.md",
+      "core/initial-assessment-principles.md",
       "logic/safety-red-flags.md",
       "procedures/containment-and-controls.json",
       "procedures/initial-assessment.json",
@@ -26,6 +28,23 @@
     ],
     "upgrade_triggers": "Category 3 water, visible mold, strong odors, confined space work, or any safety-red-flags.md items still active"
   },
+  "field_techniques": [
+    {
+      "title": "Extraction Direction — Outer Edges Inward",
+      "text": "When extracting carpet or standing water, begin at the outer edges of the visible wet area and work inward toward the heaviest saturation. Starting in the center and working outward pushes moisture further into unaffected areas and expands the footprint.",
+      "source": "Human"
+    },
+    {
+      "title": "Carpet Wand Technique — Pull Away From Baseboards",
+      "text": "When using a carpet extraction wand near baseboards, always set the wand down at the wall and pull outward. Never push the wand toward the baseboard. Even though the wand is sucking, the lip on the front will drive excess water underneath the baseboard and into the wall cavity if you push toward it.",
+      "source": "Human"
+    },
+    {
+      "title": "Physical Protection Stage",
+      "text": "Before hauling equipment or pulling carpet, protect the customer’s unaffected floors with Ram Board or heavy builder’s paper in all high-traffic areas. Secure everything with low-adhesive blue painter’s tape only — never duct tape.",
+      "source": "Human"
+    }
+  ],
   "flow": [
     {
       "step": 1,
@@ -55,8 +74,9 @@
       "step": 2,
       "phase": "electrical_and_equipment_safety",
       "title": "Electrical Isolation & Equipment Setup",
-      "voice_prompt": "Set up extraction equipment safely. All power in affected areas must be GFCI protected. Stage pumps, extractors, and hoses inside containment only.",
+      "voice_prompt": "Set up extraction equipment safely. All power in affected areas must be GFCI protected. Stage pumps, extractors, and hoses inside containment only. Lay down floor protection in high-traffic unaffected areas before moving equipment through finished spaces.",
       "actions": [
+        "Lay down Ram Board or heavy builder’s paper and corner guards in high-traffic paths before bringing in equipment",
         "Locate and test all GFCI outlets or use portable GFCI pigtails for every piece of electrical equipment",
         "Stage submersible pumps, carpet extractors, or truckmount hoses inside the containment zone",
         "Route hoses and cords to minimize trip hazards and maintain containment seal",
@@ -68,10 +88,11 @@
       "step": 3,
       "phase": "bulk_water_removal",
       "title": "Bulk / Standing Water Extraction",
-      "voice_prompt": "Remove as much standing water as possible first using pumps or extractors. Work from deepest areas outward. Avoid splashing or creating aerosols.",
+      "voice_prompt": "Remove as much standing water as possible first using pumps or extractors. Work from the outer edges of the visible wet area inward toward the heaviest saturation. Avoid splashing or creating aerosols. When using a carpet wand near baseboards, set it down at the wall and pull outward — never push toward the baseboard.",
       "actions": [
+        "Work extraction from the outer edges of the visible wet area inward toward the heaviest saturation to contain moisture and prevent pushing water into unaffected areas",
         "Use submersible pumps or wet vacs to remove ponded water from floors and low areas",
-        "For carpeted areas: extract as much water as possible with carpet wand before any pad removal decisions",
+        "For carpeted areas: extract as much water as possible with carpet wand before any pad removal decisions. Set wand down at the wall and pull outward — never push toward the baseboard",
         "Direct extracted water into containment or approved sanitary drain (never storm drain for Category 2/3)",
         "Monitor extraction rate vs inflow if active leak still present — stabilize first if needed",
         "Document approximate gallons removed and time"
@@ -105,7 +126,7 @@
       "step": 5,
       "phase": "aerosol_and_cross_contamination_control",
       "title": "Aerosol & Cross-Contamination Control During Extraction",
-      "voice_prompt": "Extraction can aerosolize contaminants. Keep air scrubbers running, minimize aggressive disturbance, and work methodically from cleanest to most contaminated zones if possible.",
+      "voice_prompt": "Extraction can aerosolize contaminants. Keep air scrubbers running, minimize aggressive disturbance, and work methodically. Maintain negative pressure and HEPA scrubbing the entire time extraction is active.",
       "actions": [
         "Maintain negative pressure and HEPA scrubbing the entire time extraction is active",
         "Avoid high-pressure washing or aggressive demolition that creates mist",
@@ -156,12 +177,11 @@
     "no_standing_water_remaining": true,
     "contaminated_materials_properly_removed_or_documented": true,
     "engineering_controls_maintained": true,
-    "documentation_complete_for_drying_handoff": true
+    "handoff_to_drying_ready": true
   },
-  "next_procedures": {
-    "primary": "drying-setup.json or structural-drying.json",
-    "if_still_wet_materials": "equipment-placement.json then monitoring-and-adjustment.json",
-    "if_containment_active": "Continue referencing containment-and-controls.json until job sign-off"
-  },
-  "field_notes": "Extraction is the highest-risk phase for spreading contaminants via aerosol or tracking. The voice assistant should repeatedly reinforce staying inside containment, maintaining negative pressure, and GFCI use. Never rush this phase — thorough extraction dramatically reduces drying time and secondary damage. If Category 3 or mold, treat every action as if it could generate airborne hazards."
+  "next_procedures": [
+    "drying-setup.json",
+    "monitoring-and-adjustment.json",
+    "structural-drying.json"
+  ]
 }
