@@ -183,7 +183,7 @@ Mechanical removal of liquid water is almost always better than trying to dry it
 ### Decision Logic
 - **If standing water present** → Submersible pumps or wet vacs first.
 - **If carpet/pad** → Aggressive wand extraction before deciding on pad removal. Pad is usually removed if saturated >24h or Category 2/3.
-- **If Category 3 with dwell** → More aggressive material removal (cut higher than visible line — 12–18" minimum on walls) because bacteria and mold move fast behind finishes.
+- **If Category 3 with dwell** → More aggressive material removal (cut higher than visible line — 12–18" above water line to interval of 2' minimum on walls) because bacteria and mold move fast behind finishes.
 - Always maintain engineering controls during extraction on contaminated jobs. Extraction can aerosolize contaminants.
 
 **Post-extraction handoff**: Re-scan with moisture meter, update map, confirm no standing water remains, then move to drying setup.
