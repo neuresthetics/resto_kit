@@ -1,0 +1,296 @@
+
+{
+  "meta": {
+    "version": "0.1.0",
+    "lastUpdated": "2026-06-09",
+    "project": "resto_kit",
+    "description": "Structured field knowledge base for water damage restoration technicians. Designed for loading into AI voice assistant (RestoKit) to reduce mental load, support consistent decisions, and provide quick reference during mitigation, demo, drying, and cleaning. Content based on field experience (source: Human).",
+    "schemaVersion": "1.0",
+    "usage": "Load into framework as modular JSON. Query by tags, category, or semantic match on title/text. Use for voice responses, decision trees, and checklist generation."
+  },
+  "generalMethodology": [
+    "Assess before cutting: Always check for asbestos in drywall before doing flood cuts.",
+    "Control the work appropriately: Use small, surgical cuts when working around sensitive areas like electrical, plumbing, or customer belongings. When doing a full gut, rip out large pieces aggressively.",
+    "Remove from the top down: Fixtures and cabinets first, then baseboards, then walls, then flooring.",
+    "Protect what stays: Use blankets, trash bags, Ram Board, or plywood to protect good surfaces during demo.",
+    "Work around obstacles: Remove outlet covers and use controlled cuts to work around electrical boxes without touching the wiring.",
+    "Make clean decisions: When deciding whether to patch or replace an entire floor, check if the owner has 'continuous flooring' coverage on their policy.",
+    "Prioritize safety and cleanliness: Remove exposed fasteners before the end of the day."
+  ],
+  "knowledgeEntries": [
+    {
+      "id": "ext-001",
+      "type": "tip",
+      "category": "water-extraction",
+      "title": "Extraction Direction — Outer Edges Inward",
+      "text": "When extracting carpet or standing water, begin at the outer edges of the visible wet area and work inward toward the heaviest saturation. Starting in the center and working outward pushes moisture further into unaffected areas and expands the footprint. Working from the perimeter inward contains the water that is already trying to migrate.",
+      "tags": ["water-extraction", "initial-assessment", "mitigation"],
+      "source": "Human",
+      "appliesTo": ["Category 1", "Category 2", "Category 3"],
+      "priority": "high"
+    },
+    {
+      "id": "ext-002",
+      "type": "tip",
+      "category": "water-extraction",
+      "title": "Carpet Wand Technique — Pull Away From Baseboards",
+      "text": "When using a carpet extraction wand near baseboards, always set the wand down at the wall and pull outward. Never push the wand toward the baseboard. Even though the wand is sucking, the lip on the front will drive excess water underneath the baseboard and into the wall cavity if you push toward it.",
+      "tags": ["water-extraction", "demo", "mitigation"],
+      "source": "Human",
+      "appliesTo": ["Category 1", "Category 2", "Category 3"],
+      "priority": "high"
+    },
+    {
+      "id": "prot-001",
+      "type": "procedure",
+      "category": "initial-assessment",
+      "title": "Floor Protection Before Equipment Movement",
+      "text": "Before bringing any extraction equipment, dehumidifiers, or tools through finished hallways or unaffected areas, lay down proper floor protection (Ram Board, plastic, etc.) and corner guards. This prevents tracking contamination and damaging finished surfaces during the first day of mitigation.",
+      "tags": ["initial-assessment", "containment", "mitigation", "safety-fundamentals"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "legal-001",
+      "type": "procedure",
+      "category": "initial-assessment",
+      "title": "Signed Authorization Before Any Physical Work",
+      "text": "The material interested party (homeowner or authorized representative) must sign the work authorization and any required releases before the technician touches anything — including shutting off water or setting up equipment. No work of any kind begins until this is complete.",
+      "tags": ["initial-assessment", "safety-fundamentals", "legal"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "critical"
+    },
+    {
+      "id": "contam-001",
+      "type": "procedure",
+      "category": "initial-assessment",
+      "title": "Disinfectant Application Before Full Survey (Category 2/3)",
+      "text": "On Category 2 or 3 losses, apply disinfectant spray and perform surface wiping of affected areas before conducting the full moisture survey or moving extensively through the space. This reduces cross-contamination risk and technician exposure before detailed mapping begins.",
+      "tags": ["initial-assessment", "contamination", "safety-fundamentals"],
+      "source": "Human",
+      "appliesTo": ["Category 2", "Category 3"],
+      "priority": "high"
+    },
+    {
+      "id": "proc-001",
+      "type": "procedure",
+      "category": "initial-assessment",
+      "title": "Realistic Day 1 Scope — Mitigation + Drying Setup",
+      "text": "On an emergency water loss, Day 1 is typically limited to: signed paperwork, source isolation, bulk water extraction, basic containment where it meaningfully reduces air volume, and drying equipment setup (air movers + dehumidifiers). Full demo, detailed moisture mapping, and aggressive wall/ceiling removal usually happen on Day 2 after the equipment has run for 12–24 hours. Trying to do everything in one visit is unrealistic and often counterproductive.",
+      "tags": ["initial-assessment", "water-extraction", "drying-setup", "procedural-reality"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "water-001",
+      "type": "procedure",
+      "category": "initial-assessment",
+      "title": "Source Isolation Verification",
+      "text": "After shutting off the angle stop or main valve, verify the water is truly stopped. For a toilet supply line failure, open the tank and hold the flapper open to confirm no additional water is entering the bowl. Visual confirmation at the source is required before moving to extraction.",
+      "tags": ["initial-assessment", "water-extraction"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "safety-001",
+      "type": "procedure",
+      "category": "safety-fundamentals",
+      "title": "Early Stabilization of Sagging Ceilings",
+      "text": "If a ceiling is visibly sagging from water weight, set up a zip pole (or equivalent support) underneath it as soon as possible — ideally before or immediately after shutting off the water. This prevents sudden collapse during extraction or while moving through the space. Land it on what feels like solid structure from below even if you can’t see the joist.",
+      "tags": ["initial-assessment", "safety-fundamentals", "demo"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "critical"
+    },
+    {
+      "id": "moist-001",
+      "type": "tip",
+      "category": "moisture-detection",
+      "title": "Initial Moisture Readings Are on Surface Materials",
+      "text": "On first arrival, moisture meter readings are taken on whatever material is currently exposed (carpet, vinyl, tile, etc.). You cannot reliably read the subfloor until the surface material is removed or lifted. Document readings accordingly and note the material being measured.",
+      "tags": ["initial-assessment", "moisture-detection"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "prot-002",
+      "type": "procedure",
+      "category": "containment",
+      "title": "Physical Protection Stage",
+      "text": "Before hauling equipment or pulling carpet, protect the customer’s unaffected floors with Ram Board or heavy builder’s paper in all high-traffic areas. Secure everything with low-adhesive blue painter’s tape only — never duct tape. Use corner guards only when dragging hoses or items that could easily damage walls.",
+      "tags": ["containment", "protection", "initial-assessment", "safety-fundamentals"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "cont-001",
+      "type": "procedure",
+      "category": "containment",
+      "title": "Containment Setup",
+      "text": "Use a laser level when possible to mark straight lines on floor and ceiling. Keep containment 18 inches to 2 feet beyond affected materials. Use 10ft wide plastic for residential. Apply double-sided tape, then blue tape over the seams. Use zip pulls or staples as backup on bad surfaces.",
+      "tags": ["containment", "setup"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "cont-002",
+      "type": "procedure",
+      "category": "containment",
+      "title": "Containment – Air Control",
+      "text": "Place negative air machine on the wall furthest from the door. Install makeup air filter on the same wall as the door, positioned as far from the machine as possible. Always cover or protect all HVAC registers inside containment.",
+      "tags": ["containment", "air-control", "negative-pressure"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high"
+    },
+    {
+      "id": "mind-001",
+      "type": "principle",
+      "category": "general",
+      "title": "Mindset Principle",
+      "text": "There are often multiple valid ways to achieve the same outcome in restoration. Understand the principles so you can adapt to the specific situation.",
+      "tags": ["mindset", "principles", "adaptability"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "medium"
+    },
+    {
+      "id": "cont-003",
+      "type": "tip",
+      "category": "containment",
+      "title": "Small Space Containment",
+      "text": "In very small bathrooms, you usually don’t need negative pressure. You can place equipment in the bathtub or on a vanity countertop to save floor space.",
+      "tags": ["containment", "small-spaces", "bathroom"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "medium"
+    },
+    {
+      "id": "mold-001",
+      "type": "procedure",
+      "category": "contamination",
+      "title": "Mold – Decontamination Chamber",
+      "text": "Build a decon chamber (minimum 3x3, ideally 4x4) as an airlock when significant mold is present. Never move contaminated materials through clean zones. Either wipe bags or double-bag before leaving the chamber.",
+      "tags": ["mold", "contamination", "containment", "safety-fundamentals"],
+      "source": "Human",
+      "appliesTo": ["Category 3", "mold remediation"],
+      "priority": "high"
+    },
+    {
+      "id": "demo-001",
+      "type": "tip",
+      "category": "demo",
+      "title": "Solo Chalk Line Technique",
+      "text": "When working alone without a laser, put your knife through the loop of the chalk line reel and stick it in the wall to hold one end, then walk and snap the line.",
+      "tags": ["demo", "solo-work", "layout"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "medium"
+    },
+    {
+      "id": "clean-001",
+      "type": "sequence",
+      "category": "demo-cleaning",
+      "title": "Post-Demo Base Cleaning Sequence",
+      "text": "Foundational cleaning sequence after demo. Pay special attention to cleaning inside electrical boxes — dust collects behind outlets and switches where the vacuum often can't reach.",
+      "steps": [
+        "Remove all heavy debris",
+        "Vacuum the floor",
+        "ULV air blast only (knock dust out of framing and wires)",
+        "Vacuum the floor again",
+        "Wipe down all framing, plumbing, wires, electrical boxes",
+        "Final floor vacuum (pay special attention to corners along the base plate and any gaps in the flooring)",
+        "ULV fog with disinfectant/sanitizer"
+      ],
+      "tags": ["post-demo", "cleaning", "demo-cleaning", "safety-fundamentals"],
+      "source": "Human",
+      "appliesTo": ["general"],
+      "priority": "high",
+      "notes": "This is the foundational cleaning sequence. After step 6, perform ULV fog with appropriate disinfectant first (botanical for Cat 2, accelerated oxidizer for Cat 3). Reality: Even on many Category 3 jobs, a standard disinfectant with spray and wipe is often sufficient to reach pre-loss condition. After disinfectant has dried, apply stain remover (formerly branded as MMR) to all exposed wood framing for aesthetic purposes (generally only justified on mold remediation jobs, not standard water losses). When fogging with ULV, apply enough to get a nice even coat with slight surface wetting. The wood should absorb some but should not be dripping wet. When wiping, use microfiber rags. Fold the rag in half twice to create 8 clean surfaces per rag. Save and wash the rags — they are reusable."
+    },
+    {
+      "id": "dry-001",
+      "type": "procedure",
+      "category": "drying",
+      "title": "Ceiling Cross-Venting — Category 1 Only",
+      "text": "For Category 1 losses only, when saving a large saturated ceiling, cut a one-foot wide strip perpendicular to the joists on one side of the room for injection. If you cut a second strip on the opposite side for venting, make sure the positive air goes into the first joist bay and the vent cut is in the last joist bay. This forces air to travel across all the bays. Remove any insulation blocking airflow. If the ceiling is very large, make additional one-foot cuts as needed to reach in with a broom or hooked stick to pull out insulation. Be extremely careful not to snag wires, plumbing, or soft packs hidden in the insulation.",
+      "tags": ["drying", "ceiling", "category-1", "cavity-drying"],
+      "source": "Human",
+      "appliesTo": ["Category 1"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-002",
+      "type": "procedure",
+      "category": "drying",
+      "title": "Local Tenting for Targeted Drying",
+      "text": "Local tenting works well for drying specific areas within large air volume spaces, such as: bound moisture in subfloors with vaulted ceilings, behind or under cabinets using existing gaps, under bathtubs, or the underside of finished floors you want to save. Pipe a dehumidifier into the tent, keep temperatures reasonable, include an air vent unless it opens to a crawlspace, and use a humidistat. This is not effective for low evaporation assemblies like tile unless there's only minimal water intrusion around an edge.",
+      "tags": ["drying", "local-tenting", "targeted-drying", "cavity-drying"],
+      "source": "Human",
+      "appliesTo": ["Category 1", "Category 2"],
+      "priority": "medium"
+    },
+    {
+      "id": "cat3-001",
+      "type": "procedure",
+      "category": "category-3",
+      "title": "Pressure Wash + Extractor Method for Contaminated Sill Plates",
+      "text": "For heavy contamination on concrete slab floors with framing sitting directly on concrete (sewer backup with sludge or groundwater flood carrying dirt/silt). Never use on wood subfloors — it drives contamination deeper into the wood.",
+      "steps": [
+        "Remove all heavy debris",
+        "Vacuum the floor",
+        "Apply liberal disinfectant along the base plate and sill plate, let it dwell",
+        "Pressure wash framing and slab while running a portable extractor the entire time",
+        "Run dehumidifier and allow the structure to dry completely",
+        "Vacuum the floor",
+        "ULV air blast",
+        "Vacuum the floor again",
+        "Wipe down all framing, plumbing, wires, and electrical boxes",
+        "Final floor vacuum",
+        "ULV fog with disinfectant/sanitizer"
+      ],
+      "conditions": [
+        "Concrete slab floor only — never use on wood subfloors",
+        "Heavy contamination present (sewer backup with sludge or groundwater flood carrying dirt/silt)",
+        "Framing sits directly on concrete"
+      ],
+      "tags": ["category-3", "contamination", "pressure-wash", "sill-plate", "cleaning"],
+      "source": "Human",
+      "appliesTo": ["Category 3"],
+      "priority": "high",
+      "notes": "The air blast → vacuum → wipe order ensures dust is knocked down and removed before wiping surfaces. This method is aggressive and only for appropriate Category 3 slab situations."
+    }
+  ],
+  "specializedSections": {
+    "moistureMeters": {
+      "description": "Guidelines for using moisture meters in the field, with specific notes for common tools like FLIR MR176 and MR12 ball probe.",
+      "general": [
+        "Pins only for wood and drywall — never use on concrete, tile, or masonry.",
+        "For drywall: pin at a 45° angle in the gap above the baseboard to easily hide holes with caulk.",
+        "Never drag non-invasive sensors across surfaces. Lift and place, or cover sensor with blue painter’s tape."
+      ],
+      "flirMr176Mr12": [
+        "MR12 ball probe reaches up to 4 inches deep, while the flat sensor is only ~0.75 inches.",
+        "Use MR12 for flooring and tight/low spaces where the main unit can’t reach.",
+        "MR12 is very sensitive to metal (nails, screws, corner bead). Avoid edges and corners.",
+        "MR12 should be used as a relative reading tool, not for absolute moisture percentages.",
+        "Scan a known dry area first to establish the normal screw pattern.",
+        "Wet areas show the same screw pattern but with higher, broader readings overlaid on top.",
+        "Smaller sensing field sensors make it easier to read patterns than the wider MR12 ball probe.",
+        "Multiple flooring layers usually means pulling everything down to the subfloor.",
+        "Particle board subfloors are typically unsalvageable once wet. Plywood is much more recoverable.",
+        "In small bathrooms, if tile is wet, it’s often easier and cheaper to remove everything.",
+        "Be minimally invasive — only remove what is necessary. Think like a surgeon, not a wrecking crew.",
+        "Some companies over-demo because it increases their billable hours and profit. This often goes unnoticed by customers.",
+        "Minimize damage where possible, but understand this isn’t always how the industry operates."
+      ]
+    }
+  }
+}

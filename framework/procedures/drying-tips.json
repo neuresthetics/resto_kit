@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "version": "0.2.1",
+    "lastUpdated": "2026-06-09",
+    "project": "resto_kit",
+    "section": "drying-tips",
+    "description": "Practical drying and monitoring procedures based on field experience. Cleaned and tagged for consistency with core knowledge base."
+  },
+  "knowledgeEntries": [
+    {
+      "id": "dry-003",
+      "type": "procedure",
+      "category": "drying",
+      "title": "Daily Monitoring & Adjustment Walk",
+      "text": "Walk every drying job the exact same way every day. Your goal is to evaluate performance and make immediate corrections.",
+      "steps": [
+        "Start at the dehumidifier and record inlet vs outlet RH and grains",
+        "Check that every air mover is running and properly aimed",
+        "Take moisture readings in the exact same locations as Day 1",
+        "Check for cold spots and musty odors",
+        "Make at least one intentional adjustment based on your observations"
+      ],
+      "tags": ["drying", "monitoring", "daily-check", "adjustment", "performance"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-004",
+      "type": "tip",
+      "category": "drying",
+      "title": "Temperature and RH – Equal Priority",
+      "text": "Temperature and humidity are equally important. Focus on achieving low grains. Keep the space between 75–85°F while ensuring your dehumidifiers are actively removing moisture.",
+      "tags": ["drying", "temperature", "humidity", "grains", "performance"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-006",
+      "type": "procedure",
+      "category": "drying",
+      "title": "When To Pull Equipment",
+      "text": "Pull equipment based on meter readings and conditions, not based on how many days the job has been running.",
+      "tags": ["drying", "equipment", "pull-equipment", "completion-criteria"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-007",
+      "type": "tip",
+      "category": "drying",
+      "title": "Commonly Missed Wet Areas",
+      "text": "Pay special attention to these frequently missed or slow-to-dry areas: under and behind cabinets, subfloor underneath base plates, California corners, inside vanity kickboards, and under shower pans.",
+      "tags": ["drying", "troubleshooting", "missed-areas", "slow-to-dry", "inspection"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-008",
+      "type": "procedure",
+      "category": "drying",
+      "title": "Daily Dehumidifier Performance Check",
+      "text": "Every morning, check inlet vs outlet grains on your dehumidifier. A healthy unit should typically pull 15–25 grains on an active job.",
+      "tags": ["drying", "dehumidifier", "performance-check", "daily-check", "grains"],
+      "priority": "high"
+    },
+    {
+      "id": "dry-010",
+      "type": "tip",
+      "category": "drying",
+      "title": "Airflow Strategy",
+      "text": "Generally move air across wet surfaces rather than directly into them. Create consistent circular airflow throughout the affected area.",
+      "tags": ["drying", "air-movers", "airflow", "strategy"],
+      "priority": "medium"
+    },
+    {
+      "id": "dry-011",
+      "type": "tip",
+      "category": "drying",
+      "title": "Lower Airflow for Bound Moisture",
+      "text": "When drying bound moisture in wood, lower velocity airflow is often more effective than high CFM air movers. It allows better heat transfer and creates a more gradual moisture gradient.",
+      "tags": ["drying", "wood-drying", "airflow", "bound-moisture"],
+      "priority": "medium"
+    },
+    {
+      "id": "dry-012",
+      "type": "tip",
+      "category": "drying",
+      "title": "Match Your Drying Approach to the Loss Type",
+      "text": "Fast, clean leaks can usually be dried more aggressively. Slow leaks that have had time to penetrate deep into materials should use a more gradual drying approach.",
+      "tags": ["drying", "strategy", "loss-type", "drying-approach"],
+      "priority": "medium"
+    },
+    {
+      "id": "dry-013",
+      "type": "tip",
+      "category": "drying",
+      "title": "Prevent Overheating in Small Spaces",
+      "text": "Small rooms like bathrooms can easily overheat. Always use a humidistat in small spaces and monitor temperature daily. Never leave a small contained space without temperature control.",
+      "tags": ["drying", "small-spaces", "overheating", "humidistat", "temperature-control"],
+      "priority": "high"
+    }
+  ]
+}

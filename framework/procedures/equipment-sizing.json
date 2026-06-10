@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "version": "0.1.2",
+    "lastUpdated": "2026-06-09",
+    "file": "equipment-sizing.json",
+    "description": "Practical equipment sizing guidelines for dehumidifiers and air movers. Designed for fast field use."
+  },
+  "knowledgeEntries": [
+    {
+      "id": "equip-001",
+      "type": "procedure",
+      "category": "equipment-sizing",
+      "title": "Quick Equipment Sizing Assessment",
+      "text": "Gather this information in order before setting equipment:",
+      "steps": [
+        "Class of water loss",
+        "Approximate square footage of affected area",
+        "Ceiling height",
+        "What materials are wet and how high",
+        "Are there any small rooms or closed doors?"
+      ],
+      "tags": ["equipment-sizing", "initial-assessment", "setup", "sizing"],
+      "priority": "high"
+    },
+    {
+      "id": "equip-002",
+      "type": "tip",
+      "category": "equipment-sizing",
+      "title": "Dehumidifier Sizing Guidelines",
+      "text": "Practical field rules for refrigerant LGR dehumidifiers:",
+      "steps": [
+        "Class 1: 1 pint per 50–60 sq ft",
+        "Class 2: 1 pint per 40–50 sq ft",
+        "Class 3: 1 pint per 25–35 sq ft"
+      ],
+      "notes": "These are simplified field guidelines. Always round up to the next whole unit.",
+      "tags": ["dehumidifier", "sizing", "equipment-sizing"],
+      "priority": "high"
+    },
+    {
+      "id": "equip-003",
+      "type": "tip",
+      "category": "equipment-sizing",
+      "title": "Air Mover Rule of Thumb",
+      "text": "Use 1 air mover per 10–14 linear feet of affected baseboard or wall. Add extra fans for wet ceilings, hallways, or rooms with many corners.",
+      "tags": ["air-movers", "sizing", "equipment-sizing"],
+      "priority": "high"
+    },
+    {
+      "id": "equip-004",
+      "type": "tip",
+      "category": "equipment-sizing",
+      "title": "Combined Air Volumes",
+      "text": "When you remove an interior wall, two separate air volumes become one larger air volume. You do not always need to treat them separately. If one properly sized dehumidifier can handle the combined volume, it is acceptable to use just one unit for both spaces.",
+      "notes": "You can still choose to put a dehumidifier in each room for faster drying or convenience, but it is not required if the total air volume is within the capacity of one machine.",
+      "tags": ["air-volume", "combined-spaces", "equipment-sizing"],
+      "priority": "medium"
+    },
+    {
+      "id": "equip-005",
+      "type": "tip",
+      "category": "equipment-sizing",
+      "title": "Small Spaces Rule",
+      "text": "Any room with a door that will remain closed (bathrooms, closets, laundry rooms, etc.) should usually get its own dedicated dehumidifier, regardless of square footage.",
+      "tags": ["small-spaces", "bathroom", "equipment-sizing"],
+      "priority": "high"
+    }
+  ]
+}
