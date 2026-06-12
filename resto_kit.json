@@ -1458,6 +1458,16 @@
 				"Place dehumidifiers to pull from the wettest or most contaminated zone when possible, or centrally for even coverage."
 			]
 		},
+		"taping_and_routing": {
+  "description": "Proper securing of power cords and condensate drain lines to prevent trip hazards, equipment damage, and premature pump failure.",
+  "required": [
+    "All power cords and hoses that cross walkways or traffic areas must be taped down flat.",
+    "Use only blue painter's tape on finished floors. Never use duct tape or gaffer's tape." "Keep condensate drain lines as straight as possible with minimal dips or loops to prevent standing water in the hose.",
+    "Secure drain lines with blue tape when running up walls or countertops to sinks, showers, or tubs.",
+    "Tape cords and hoses every few feet so they cannot shift or create trip hazards."
+  ],
+  "voice_prompt": "Tape down every cord and hose that crosses a walkway. Use blue tape only on finished floors. Keep drain lines as straight as possible — avoid big loops and low spots."
+},
 		"performance_monitoring": {
 			"daily_checks": [
 				"Start at the dehumidifier and record inlet vs outlet RH and grains",
