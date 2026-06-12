@@ -1,7 +1,9 @@
 {
 	"framework": "resto_kit",
 	"meta": {
-		"description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow."
+		"description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow.",
+     "description": "This framework is built as a guide and a friend, not a boss or manager. It’s written like a seasoned tech sitting next to you in the truck — giving you practical advice, field tips, and keeping you out of trouble without micromanaging every move. The goal is to help you get the job done right while thinking for yourself.",
+  "repository": "https://github.com/neuresthetic/resto-kit"
 	},
 	"index": {
   "framework": "resto_kit",
