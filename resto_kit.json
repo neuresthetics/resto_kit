@@ -962,35 +962,35 @@
 			"key_activities": [
 				"Remove heavy debris",
 				"Vacuum floor.",
-        "Blow medium particulates down top to bottom (blower, ulv fogger liquid off, or a fan in a bind, then vac floor again. This helps remove dirt from corners vacs cannot reach. Outlets etc.",
+				"Blow medium particulates down top to bottom (blower, ulv fogger liquid off, or a fan in a bind, then vac floor again. This helps remove dirt from corners vacs cannot reach. Outlets etc.",
 				"Wipe down all exposed framing, plumbing, wires, and electrical boxes, horizontal surfaces.",
 				"Final detailed vacuuming (especially corners, base plates, and gaps)",
 				"ULV fogging with appropriate disinfectant/sanitizer when required.",
 				"Application of stain remover/sealer on exposed wood framing (when justified)",
 				"Ongoing cleaning during drying and monitoring visits as needed"
 			],
-      "alt": {
-        "title": "Pressure Wash + Extractor Method for Contaminated Sill Plates",
-        "category": "Category 3",
-        "conditions": [
-          "Concrete slab floor only — never use on wood subfloors",
-          "Heavy contamination present (sewer backup with sludge or groundwater flood carrying dirt/silt)",
-          "Framing sits directly on concrete",
-          "1. Remove all heavy debris",
-          "2. Vacuum the floor",
-          "3. Apply liberal disinfectant along the base plate and sill plate, let it dwell",
-          "4. Pressure wash framing and slab while running a portable extractor the entire time",
-          "5. After, Run dehumidifier and allow the structure to dry completely",
-          "6. Vacuum the floor",
-          "7. ULV air blast and dust settle",
-          "8. Vacuum the floor again",
-          "9. Wipe down all framing, plumbing, wires, and electrical boxes",
-          "10. Final floor vacuum",
-          "11. ULV fog with disinfectant/sanitizer",
-          "The air blast → vacuum → wipe order ensures dust is knocked down and removed before wiping surfaces.",
-          "Never pressure wash if there is a wood subfloor — it drives contamination deeper into the wood."
-        ]
-      },      
+			"alt": {
+				"title": "Pressure Wash + Extractor Method for Contaminated Sill Plates",
+				"category": "Category 3",
+				"conditions": [
+					"Concrete slab floor only — never use on wood subfloors",
+					"Heavy contamination present (sewer backup with sludge or groundwater flood carrying dirt/silt)",
+					"Framing sits directly on concrete",
+					"1. Remove all heavy debris",
+					"2. Vacuum the floor",
+					"3. Apply liberal disinfectant along the base plate and sill plate, let it dwell",
+					"4. Pressure wash framing and slab while running a portable extractor the entire time",
+					"5. After, Run dehumidifier and allow the structure to dry completely",
+					"6. Vacuum the floor",
+					"7. ULV air blast and dust settle",
+					"8. Vacuum the floor again",
+					"9. Wipe down all framing, plumbing, wires, and electrical boxes",
+					"10. Final floor vacuum",
+					"11. ULV fog with disinfectant/sanitizer",
+					"The air blast → vacuum → wipe order ensures dust is knocked down and removed before wiping surfaces.",
+					"Never pressure wash if there is a wood subfloor — it drives contamination deeper into the wood."
+				]
+			},
 			"critical_decision_points": [
 				"Is this a standard post-demo clean or a heavier Category 3 / mold decontamination?",
 				"Should ULV fogging be used, will it save me time or muscle, and with what product?",
@@ -1019,6 +1019,64 @@
 				"Controls verification on every visit",
 				"Progress analysis and adjustments"
 			],
+			"tenting": {
+				"meta": {
+					"description": "Knowledge base for local tenting as a targeted drying technique. Used to concentrate drying power on specific problem areas that are difficult to dry with open-room methods.",
+					"last_updated": "2026-06-11"
+				},
+				"description": "Local tenting involves creating temporary enclosures using poly sheeting to isolate and dry specific wet areas more effectively. It allows you to pipe dry air directly to the problem area while controlling temperature and humidity within the tent.",
+				"when_to_use": [
+					"Bound moisture in subfloors (especially under vaulted or high ceilings where open-room drying is inefficient)",
+					"Behind or under cabinets and toe kicks",
+					"Under bathtubs and shower pans",
+					"Underside of finished floors you want to save",
+					"Small, confined wet areas where full-room drying would be wasteful or ineffective",
+					"Targeted drying of wall cavities or specific structural assemblies"
+				],
+				"when_not_to_use": [
+					"Large open areas (better served by standard equipment placement)",
+					"Low-evaporation assemblies like tile unless water intrusion is minimal",
+					"Situations where creating and maintaining the tent would cause more damage than it solves"
+				],
+				"setup_guidelines": {
+					"basic_requirements": [
+						"Use 6-mil or thicker fire-retardant poly sheeting",
+						"Seal the tent as well as practical to contain dry air",
+						"Pipe a dehumidifier directly into the tent (positive pressure into the enclosure)",
+						"Include an air vent or exhaust path unless the tent opens into a crawlspace",
+						"Use a humidistat inside the tent to control conditions",
+						"Keep temperatures reasonable — avoid excessive heat inside the tent"
+					],
+					"best_practices": [
+						"Make the tent as small as possible while still covering the wet area effectively",
+						"Monitor temperature and humidity inside the tent regularly",
+						"Ensure good airflow across the wet surfaces inside the tent (small air movers or directed ducting can help)",
+						"Check for condensation on the inside of the poly — adjust airflow or temperature if it becomes excessive",
+						"Document the tent setup with photos for the job file"
+					]
+				},
+				"field_tips": [
+					"Local tenting works especially well when you have bound moisture in subfloors under vaulted ceilings — it concentrates the drying effort instead of trying to condition the entire large air volume.",
+					"Under cabinets and toe kicks: Use existing gaps or carefully lift the toe kick to create access, then tent the area.",
+					"Under bathtubs: Tenting can be very effective if you can get dry air underneath without major demolition.",
+					"Always use a humidistat inside the tent. Without one, you risk over-drying or creating condensation issues.",
+					"If the tent is venting into a crawlspace, you usually don’t need an additional vent. If venting into the living space, include a controlled exhaust path.",
+					"Local tenting is often more effective than aggressive high-velocity air movers alone on materials with bound moisture.",
+					"Combine with low-velocity airflow inside the tent when dealing with wood or other sensitive materials."
+				],
+				"limitations_and_risks": [
+					"Creates additional work to build and later remove the tent",
+					"Can trap moisture if not properly vented or monitored",
+					"Not effective on low-permeability materials like tile without very small water volume",
+					"Risk of condensation on the poly if temperature differential is too great",
+					"Requires monitoring — you can’t just set it and forget it"
+				],
+				"related_techniques": [
+					"Wall cavity drying (flood cuts + directed air or negative pressure)",
+					"Negative pressure drying of cavities",
+					"Targeted equipment placement without full tenting (sometimes sufficient)"
+				]
+			},
 			"critical_decision_points": [
 				"Are we on track with drying goals?",
 				"Is moisture rising or new issues appearing?"
@@ -1241,12 +1299,12 @@
 			"temperature_and_humidity": "Temperature and humidity are equally important. Focus on achieving low grains. Keep the space between 75–85°F while ensuring dehumidifiers are actively removing moisture."
 		}
 	},
-  "mindset":[
-    "Many hands makes light work",
-    "Sucks? No, that's \"fun\"",
-    "Have a good time at work, don't take life too seriously. Science and math is cool, but we're not doing rocket surgury out here.",
-    "Don't yell at people, it could trigger as asthma attack.",
-    "Improvise, adapt, overcome",
-    "Teamwork metrics: Humility, Hunger for Success, and People Smarts."
-  ]
+	"mindset": [
+		"Many hands makes light work",
+		"Sucks? No, that's \"fun\"",
+		"Have a good time at work, don't take life too seriously. Science and math is cool, but we're not doing rocket surgury out here.",
+		"Don't yell at people, it could trigger as asthma attack.",
+		"Improvise, adapt, overcome",
+		"Teamwork metrics: Humility, Hunger for Success, and People Smarts."
+	]
 }
