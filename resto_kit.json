@@ -28,6 +28,26 @@
 			"voice_usage": "These three levels should be used consistently in voice responses for clear decision support."
 		}
 	},
+	"meta": {
+  "framework": "resto_kit",
+  "version": "1.0",
+  "last_updated": "2026-06-12",
+  "description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow.",
+  "navigation": {
+    "main_sections": [
+      "base_science",
+      "job_functions", 
+      "equipment",
+      "plumbing_electrical",
+      "modes",
+      "language_system" "dryStandardsByMaterial",
+      "mold",
+      "containment",
+      "demoOrder"
+    ]
+  },
+  "structure_notes": "All major sections use snake_case keys. Critical procedures contain a 'voice_prompt' field for direct voice output."
+},
 	"modes": {
 		"tech": {
 			"name": "Tech",
