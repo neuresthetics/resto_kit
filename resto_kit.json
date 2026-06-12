@@ -911,6 +911,121 @@
       ]
     }
 	},
+  "crawlspaces": {
+  "safety": {
+    "atmospheric_testing": {
+      "rule": "Test only when necessary",
+      "required": "Test atmosphere anytime gas lines, propane, or sewer gas odors are present.",
+      "recommended": "Carry a 4-gas monitor on every crawlspace job.",
+      "voiceNote": "If there’s a gas line down here, I’m testing. No gas line, no need."
+    },
+    "ppe": {
+      "respirator": {
+        "approach": "Use professional judgment based on conditions.",
+        "recommended": "Wear a respirator with a properly rated filter anytime there’s visible dust, disturbed insulation, Category 2/3 water, or musty odors.",
+        "situational": "On a tall, clean, well-maintained Category 1 crawlspace with a fresh vapor barrier, many techs will skip the respirator for quick entries.",
+        "voiceNote": "If it’s dusty or dirty at all, I’m wearing a respirator. If it’s clean and I’m just running in for a minute, I might skip it."
+      },
+      "other": [
+        "Knee pads are highly recommended if you want to still be doing this job in ten years.",
+        "Headlamp with backup batteries is strongly recommended.",
+        "Gloves and coveralls are situational based on how dirty the crawlspace is."
+      ]
+    }
+  },
+  "access_and_etiquette": {
+    "rules": [
+      "Never work alone in a crawlspace",
+      "Always have a spotter at the access point",
+      "Lay down plywood or Ram Board from the hatch to your work area",
+      "Stay on floor joists whenever possible — avoid walking on insulation or vapor barrier",
+      "Hand materials out — don’t throw them",
+      "Leave the crawlspace cleaner than you found it"
+    ],
+    "manpower": {
+      "principle": "Many hands makes light work — especially in crawlspaces.",
+      "voiceNote": "If you’ve got four guys on site and the crawlspace can use the help, get three of them down there. Knock it out fast."
+    }
+  },
+  "inspection": {
+    "key_things_to_look_for": [
+      "Water staining or discoloration on the underside of floor joists, subfloor, and sill plates",
+      "Sagging, drooping, or fallen insulation",
+      "Damaged or collapsed storage (cardboard boxes, paper products, etc.)",
+      "Sagging or improperly supported HVAC ductwork",
+      "Disturbed or broken plumbing straps and hangers",
+      "Corrosion or dissolved sections on the underside of pipes (especially from drain cleaners like Drano)",
+      "Standing water or ponding on the ground",
+      "Condition of the existing vapor barrier (rips, pooling, mold underneath)",
+      "Musty or sewage odors"
+    ],
+    "voiceNote": "When I drop into a crawlspace, I’m looking for staining on the joists, sagging insulation, messed up HVAC, broken plumbing straps, and pipe damage — especially on the bottom of pipes from stuff like Drano."
+  },
+  "wet_insulation": {
+    "priority": "Critical",
+    "core_rule": "Get wet insulation off the wood framing as fast as possible.",
+    "best_practice": "Remove all wet insulation from the affected area the same day it is dropped.",
+    "field_reality": "If it’s a large area, drop all the wet insulation to the ground immediately, then remove it as soon as practical — even if that means coming back the next day.",
+    "voiceNote": "If there’s wet insulation touching the joists, I want it all on the ground today. Better to drop it all and come back tomorrow than leave any of it hanging on the wood."
+  },
+  "air_movement_and_pressure": {
+    "core_rule": "Avoid pushing air from the crawlspace up into the living space.",
+    "key_guidance": [
+      "When ducting a dehumidifier into a crawlspace, you are creating positive pressure. Make sure the air has a clear path out through foundation vents rather than back up through the hatch or subfloor.",
+      "Never push air into the crawlspace through a vent — this creates positive pressure and can drive contaminants into the house.",
+      "Two good solutions: Place a fan inside the crawlspace and duct it out through a vent, or build containment over the access point with an AFD running inside the contained area."
+    ],
+    "voiceNote": "Don’t push crawlspace air up into the house. If I’m piping a dehu in here, I make sure that air gets out through the vents, not back up the hatch."
+  },
+  "drying_techniques": {
+    "localized_tenting": {
+      "description": "Creating a targeted drying chamber under a specific wet area.",
+      "method": [
+        "Cut a piece of plastic the height of the crawlspace and skirt it around the affected area to create a smaller chamber.",
+        "Duct dehumidifier output from outside through the hatch directly into this localized chamber.",
+        "Use clear plastic when possible to allow light in.",
+        "Seal off nearby crawlspace vents in that zone from the outside if needed.",
+        "Particularly effective for drying bound moisture in subfloor from below on slow leak jobs."
+      ],
+      "voiceNote": "Got a slow leak that soaked the subfloor? I’m building a little tent under it in the crawlspace and pumping dry air straight to it."
+    },
+    "negative_air_setup": {
+      "description": "Optional improvisation for creating airflow/negative pressure.",
+      "method": "Place a regular axial fan with layflat ducting strategically in the crawlspace and run the duct out through a foundation vent. This pulls fresh air in through the hatch and other vents.",
+      "voiceNote": "One trick I like is dropping a fan with layflat ducting and running it out a side vent. Pulls good airflow through the whole space."
+    }
+  },
+  "cleaning": {
+    "ulv_fogging": {
+      "recommendation": "Many experienced techs consider the ULV fogger the best tool for cleaning crawlspaces.",
+      "advantages": [
+        "Reaches into all the small gaps and framing spaces effectively",
+        "Knocks dust and debris off the underside of joists and subfloor",
+        "Much faster and easier than using a pump sprayer or spray bottle"
+      ],
+      "practical_use": "Run an extension cord into the crawlspace, fog the area thoroughly, then come back through with rags and a wire brush to wipe down the framing.",
+      "voiceNote": "In a crawlspace, I’d rather use the ULV fogger than a pump sprayer any day. Fog it down, then come back through with rags and a wire brush."
+    }
+  },
+  "vapor_barrier": {
+    "guidance": "Repair damaged sections during the job when practical. Replacing the vapor barrier after drying is often a billable upgrade on long-term wet jobs.",
+    "code_requirements": {
+      "legal_note": "Proper vapor barrier installation is governed by building code and is legally required.",
+      "key_requirements": [
+        "Joints must overlap by a minimum of 6 inches and be sealed or taped",
+        "Material must extend at least 6 inches up the stem wall",
+        "It must be attached and sealed to the foundation wall",
+        "Terminate at the top of the masonry — do not run it up onto the wood sill plate"
+      ],
+      "voiceNote": "When we replace a vapor barrier, it’s not just a recommendation — it’s code."
+    }
+  },
+  "ultra_ppe": {
+    "when_to_use": "For crawlspaces with heavy sewage contamination, large insect infestations, extreme filth, or heavy mold.",
+    "setup": "White Tyvek suit → latex gloves taped at wrist → yellow suit over the top → demolition gloves taped over the latex gloves.",
+    "voiceNote": "If this crawlspace is straight nasty — sewage, bugs everywhere — I’m running the double suit setup."
+  }
+},
 	"job_functions": {
 		"description": "Restoration rarely follows a perfectly linear path. You will often move back and forth between phases (especially extraction ↔ selective_demolition ↔ drying_and_monitoring). The first phase and last phase are almost always required. Use these phases as a mental map and decision framework, not a rigid checklist.",
 		"service_contract": {
