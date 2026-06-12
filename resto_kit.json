@@ -1612,6 +1612,62 @@
 			"Document any plumbing or electrical concerns you observe. This protects everyone if issues arise later."
 		]
 	},
+  
+  
+  
+  "project_manager_timeline": {
+  "description": "Day-by-day operational timeline from a Project Manager's perspective. Reflects realistic field flow rather than the linear job_functions order. Designed for scoping, daily check-ins, and managing techs.",
+  "notes": "Emergency calls and regular responses both start on 'Day 1'. Demo is usually scheduled for Day 2 or later after testing/approvals. Drying phase typically runs 3–5 days after demo and cleaning.",
+  "days": {
+    "day1": {
+      "name": "Day 1 - Initial Response & Stabilization",
+      "goals": "Stop the loss, remove bulk water, stabilize the environment, and get drying started.",
+      "key_tasks": [
+        "Service contract signed",
+        "Source control verified",
+        "Category and Class determined",
+        "Extraction performed",
+        "Containment set up (as needed)",
+        "Drying equipment placed and running",
+        "Initial moisture readings and psychrometrics taken",
+        "Samples taken if required"
+      ]
+    },
+    "day2": {
+      "name": "Day 2 - Demo & Post-Demo Work",
+      "goals": "Remove unsalvageable materials and prepare the structure for effective drying.",
+      "key_tasks": [
+        "Selective demolition",
+        "Post-demo cleaning (vacuum, wipe, final vacuum)",
+        "Re-assess and adjust equipment placement",
+        "Update moisture map"
+      ]
+    },
+    "monitoring": {
+      "name": "Days 3–5+ - Active Drying & Monitoring",
+      "goals": "Maintain proper drying conditions until all materials meet dry standards.",
+      "key_tasks": [
+        "Daily monitoring of equipment performance (grains removed)",
+        "Consistent moisture readings in same locations",
+        "Equipment adjustments as needed",
+        "Containment and safety checks"
+      ],
+      "typical_duration": "3 to 5 days after demo/cleaning (can be longer on complex jobs)"
+    },
+    "final": {
+      "name": "Final Day - Verification & Closeout",
+      "goals": "Confirm the structure is dry and properly documented before teardown.",
+      "key_tasks": [
+        "Final moisture verification",
+        "No musty odors or hidden moisture",
+        "Documentation completed",
+        "Customer walkthrough"
+      ]
+    }
+  }
+},
+
+
 	"mindset": [
 		"Many hands makes light work",
 		"Sucks? No, that's \"fun\"",
