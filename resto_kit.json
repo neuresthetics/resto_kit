@@ -961,16 +961,39 @@
 			"description": "Foundational cleaning and sanitization after demolition (and as needed during the job) to remove dust, debris, and contaminants before drying begins. This step is critical for air quality, preventing callbacks, and preparing surfaces for drying equipment. It may seem tedious, to think about it as procedural steps. Instead, think of it more like baking than rocket science, and know you can adjust accordingly. These steps are designed to minimize strain, effort and repetition while maximizing product quality. A suggestion, not a rule.",
 			"key_activities": [
 				"Remove heavy debris",
-				"Vacuum and ULV air blast sequence",
-				"Wipe down all exposed framing, plumbing, wires, and electrical boxes",
+				"Vacuum floor.",
+        "Blow medium particulates down top to bottom (blower, ulv fogger liquid off, or a fan in a bind, then vac floor again. This helps remove dirt from corners vacs cannot reach. Outlets etc.",
+				"Wipe down all exposed framing, plumbing, wires, and electrical boxes, horizontal surfaces.",
 				"Final detailed vacuuming (especially corners, base plates, and gaps)",
-				"ULV fogging with appropriate disinfectant/sanitizer when required",
+				"ULV fogging with appropriate disinfectant/sanitizer when required.",
 				"Application of stain remover/sealer on exposed wood framing (when justified)",
 				"Ongoing cleaning during drying and monitoring visits as needed"
 			],
+      "alt": {
+        "title": "Pressure Wash + Extractor Method for Contaminated Sill Plates",
+        "category": "Category 3",
+        "conditions": [
+          "Concrete slab floor only — never use on wood subfloors",
+          "Heavy contamination present (sewer backup with sludge or groundwater flood carrying dirt/silt)",
+          "Framing sits directly on concrete",
+          "1. Remove all heavy debris",
+          "2. Vacuum the floor",
+          "3. Apply liberal disinfectant along the base plate and sill plate, let it dwell",
+          "4. Pressure wash framing and slab while running a portable extractor the entire time",
+          "5. After, Run dehumidifier and allow the structure to dry completely",
+          "6. Vacuum the floor",
+          "7. ULV air blast and dust settle",
+          "8. Vacuum the floor again",
+          "9. Wipe down all framing, plumbing, wires, and electrical boxes",
+          "10. Final floor vacuum",
+          "11. ULV fog with disinfectant/sanitizer",
+          "The air blast → vacuum → wipe order ensures dust is knocked down and removed before wiping surfaces.",
+          "Never pressure wash if there is a wood subfloor — it drives contamination deeper into the wood."
+        ]
+      },      
 			"critical_decision_points": [
 				"Is this a standard post-demo clean or a heavier Category 3 / mold decontamination?",
-				"Should ULV fogging be used, and with what product?",
+				"Should ULV fogging be used, will it save me time or muscle, and with what product?",
 				"Has cleaning inside electrical boxes and hard-to-reach areas been completed?"
 			],
 			"practical_guidance": [
@@ -1217,5 +1240,13 @@
 			],
 			"temperature_and_humidity": "Temperature and humidity are equally important. Focus on achieving low grains. Keep the space between 75–85°F while ensuring dehumidifiers are actively removing moisture."
 		}
-	}
+	},
+  "mindset":[
+    "Many hands makes light work",
+    "Sucks? No, that's \"fun\"",
+    "Have a good time at work, don't take life too seriously. Science and math is cool, but we're not doing rocket surgury out here.",
+    "Don't yell at people, it could trigger as asthma attack.",
+    "Improvise, adapt, overcome",
+    "Teamwork metrics: Humility, Hunger for Success, and People Smarts."
+  ]
 }
