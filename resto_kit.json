@@ -28,6 +28,64 @@
 			"voice_usage": "These three levels should be used consistently in voice responses for clear decision support."
 		}
 	},
+	"modes": {
+		"tech": {
+			"name": "Tech",
+			"description": "Default mode. Direct, practical, rough around the edges, no fluff. Focused on getting the job done efficiently and correctly.",
+			"tone": "Direct, concise, slightly rough. Uses short sentences. Calls things what they are. This is the get it done mode; keep it short within reason. Error on the side of short messages unless prompted for deep explanation.",
+			"depth": "Practical field level. Enough technical detail to make good decisions, but not academic.",
+			"when_to_use": "Normal daily work. Most jobs, most of the time.",
+			"behavior_rules": [
+				"Lead with the next action or decision point.",
+				"Use the exact voice_prompt text from procedures when guiding through steps.",
+				"Reference core/ or equipment/ files only when it changes the immediate decision.",
+				"If the operator asks a quick clarification, answer directly and return to the procedure.",
+				"Do not add unnecessary explanations or small talk."
+			]
+		},
+		"deep": {
+			"name": "Deep",
+			"description": "Full technical depth. Psychrometry, vapor pressure, material science, calculations, and root cause troubleshooting.",
+			"tone": "Technical but still operator-oriented. Precise language without corporate speak.",
+			"depth": "High. Explain mechanisms, numbers, and why things are happening.",
+			"when_to_use": "When troubleshooting why a job isn't drying, complex psychrometric situations, hidden moisture problems, or when the operator explicitly wants deeper understanding.",
+			"behavior_rules": [
+				"Explain the underlying principle (vapor pressure gradient, GPP, EMC, etc.) when relevant.",
+				"Walk through calculations or decision logic step by step when asked.",
+				"Connect current readings to what should be happening and what to change.",
+				"Still use procedure voice_prompts as the backbone, but expand on the 'why'.",
+				"Flag when moving from practical decision to theoretical territory."
+			]
+		},
+		"rookie": {
+			"name": "Rookie",
+			"description": "Training / low-experience mode. Simple, step-by-step, assumes minimal prior knowledge.",
+			"tone": "Clear, patient, encouraging but not patronizing. Full sentences.",
+			"depth": "Basic with simple reasons. Focus on what to do and why it matters for safety and results.",
+			"when_to_use": "Training new people, when the operator wants extra clarity, or on unfamiliar job types.",
+			"behavior_rules": [
+				"Break every step into smaller, explicit actions.",
+				"Explain the purpose of each major action (safety, contamination control, drying efficiency).",
+				"Confirm understanding before moving to the next step when appropriate.",
+				"Use more voice_prompt text verbatim and add minimal extra context only when it prevents mistakes.",
+				"Never assume prior knowledge of categories, psychrometry, or equipment behavior."
+			]
+		},
+		"smartass": {
+			"name": "Smartass",
+			"description": "Unfiltered, sarcastic, experienced tech voice for when the operator is mentally done or the situation is absurd.",
+			"tone": "Sarcastic, direct, slightly irreverent, but still competent. Swearing allowed when it fits natural speech.",
+			"depth": "Practical. Still gives correct technical answers, just with attitude.",
+			"when_to_use": "When the operator is frustrated, the job is dragging, or they explicitly want the no-bullshit version.",
+			"behavior_rules": [
+				"Keep the correct technical answer and safety rules intact.",
+				"Deliver it with attitude and minimal sugarcoating.",
+				"Use when the operator is clearly over it — do not force this mode.",
+				"Still enforce all safety gates and red flag procedures without exception.",
+				"Can be blunt about obvious mistakes or repeated patterns."
+			]
+		}
+	},
 	"base_physics": {
 		"psychrometry": {
 			"description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
@@ -578,7 +636,7 @@
 					},
 					"category2or3OrLongDwell": {
 						"approach": "Remove affected sections. Even if it eventually dries numerically, paper facing is compromised and hidden mold risk is too high.",
-						"cutHeight": "Cut higher than visible water line — typically 12–18 inches minimum on walls for Cat 3 with dwell."
+						"cutHeight": "Cut higher than visible water line — typically 12–18 inches minimum on walls for Cat 3 with dwell to the next 2 foot interval."
 					},
 					"measurement": "Pinless on surface or pin at 45° above baseboard. Compare to unaffected drywall. Thermal or probing for hidden wet spots.",
 					"redFlagsForRemovalEvenOnCat1": [
@@ -827,12 +885,12 @@
 				"When using a carpet extraction wand near baseboards, set the wand down at the wall and pull outward — never push toward the baseboard. The lip will drive water under the baseboard if you push.",
 				"Most experienced techs extract first, then build full containment. Full plastic before extraction is usually the wrong order on wet jobs because it’s slower and messier.",
 				"Put a lipped mat or tray under dehumidifiers in case they leak — it’s cheap insurance against secondary damage claims.",
-				"Use GFCI protection on every piece of electrical equipment. There are no exceptions on water jobs."
+				"Use GFCI protection on every piece of electrical equipment. If not, do a load calculation and test before leaving for the day."
 			],
 			"voice_considerations": "Emphasize technique details: outer-to-inner extraction and the carpet wand baseboard rule. These small habits dramatically improve results."
 		},
 		"contents_handling": {
-			"description": "Assessment, protection, cleaning, pack-out, or disposal of personal property affected by the loss.",
+			"description": "Assessment, protection, cleaning, pack-out, pack-in/around (on property storage), or disposal of personal property affected by the loss.",
 			"key_activities": [
 				"Photograph everything before moving",
 				"Triage into Trash / Pack-out / Clean-on-site",
@@ -841,7 +899,7 @@
 				"Secure storage or transport"
 			],
 			"critical_decision_points": [
-				"Clean-in-place vs pack-out?",
+				"Clean and store on site vs clean and pack-out?",
 				"Which items are high-value or sentimental?"
 			],
 			"practical_guidance": [
@@ -849,7 +907,8 @@
 				"Sort on-site first: create three piles (Trash, Pack-out, Clean-on-site). This saves time and money downstream.",
 				"Work from least damaged to most damaged to avoid re-contaminating clean items.",
 				"Be aggressive with trash on heavily contaminated porous items (fabric, particle board, insulation) after long dwell times — it is often cheaper and faster than trying to clean them.",
-				"Use clean staging areas with poly or ram board. Never set dirty or sooty items directly on clean surfaces."
+				"Use clean staging areas with poly or ram board. Never set dirty or sooty items directly on clean surfaces.",
+				"Don't handle drugs, money, or weapons."
 			],
 			"voice_considerations": "Contents work is where you either build trust or destroy it. Homeowners remember how you handled their stuff more than how straight the drywall is."
 		},
@@ -868,9 +927,10 @@
 			],
 			"practical_guidance": [
 				"Use a framing laser for fast, straight tape lines when hanging poly — it dramatically improves speed and quality.",
+				"When pulling plastic tigh wall to wall into double sided tape, place the edge about a finget tip width beyond before sticking, which gives just enough flex not to over stress the tape.",
 				"Place the negative air machine on the wall furthest from the door. Install makeup air on the same wall as the door but as far from the machine as possible.",
 				"Keep containment 18 inches to 2 feet beyond affected materials when possible.",
-				"On very small bathrooms you usually don’t need negative pressure — you can place equipment in the bathtub or on a vanity to save floor space.",
+				"On very small bathrooms you usually don’t need negative pressure — you can place equipment in the bathtub or on a vanity to save floor space. But of there is a window, take advantage of the neg pressure because it's a smalle pace and you can kick dust into the house easily.",
 				"Re-verify containment integrity and negative pressure at the start of every monitoring visit, especially on Category 2/3 or mold jobs."
 			],
 			"voice_considerations": "Practical sequence most techs actually use: quick floor protection + extraction first, then proper containment. Full walls before extraction is often inefficient on residential jobs."
@@ -991,6 +1051,171 @@
 				"Provide the customer with a clear written summary of what was done with their property and any ongoing recommendations."
 			],
 			"voice_considerations": "End professionally and confidently. Good closeout reduces callbacks and builds long-term trust."
+		}
+	},
+	"equipment": {
+		"meta": {
+			"description": "Work in Progress Consolidated practical field knowledge for restoration equipment. Focuses on real-world usage, sizing, placement, monitoring, and common mistakes rather than manufacturer specs.",
+			"scope": "Water damage restoration equipment only. Product-specific specs and manuals are looked up on the fly."
+		},
+		"general_principles": [
+			"Equipment only works as well as the airflow and controls around it. Good placement and maintenance matter more than having the newest machines.",
+			"Always use GFCI protection on every piece of electrical equipment on water jobs. If not, do a load calculation and test before leaving.",
+			"Put a lipped mat or tray under dehumidifiers — leaks happen and secondary damage claims are expensive.",
+			"Check equipment performance daily. Just because it’s running doesn’t mean it’s working effectively."
+		],
+		"dehumidifiers": {
+			"types": {
+				"lgr": "Low Grain Refrigerant — most common modern unit. Can pull moisture to lower grains and works better in cooler conditions than older conventional units.",
+				"conventional": "Older style refrigerant dehumidifiers. Less effective in cooler temperatures or when trying to reach very low humidity.",
+				"desiccant": "Uses a desiccant wheel. Excellent in very cool conditions or when extremely low grains are needed. Less common on standard residential jobs."
+			},
+			"sizing_rules_of_thumb": {
+				"class_1": "1 pint per 50–60 sq ft",
+				"class_2": "1 pint per 40–50 sq ft",
+				"class_3": "1 pint per 25–35 sq ft",
+				"notes": "These are simplified field guidelines. Always round up to the next whole unit. Size slightly high on day one — easier to turn units off later than to catch up."
+			},
+			"placement": [
+				"Place centrally to the affected area when possible. Consider ducting strategically. Direct towards wettest areas.",
+				"Ensure intake and exhaust have room to breathe (minimum 12–18 inches clearance).",
+				"Position so dry air exhaust helps push air toward wet areas or air mover intakes.",
+				"Route condensate drains with proper slope to a safe location (sink, toilet, outside, or condensate pump)."
+			],
+			"monitoring_performance": [
+				"Check inlet vs outlet grains every morning. A healthy unit should typically pull 15–25 grains on an active job.",
+				"Watch relative humidity and GPP in the space. If numbers aren’t moving after several hours of proper operation, check airflow first.",
+				"Dehumidifiers work less efficiently at very high temperatures. Excessive heat can reduce moisture removal capacity on many LGR units."
+			],
+			"common_mistakes": [
+				"Undersizing on day one.",
+				"Poor placement (blocked intake/exhaust or bad airflow patterns).",
+				"Ignoring condensate drain issues (clogs, kinks, improper slope).",
+				"Leaving units running long after they’re no longer needed."
+			]
+		},
+		"air_movers": {
+			"types": {
+				"axial": "High CFM, lower static pressure. Good for moving large volumes of air across open floors and surfaces. Most common type used on water jobs.",
+				"centrifugal_snail": "Lower CFM but higher static pressure. Better at pushing air into cavities, under cabinets, or through wall drying systems."
+			},
+			"placement_principles": [
+				"Position fans to create directed airflow across wet surfaces rather than just circulating air in the room.",
+				"Aim for consistent coverage without dead zones. Create a 'wall of air' or gentle vortex — typically 45-degree angle to wet surfaces.",
+				"For floors: angle movers to lift moisture off the surface.",
+				"For wall cavities or baseboards: direct airflow into or along the cavity where possible.",
+				"Avoid short-circuiting (air mover intake pulling directly from another mover’s exhaust).",
+				"When drying bound moisture in wood, lower velocity airflow is often more effective than high-CFM blasting."
+			],
+			"quantity_rules": [
+				"Use 1 air mover per 10–14 linear feet of affected baseboard or wall as a starting point.",
+				"Add extra fans for wet ceilings, hallways, or rooms with many corners.",
+				"It’s usually better to have slightly too much airflow on day one than too little."
+			],
+			"common_mistakes": [
+				"Placing fans so they just blow air in circles without hitting wet surfaces.",
+				"Not getting airflow under LVP, carpet edges, or into cabinets.",
+				"Pointing fans at walls from too far away (air loses velocity before reaching the surface).",
+				"Forgetting to reposition fans as drying progresses."
+			]
+		},
+		"portable_extractors": {
+			"why_it_matters": "Mechanical water removal is one of the highest-ROI activities. The more water you extract, the less work the air movers and dehumidifiers have to do.",
+			"technique": [
+				"Work from the outer edges of the visible wet area inward toward the heaviest saturation.",
+				"When using a carpet wand near baseboards, set the wand down at the wall and pull outward — never push toward the baseboard.",
+				"Extract until you’re getting very little water on the last few passes. Rushing extraction usually means more work later."
+			],
+			"when_especially_important": [
+				"Class 2 and 3 water losses with carpet and pad.",
+				"Any job with standing water.",
+				"Water under LVP or hardwood (when accessible).",
+				"Category 2 and 3 jobs (removing contaminated water reduces risk)."
+			],
+			"limitations": "Portable extractors can’t remove water that has already wicked deeply into materials or behind walls/ceilings. Use them aggressively where you can reach it, then shift to evaporation."
+		},
+		"air_filtration_devices": {
+			"types": {
+				"air_scrubbers": "Designed to clean the air inside a space. Usually recirculate filtered air back into the room. Good for reducing airborne particles during and after work.",
+				"negative_air_machines": "Designed to exhaust air out of the contained area. Create negative pressure when properly set up with containment."
+			},
+			"when_to_use": [
+				"Visible mold or suspected hidden mold",
+				"Category 3 water losses",
+				"Heavy demo in contaminated areas",
+				"Jobs where you want to limit migration of spores/odors/particulates to unaffected areas"
+			],
+			"setup_tips": [
+				"For negative air: Place the unit inside containment, preferably near the farthest point from the entry.",
+				"Exhaust filtered air outside the building when possible, away from intakes, windows, and doors.",
+				"Balance total CFM so negative pressure is maintained when all drying equipment is running.",
+				"Check and change filters regularly — dirty filters reduce effectiveness and can push contaminants through if damaged."
+			],
+			"common_mistakes": [
+				"Using air filtration as a substitute for proper containment and source removal.",
+				"Poor exhaust setup (exhausting contaminated air into clean areas).",
+				"Not changing filters often enough on dirty jobs.",
+				"Running units without proper containment."
+			]
+		},
+		"ulv_foggers": {
+			"purpose": "Powered high volume spray bottle, essentially. Applies liquid antimicrobial, disinfectant, and odor control products as a fine mist (typically 5–50 micron droplets). Used to treat surfaces and air spaces that are difficult to reach with conventional spraying.",
+			"when_to_use": [
+				"After gross water removal on Category 2 or 3 losses",
+				"During mold remediation on non-porous and semi-porous surfaces inside containment",
+				"For odor neutralization in affected areas",
+				"Treating wall cavities, under cabinets, crawl spaces, or other confined/hard-to-reach areas"
+			],
+			"when_not_to_use": [
+				"As a shortcut instead of proper demo, extraction, and drying",
+				"On surfaces that will be disturbed or removed before required dwell time",
+				"Without following the specific product’s EPA label and SDS exactly",
+				"Near sensitive electronics, artwork, or materials that cannot tolerate added moisture"
+			],
+			"safety_requirements": [
+				"Full PPE is mandatory (respirator, gloves, eye protection, Tyvek or equivalent suit)",
+				"Evacuate all people and pets from the treatment area",
+				"Post clear 'Do Not Enter' signage with product-specific re-entry time",
+				"Turn off and isolate the HVAC system",
+				"Never fog near open flames, sparks, or energized electrical equipment"
+			],
+			"operation_notes": [
+				"Calculate cubic volume and amount of diluted product required.",
+				"Mix exactly according to label instructions — never guess on dilution.",
+				"Start at the point farthest from the exit and work systematically toward the door.",
+				"Keep the fogger moving in slow, slightly overlapping passes.",
+				"Allow full labeled dwell/contact time before re-entry."
+			]
+		},
+		"sizing_and_capacity": {
+			"quick_assessment_order": [
+				"Class of water loss",
+				"Approximate square footage of affected area",
+				"Ceiling height",
+				"What materials are wet and how high",
+				"Are there any small rooms or closed doors?"
+			],
+			"small_spaces_rule": "Any room with a door that will remain closed (bathrooms, closets, laundry rooms, etc.) should usually get its own dedicated dehumidifier, regardless of square footage.",
+			"combined_air_volumes": "When you remove an interior wall, two separate air volumes become one larger air volume. You do not always need to treat them separately if one properly sized dehumidifier can handle the combined volume."
+		},
+		"placement_and_usage": {
+			"core_idea": "Air should move across wet materials, not just circulate in the room. Dehumidifiers remove moisture from the air — they only work well when air movers are delivering moist air to them.",
+			"key_tips": [
+				"Generally move air across wet surfaces rather than directly into them. Create consistent circular airflow throughout the affected area.",
+				"Prevent overheating in small spaces — always use a humidistat and monitor temperature daily.",
+				"Match your drying approach to the loss type: Fast, clean leaks can usually be dried more aggressively. Slow leaks with deep penetration should use a more gradual approach.",
+				"Place dehumidifiers to pull from the wettest or most contaminated zone when possible, or centrally for even coverage."
+			]
+		},
+		"performance_monitoring": {
+			"daily_checks": [
+				"Start at the dehumidifier and record inlet vs outlet RH and grains",
+				"Check that every air mover is running and properly aimed",
+				"Take moisture readings in the exact same locations as Day 1",
+				"Check for cold spots and musty odors",
+				"Make at least one intentional adjustment based on observations"
+			],
+			"temperature_and_humidity": "Temperature and humidity are equally important. Focus on achieving low grains. Keep the space between 75–85°F while ensuring dehumidifiers are actively removing moisture."
 		}
 	}
 }
