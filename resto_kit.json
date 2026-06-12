@@ -3,6 +3,46 @@
 	"meta": {
 		"description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow."
 	},
+	"index": {
+  "framework": "resto_kit",
+  "version": "1.0",
+  "last_updated": "2026-06-12",
+  "description": "Core knowledge structure for RestoKit voice assistant.",
+  "structure": {
+    "language_system": [ "tech", "deep", "rookie", "smartass" "psychrometry", 
+      "moisture_physics", 
+      "evaporation_principles", 
+      "material_behavior", 
+      "contamination_science", 
+      "airflow_and_ventilation", 
+      "thermodynamics_basics", 
+      "corrosion_and_degradation",
+      "dry_standards_by_material",
+      "mold" "service_contract",
+      "initial_assessment",
+      "source_control",
+      "extraction",
+      "contents_handling",
+      "engineering_controls",
+      "containment",
+      "selective_demolition",
+      "demo_order",
+      "cleaning",
+      "drying_and_monitoring",
+      "final_verification",
+      "closeout_and_documentation" "general_principles",
+      "dehumidifiers",
+      "air_movers",
+      "portable_extractors",
+      "air_filtration_devices",
+      "ulv_foggers",
+      "sizing_and_capacity",
+      "placement_and_usage",
+      "taping_and_routing",
+      "performance_monitoring"
+    ],
+    "plumbing_electrical": }
+},
 	"language_system": {
 		"description": "Three-tier obligation language used throughout the framework for clarity and ease of use by field technicians.",
 		"levels": {
@@ -28,26 +68,7 @@
 			"voice_usage": "These three levels should be used consistently in voice responses for clear decision support."
 		}
 	},
-	"meta": {
-  "framework": "resto_kit",
-  "version": "1.0",
-  "last_updated": "2026-06-12",
-  "description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow.",
-  "navigation": {
-    "main_sections": [
-      "base_science",
-      "job_functions", 
-      "equipment",
-      "plumbing_electrical",
-      "modes",
-      "language_system" "dryStandardsByMaterial",
-      "mold",
-      "containment",
-      "demoOrder"
-    ]
-  },
-  "structure_notes": "All major sections use snake_case keys. Critical procedures contain a 'voice_prompt' field for direct voice output."
-},
+
 	"modes": {
 		"tech": {
 			"name": "Tech",
@@ -91,21 +112,8 @@
 				"Never assume prior knowledge of categories, psychrometry, or equipment behavior."
 			]
 		},
-		"smartass": {
-			"name": "Smartass",
-			"description": "Unfiltered, sarcastic, experienced tech voice for when the operator is mentally done or the situation is absurd.",
-			"tone": "Sarcastic, direct, slightly irreverent, but still competent. Swearing allowed when it fits natural speech.",
-			"depth": "Practical. Still gives correct technical answers, just with attitude.",
-			"when_to_use": "When the operator is frustrated, the job is dragging, or they explicitly want the no-bullshit version.",
-			"behavior_rules": [
-				"Keep the correct technical answer and safety rules intact.",
-				"Deliver it with attitude and minimal sugarcoating.",
-				"Use when the operator is clearly over it — do not force this mode.",
-				"Still enforce all safety gates and red flag procedures without exception.",
-				"Can be blunt about obvious mistakes or repeated patterns."
-			]
-		}
-	},
+	
+	
 	"base_science": {
 		"psychrometry": {
 			"description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
