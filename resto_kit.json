@@ -1003,6 +1003,46 @@
 			],
 			"voice_considerations": "Practical sequence most techs actually use: quick floor protection + extraction first, then proper containment. Full walls before extraction is often inefficient on residential jobs."
 		},
+		"containment": {
+    "coreMindset": "Always take the opportunity to build plastic. It’s a billable item that’s cheap for the customer, saves equipment runtime, and shows you’re being proactive and professional on the job. Reducing air volume is one of the highest-ROI moves you can make.",
+    "whenToUse": {
+      "always": "On every job, regardless of category — even clean Category 1",
+      "airVolume": "Anytime you can reduce air volume to make equipment more effective",
+      "demo": "Before any demolition or dust-creating work",
+      "isolation": "To isolate the affected area instead of conditioning the whole house"
+    },
+    "recommendedSequence": [
+      "Lay floor protection immediately upon arrival",
+      "Perform bulk extraction first",
+      "Build plastic to isolate the affected area",
+      "Set up full containment and negative pressure if required for contamination control",
+      "Isolate HVAC registers and returns" "Marking layout first: After deciding where you want containment, use double-sided tape to mark out exactly where the plastic is going. This way everything is ready once you cut your plastic.",
+      "Tape application technique: Hold the roll in one hand and pull out a long strip with the other. Stick just the end on the edge where you want to straddle, then pull and lay the whole strip down at once. Smooth it over, then pull out the next long section. Scoot across the floor on your knees — it’s fast once you get the rhythm. This technique works for both blue tape and double-sided tape.",
+      "Double-sided tape ripping technique: While ripping double-sided tape, give it a quick jerking back-and-forth motion. This makes the outer release liner much easier to peel off later.",
+      "Cutting plastic: Cut the plastic off the roll first before hanging. Consider using scissors instead of a knife when working near expensive finished surfaces.",
+      "Plastic orientation tip: The clean factory-cut edge of the 10-foot side can be placed right along the edge of the double-sided tape as you hang it.",
+      "Extra material: Give yourself an extra foot or more where the plastic meets the wall. Having a little extra is much cheaper and better than coming up short and having to patch it.",
+      "Practical hanging method: Use 10-foot wide plastic, oriented vertically. Pull out the length you need, get on a ladder, attach it across the ceiling to double-sided tape first, then work your way down the sides and bottom.",
+      "Side attachment technique: When attaching plastic to the sides, work back and forth — go a few feet down the left side, then switch to the right side, then back to the left, alternating sides as you work your way down. This keeps the plastic tight and even.",
+      "On particularly dirty Category 2 and definitely on Category 3 jobs, apply a second layer of blue tape along the seam where the plastic meets the double-sided tape on the wall.",
+      "Use ZipWall poles to support the plastic — especially useful on popcorn ceilings or when the plastic is heavy. Start your first corner with a ZipWall pole if needed.",
+      "Running negative pressure? You’ll need more poles. The smaller the room, the more poles per foot you need to keep the plastic tight and prevent it from sucking in.",
+      "When pulling plastic wall-to-wall into double-sided tape, leave about a fingertip width of extra material before sticking it — this gives just enough flex so you don’t overstress the tape.",
+      "Negative air return filter installation: Use the same size filter as your negative air machine. Tape it securely from the outside of the containment with airflow pointing inward. Then go inside and cut the plastic on the right, left, and bottom edges to create an inward-pulling flap.",
+      "Negative air transition: Once contaminants have been removed and cleaning is complete, switch the negative air machine to static/recirculation mode inside the room. This helps retain the warm, dry air inside the space."
+    ],
+    "zipperDoors": {
+      "singleZipper": "Place the zipper so the bottom sits right where the plastic meets the floor. Cut two 45-degree angles about 18 inches wide at the bottom (starting roughly 4 inches outside each side of the zipper) to create a flap with no trip hazard. Run the zipper up 2–4 feet, then add another set of 45-degree angles near the top, leaving 1–2 feet at the ceiling. This creates a wide C-shaped opening that’s easy to scoot equipment through.",
+      "doubleZipper": "Install two zippers 3–4 feet apart running straight up and down. Cut straight across the bottom between them. This creates a full-width door that can be rolled up, which is much better when moving furniture, dealing with accessibility, or frequently moving equipment in and out.",
+      "placementNote": "Place doorways in locations that are convenient for both workflow and the customer, if they need to move through the area."
+    },
+    "types": [
+      "Simple doorway/area isolation",
+      "Limited/spot containment",
+      "Full containment with negative pressure and airlock",
+      "Floor protection only"
+    ]
+  },
 		"selective_demolition": {
 			"description": "Controlled removal of materials that cannot be reliably dried or that present unacceptable risk if left in place. Selective demolition should be strategic and minimal — only remove what is necessary to allow proper drying or eliminate unacceptable risk.",
 			"key_activities": [
