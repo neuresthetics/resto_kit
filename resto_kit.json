@@ -1070,6 +1070,23 @@
 			],
 			"voice_considerations": "Emphasize strategic, minimal demolition rather than aggressive removal. Over-demoing increases cost and time. Under-demoing on contaminated jobs creates bigger problems later. Focus on 'assess before you cut' and protecting what stays."
 		},
+		"demoOrder": {
+    "name": "Demo Order – Top Down, Outside In",
+    "description": "Standard physical removal sequence for any room. consider working top-down and outside-in.",
+    "steps": [
+      "1. Remove all trim — door casing, window trim, baseboards, quarter round, and cove molding. Pull all protruding nails.",
+      "2. Remove outlet and switch covers, light fixtures, and any wall-mounted heaters.",
+      "3. Remove all wall-mounted fixtures and accessories — mirrors, towel bars, toilet paper holders, soap dishes, grab bars, etc.",
+      "4. Sink & Toilet Decision: Shut off water supplies. For sinks: disconnect water lines and drain, then install compression caps on the lines. For toilets: shut off water, flush to empty the tank, disconnect supply line, and plug the drain with a drain plug.",
+      "5. Cabinet & Vanity Decision: Remove upper cabinets, lower cabinets, vanities, full-height cabinets, and countertops if affected material is behind or underneath them. Save undamaged cabinets and countertops for reinstallation.",
+      "6. Remove backsplash if present.",
+      "7. Appliance Decision: Disconnect electrical power and water lines as needed, then pull appliances — refrigerator, range, dishwasher, washing machine, dryer, water heater.",
+      "8. Tile & Tub Decision: Remove tile walls, tub surrounds, bathtubs, showers, or toilets if affected material is behind or underneath.",
+      "9. Cut and remove wall and ceiling material — drywall, plaster, or tile wall — then pull all nails and screws from studs and ceiling joists.",
+      "10. Pull wet insulation.",
+      "11. Flooring Decision: Remove flooring (carpet, pad, tack strip, laminate, vinyl, hardwood, tile, underlayment, or glue-down carpet) when appropriate."
+    ]
+  },
 		"cleaning": {
 			"description": "Foundational cleaning and sanitization after demolition (and as needed during the job) to remove dust, debris, and contaminants before drying begins. This step is critical for air quality, preventing callbacks, and preparing surfaces for drying equipment. It may seem tedious, to think about it as procedural steps. Instead, think of it more like baking than rocket science, and know you can adjust accordingly. These steps are designed to minimize strain, effort and repetition while maximizing product quality. A suggestion, not a rule.",
 			"key_activities": [
