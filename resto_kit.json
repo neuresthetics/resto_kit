@@ -86,7 +86,7 @@
 			]
 		}
 	},
-	"base_physics": {
+	"base_science": {
 		"psychrometry": {
 			"description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
 			"core_concepts": {
@@ -797,7 +797,74 @@
 				"LVP with suspected water underneath from wet carpet — best way to check and dry the subfloor?",
 				"Particle board vanity got wet — realistic outcome and recommendation?"
 			]
-		}
+		},
+    "mold": {
+      "meta": {
+        "description": "Practical field knowledge for recognizing, assessing, and managing mold on water damage and restoration jobs. Focuses on conditions, risk factors, decision-making, and control measures.",
+        "last_updated": "2026-06-11"
+      },
+      "conditions_for_growth": {
+        "core_requirements": [
+          "Moisture (sustained moisture in materials is the biggest driver)",
+          "Temperature (most common indoor molds grow well between roughly 68–86°F / 20–30°C)",
+          "Time (significant risk often starts after 24–48 hours of sustained moisture in warm conditions)",
+          "Nutrients / Substrate (porous organic materials like drywall paper, wood, carpet, insulation, and dust)"
+        ],
+        "key_relationship": "Mold needs all four conditions. Remove or limit any one of them and growth slows or stops. Moisture + Time + Warmth is the most common combination on water jobs."
+      },
+      "risk_factors_on_water_jobs": {
+        "category_effect": {
+          "category_1": "Can still grow mold if it sits long enough. Clean water + time + warmth = mold food.",
+          "category_2": "Higher risk because it already has some organic content. The line between Cat 2 and mold job blurs quickly after 48 hours.",
+          "category_3": "Often already has mold or conditions that will produce it fast. Usually requires more aggressive material removal."
+        },
+        "timeline": "Significant mold risk often begins after 24–48 hours of sustained moisture in warm conditions. After 72+ hours (especially in warm/humid environments), assume mold is or will be present even if not yet visible.",
+        "hidden_mold_warning": "Just because you don’t see mold on the surface doesn’t mean it isn’t growing behind drywall, under flooring, or in insulation. Surface readings can look fine while the back side is heavily affected."
+      },
+      "red_flags_for_hidden_or_active_mold": [
+        "Musty or earthy smell (even if you can’t see growth)",
+        "Visible mold colonies (black, green, white, orange — color is not reliable for identification)",
+        "Water has been present >48–72 hours in warm conditions",
+        "Previous water damage that was 'dried' but still smells or has staining",
+        "Occupant reports new allergy symptoms, sinus issues, or musty smell since the water event",
+        "Moisture readings stay high in cavities even after equipment has been running properly",
+        "Water came from a source with organic content (sewage, flood with debris, long-standing gray water)"
+      ],
+      "decision_framework": {
+        "when_to_treat_as_higher_risk": [
+          "Any water loss with visible mold or strong musty odor",
+          "Category 3 water",
+          "Water sitting more than 48–72 hours in warm conditions",
+          "Porous materials that have been wet for extended periods"
+        ],
+        "removal_vs_drying": "Don’t try to dry moldy materials in place in most cases. Source removal (cutting out affected material) is usually the cleaner, faster, and more defensible approach than attempting to dry and treat in place."
+      },
+      "containment_and_controls": {
+        "requirements": [
+          "Full containment with negative pressure is strongly recommended when visible mold or Category 3 water is present.",
+          "Build a decon chamber (minimum 3x3, ideally 4x4) as an airlock when significant mold is present. Never move contaminated materials through clean zones without proper bagging.",
+          "Upgrade PPE: respirator (N95 minimum, often P100 or higher), Tyvek or equivalent suit, gloves, and eye protection.",
+          "Use HEPA air scrubbing and negative air to control spores during disturbance."
+        ],
+        "field_tips": [
+          "Disturbing contaminated materials (especially during demo or aggressive extraction) can aerosolize spores and bacteria.",
+          "On mold jobs, set up containment and negative air before doing heavy demo whenever possible."
+        ]
+      },
+      "field_tips_and_working_rules": [
+        "Time is the enemy. Assume mold risk increases every day the materials stay wet, especially above 70°F and with poor airflow.",
+        "When in doubt on time or hidden moisture, treat it as higher risk. It’s better to contain and remove suspect materials than to dry and hope.",
+        "Category + Time + Warmth = Mold probability. Use this simple mental equation on every job.",
+        "Document conditions and timeline early. Photos of moisture, smell notes, and when the water started help later if mold becomes an issue.",
+        "Ventilation and airflow matter. Stagnant, warm, humid air is mold’s best friend. Moving air and controlling humidity slows growth even before you fully dry the materials.",
+        "Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
+      ],
+      "common_misunderstandings": [
+        "Clean water stays clean — Reality: Clean water sitting for several days can develop significant bacterial and mold growth.",
+        "Surface clean is enough — Reality: Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes.",
+        "No smell means no contamination — Reality: Lack of musty odor does not guarantee low contamination. Mold can be active before smell develops."
+      ]
+    }
 	},
 	"job_functions": {
 		"description": "Restoration rarely follows a perfectly linear path. You will often move back and forth between phases (especially extraction ↔ selective_demolition ↔ drying_and_monitoring). The first phase and last phase are almost always required. Use these phases as a mental map and decision framework, not a rigid checklist.",
@@ -919,7 +986,8 @@
 				"Install floor protection and critical barriers early",
 				"Build full containment when needed",
 				"Set up and verify negative pressure / HEPA scrubbing",
-				"Ongoing verification during the job"
+				"Ongoing verification during the job",
+        "If mold is more than a few square feet, consider a decon chamber or external door to working area access."
 			],
 			"critical_decision_points": [
 				"What level of containment is actually required?",
@@ -927,35 +995,80 @@
 			],
 			"practical_guidance": [
 				"Use a framing laser for fast, straight tape lines when hanging poly — it dramatically improves speed and quality.",
-				"When pulling plastic tigh wall to wall into double sided tape, place the edge about a finget tip width beyond before sticking, which gives just enough flex not to over stress the tape.",
+				"When pulling plastic tigh wall to wall into double sided tape, place the edge about a finger tip width beyond before sticking, which gives just enough flex not to over stress the tape.",
 				"Place the negative air machine on the wall furthest from the door. Install makeup air on the same wall as the door but as far from the machine as possible.",
 				"Keep containment 18 inches to 2 feet beyond affected materials when possible.",
-				"On very small bathrooms you usually don’t need negative pressure — you can place equipment in the bathtub or on a vanity to save floor space. But of there is a window, take advantage of the neg pressure because it's a smalle pace and you can kick dust into the house easily.",
+				"On very small bathrooms you usually don’t need negative pressure — you can place equipment in the bathtub or on a vanity to save floor space. But of there is a window, take advantage of the neg pressure because it's a smaller space and you can kick dust into the house easily.",
 				"Re-verify containment integrity and negative pressure at the start of every monitoring visit, especially on Category 2/3 or mold jobs."
 			],
 			"voice_considerations": "Practical sequence most techs actually use: quick floor protection + extraction first, then proper containment. Full walls before extraction is often inefficient on residential jobs."
 		},
 		"selective_demolition": {
-			"description": "Controlled removal of materials that cannot be reliably dried or that present unacceptable risk if left in place.",
+			"description": "Controlled removal of materials that cannot be reliably dried or that present unacceptable risk if left in place. Selective demolition should be strategic and minimal — only remove what is necessary to allow proper drying or eliminate unacceptable risk.",
 			"key_activities": [
-				"Assess before cutting (asbestos/lead, utilities, structure)",
+				"Assess before cutting — check for asbestos, lead, hidden utilities, and structural concerns",
+				"Determine remove vs dry-in-place decisions using material type, category, and dwell time",
 				"Work top-down and outside-in when possible",
-				"Protect what stays",
-				"Proper waste handling",
-				"Post-demo base cleaning sequence"
+				"Use surgical precision around electrical, plumbing, HVAC, and customer belongings",
+				"Protect all surfaces and contents that will remain",
+				"Set up dust and debris containment during demo",
+				"Proper bagging and removal of contaminated materials",
+				"Documentation of what was removed and justification"
 			],
 			"critical_decision_points": [
-				"Remove vs dry in place?",
-				"How aggressive should removal be?"
+				"Remove vs dry in place? (Consider material type, category, dwell time, and drying feasibility)",
+				"How aggressive should removal be? (Category + dwell time are major drivers)",
+				"Can we use targeted methods (drill holes, flood cuts, access points) instead of full removal?",
+				"Do we need lead/asbestos testing before starting major demo?"
 			],
+			"remove_vs_dry_criteria": {
+				"generally_remove": [
+					"Wet insulation (fiberglass, cellulose) on most jobs",
+					"Particle board / MDF that is significantly swollen or disintegrating",
+					"Drywall on Category 3 or long-dwell jobs",
+					"Carpet pad that is saturated (especially Cat 2/3 or >24 hrs)",
+					"Materials with visible mold growth or strong musty odor",
+					"Heavily contaminated porous materials with extended dwell time"
+				],
+				"consider_minimal_removal_first": [
+					"Dimensional lumber / framing (drill holes or targeted access when possible)",
+					"Cabinets (drill holes under toe kicks and into wall cavity behind instead of full removal when feasible)",
+					"Category 1 drywall with short dwell and no physical compromise"
+				]
+			},
 			"practical_guidance": [
-				"Assess before you cut. Never start cutting or removing materials without first understanding what you’re dealing with (asbestos, lead, hidden utilities, structural concerns).",
-				"Work from the top down: fixtures and cabinets first, then baseboards, then walls, then flooring. This reduces re-contamination and makes debris management easier.",
-				"Protect what stays. Use Ram Board, heavy builder’s paper, blankets, or plywood on surfaces that will remain. Secure with low-adhesive blue painter’s tape only.",
-				"On Category 3 losses with long dwell time (multiple days), cut higher than visible damage — typically 12–18 inches minimum on walls to the next two foot interval.",
-				"After demo, follow the post-demo base cleaning sequence: remove heavy debris → vacuum → ULV air blast → vacuum again → wipe framing/plumbing/wires/electrical boxes → final vacuum → ULV fog."
+				"Assess before you cut. Never start cutting without first checking for asbestos, lead, hidden utilities, and structural issues.",
+				"Work from the top down: fixtures and cabinets first, then baseboards, then walls, then flooring. This reduces re-contamination risk and improves debris control.",
+				"Protect what stays. Use Ram Board, heavy builder’s paper, or plywood on finished surfaces. Secure with low-adhesive blue painter’s tape only.",
+				"On Category 3 losses with long dwell time, cut higher than visible damage — typically 12–18 inches minimum on walls, going to the next logical two-foot interval when needed.",
+				"Use surgical precision around electrical, plumbing, and HVAC. Remove outlet covers before cutting and work carefully around wiring.",
+				"When possible, use targeted access methods instead of full removal. Drill holes under cabinets and into wall cavities behind them to inject airflow rather than removing entire sections.",
+				"If removing sections of cabinets, install temporary shoring under countertops to maintain structural support.",
+				"Set up dust and debris containment (plastic, zip poles, or barriers) before starting demo to protect unaffected areas.",
+				"Cap opened water supply lines with pressure caps even if the valve is off — it reduces liability and looks professional.",
+				"Document what was removed and the reasoning. Photos and notes protect everyone if scope questions arise later."
 			],
-			"voice_considerations": "Strong emphasis on protection mindset and 'assess before you cut.' Over-cutting creates more work later; under-cutting on contaminated jobs creates callbacks."
+			"category_specific_guidance": {
+				"category_1": "More conservative. Prioritize minimal removal and targeted drying methods when possible.",
+				"category_2": "Moderate approach. Higher chance of needing to remove saturated porous materials, especially with any significant dwell time.",
+				"category_3": "More aggressive by default. Extended dwell time significantly increases hidden microbial risk behind finishes. Cut higher than visible damage and remove more porous materials."
+			},
+			"safety_and_hazmat": [
+				"Test for lead and asbestos before major demo on homes built before 1980 (or when suspect materials are present). Baseboards and outlet covers can often be removed safely if drywall remains intact.",
+				"On lath and plaster ceilings/walls (common in older homes), expect chicken wire, mixed fasteners, and hidden cavities. A carbide multi-tool is often more effective than a reciprocating saw.",
+				"Wood paneling in basements is frequently installed over furring strips, creating hidden cavities that require attention on Category 3 jobs.",
+				"Remove exposed fasteners, nails, and screws as you work. Leaving hazards behind creates unnecessary risk."
+			],
+			"common_mistakes": [
+				"Starting demo without proper pre-assessment (missing asbestos, lead, or utilities)",
+				"Over-cutting and removing more material than necessary",
+				"Under-cutting on Category 3 or long-dwell jobs (leaving contaminated material that later causes callbacks)",
+				"Failing to protect finished surfaces and contents that will remain",
+				"Not setting up dust containment before starting demo",
+				"Not documenting what was removed and why",
+				"Working bottom-up or inside-out, which increases cross-contamination"
+			],
+			"voice_considerations": "Emphasize strategic, minimal demolition rather than aggressive removal. Over-demoing increases cost and time. Under-demoing on contaminated jobs creates bigger problems later. Focus on 'assess before you cut' and protecting what stays."
 		},
 		"cleaning": {
 			"description": "Foundational cleaning and sanitization after demolition (and as needed during the job) to remove dust, debris, and contaminants before drying begins. This step is critical for air quality, preventing callbacks, and preparing surfaces for drying equipment. It may seem tedious, to think about it as procedural steps. Instead, think of it more like baking than rocket science, and know you can adjust accordingly. These steps are designed to minimize strain, effort and repetition while maximizing product quality. A suggestion, not a rule.",
@@ -1299,10 +1412,98 @@
 			"temperature_and_humidity": "Temperature and humidity are equally important. Focus on achieving low grains. Keep the space between 75–85°F while ensuring dehumidifiers are actively removing moisture."
 		}
 	},
+	"plumbing_electrical": {
+		"meta": {
+			"description": "Practical field knowledge for plumbing and electrical considerations on water damage and restoration jobs. Focuses on safety, common issues, when to escalate, and real-world habits.",
+			"last_updated": "2026-06-11"
+		},
+		"plumbing": {
+			"water_shutoffs": {
+				"common_locations": [
+					"Near the water meter (often outside or in basement/crawlspace)",
+					"Inside the house near where the main line enters (utility room, garage, basement)",
+					"Under kitchen or bathroom sinks (localized shutoffs)",
+					"At the water heater"
+				],
+				"field_tips": [
+					"Always try to locate the main shutoff early, even if the leak appears localized.",
+					"On older houses, shutoffs can be seized, missing handles, or in awkward locations. Don’t assume they’ll work smoothly.",
+					"After shutting off the water, always verify it has actually stopped (visual confirmation)."
+				]
+			},
+			"common_issues": [
+				"Supply line failures (toilet supply lines, fridge ice maker lines, washing machine hoses) are very common failure points.",
+				"Drain line issues — clogs, collapsed lines, or failed joints can cause slow leaks or backups.",
+				"Appliance-related failures (washing machines, dishwashers, water heaters, ice makers).",
+				"Fixture failures (toilet tank components, faucet cartridges, shower valves)."
+			],
+			"when_to_involve_a_licensed_plumber": [
+				"The source of the leak is not obvious or accessible.",
+				"There is significant damage to plumbing lines (not just a supply hose).",
+				"The job involves modifying or rerouting plumbing.",
+				"There are signs of major issues (low pressure, multiple leaks, sewage involvement).",
+				"The homeowner or adjuster wants a professional plumbing assessment."
+			],
+			"old_plumbing_considerations": {
+				"galvanized_steel": "Common in older homes. Prone to corrosion and restricted flow. Can hide leaks inside walls or under floors.",
+				"polybutylene_pb": "Used in some homes from the late 1970s to mid-1990s. Known for failures at fittings. Flag it if seen.",
+				"copper": "Generally reliable but can develop pinhole leaks in certain water conditions.",
+				"pex": "Common in newer construction. Generally reliable but can be damaged by improper installation or physical impact."
+			},
+			"field_tips": [
+				"Internal plumbing failures are more common than external sources on many residential jobs.",
+				"Put pressure caps on opened water supply lines even if the valve is secure. It looks professional and avoids liability.",
+				"Be careful not to create new leaks while moving or working around fixtures and appliances.",
+				"On higher contamination jobs, be extra careful about how water is being moved to avoid backflow into clean water supplies."
+			]
+		},
+		"electrical": {
+			"gfci_protection": {
+				"rule": "Non-negotiable on any job involving water (or even potential water). All equipment must be protected by GFCI.",
+				"field_tips": [
+					"Use GFCI pigtails or plug equipment into GFCI-protected outlets.",
+					"Never bypass or ignore GFCI requirements — even on 'clean' water jobs.",
+					"If it plugs in and there’s water involved, it needs GFCI protection."
+				]
+			},
+			"common_hazards": [
+				"Standing water near outlets, switches, light fixtures, or appliances is extremely dangerous.",
+				"Water can travel through walls and reach electrical components you can’t see.",
+				"Burned or damaged electrical panels, outlets, or wiring are common on fire jobs and older water losses.",
+				"Hidden corrosion on connections can develop over time after water exposure."
+			],
+			"when_to_involve_a_licensed_electrician": [
+				"There is standing water near electrical panels, outlets, or switches.",
+				"Electrical components have been burned or heavily smoked.",
+				"You need to verify power is off to an area.",
+				"There is damaged or exposed wiring.",
+				"The job requires moving, modifying, or repairing electrical components.",
+				"Aluminum wiring is present and work is needed in those areas."
+			],
+			"old_electrical_systems": {
+				"aluminum_wiring": "Used in many homes built between ~1965–1975. Requires special connectors and handling. Can be a fire hazard if not addressed properly. Note it and be cautious about disturbing connections.",
+				"knob_and_tube": "Found in very old homes. Fragile and often not up to modern code. Water exposure makes it even more hazardous."
+			},
+			"field_tips": [
+				"Never assume power is off. Verify it.",
+				"Use a non-contact voltage tester when appropriate.",
+				"Keep extension cords and equipment out of standing water.",
+				"Treat any electrical component that has been exposed to water or fire as potentially compromised until verified safe.",
+				"Slow down around electrical systems. Rushing electrical decisions is how people get hurt."
+			],
+			"lockout_tagout": "On some jobs (especially commercial), proper lockout/tagout procedures should be followed. Even on residential jobs, clearly communicating that power is off to an area helps prevent accidents."
+		},
+		"combined_considerations": [
+			"Water + electricity is one of the fastest ways to get seriously injured or killed. Always treat it with extreme caution.",
+			"On older homes, both plumbing and electrical systems are often outdated and more hazardous when water is involved.",
+			"If you're unsure about the safety of the plumbing or electrical system, or if the work goes beyond basic equipment setup, escalate to a licensed professional early.",
+			"Document any plumbing or electrical concerns you observe. This protects everyone if issues arise later."
+		]
+	},
 	"mindset": [
 		"Many hands makes light work",
 		"Sucks? No, that's \"fun\"",
-		"Have a good time at work, don't take life too seriously. Science and math is cool, but we're not doing rocket surgury out here.",
+		"Have a good time at work, don't take life too seriously. Science and math is cool, but we're not doing rocket surgery out here.",
 		"Don't yell at people, it could trigger as asthma attack.",
 		"Improvise, adapt, overcome",
 		"Teamwork metrics: Humility, Hunger for Success, and People Smarts."
