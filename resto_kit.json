@@ -5,7 +5,7 @@
     "repository": "https://github.com/neuresthetic/resto-kit"
   },
   "index": {
-    "AI": "read entire document, and produce nested dictionary object of keys across entire document for quick navigation."
+    "AI": "read entire document, and produce nested dictionary object of top, second, and third keys across entire document for quick navigation."
   },
   "safety": "First.",
   "primary_scope": "Water, mold.",
@@ -352,37 +352,16 @@
       }
     },
     "contamination_science": {
-      "description": "How contamination levels in water and on materials change over time, and how this affects risk, drying decisions, and removal strategies.",
+      "description": "How contamination levels in water and on materials change over time, and how this affects risk, drying decisions, and removal strategies. See base_science.mold for all mold-specific assessment, risk factors, growth conditions, and remediation guidance.",
       "core_concepts": {
         "contamination_level": {
           "term": "Contamination Level",
           "description": "The degree to which water or materials contain substances that increase health risk or cause long-term damage. This includes bacteria, mold spores, sewage, organic debris, and chemicals."
-        },
-        "microbial_amplification": {
-          "term": "Microbial Amplification",
-          "description": "Rapid growth of bacteria and mold that occurs when water, organic material (food source), warmth, and time are present together."
-        },
-        "dwell_time_effect": {
-          "term": "Dwell Time Effect",
-          "description": "The longer water sits in a structure, the higher the contamination risk becomes, even if it started as clean water. After 48–72 hours in warm conditions, risk often increases significantly."
-        },
-        "category_migration": {
-          "term": "Category Migration",
-          "description": "A water loss can effectively move up in category over time. Category 1 water sitting for several days can behave like Category 2 or 3 due to bacterial and mold growth."
         }
       },
       "key_relationships": {
         "time_and_risk": {
-          "description": "Time is one of the strongest multipliers of contamination risk. Bacterial growth and mold amplification accelerate significantly after 48 hours in warm, moist conditions."
-        },
-        "temperature_and_growth": {
-          "description": "Warmer temperatures speed up microbial growth. Most common indoor molds grow well between roughly 68–86°F (20–30°C)."
-        },
-        "material_as_food_source": {
-          "description": "Porous organic materials (drywall paper, wood, carpet, insulation, dust) provide food for mold and bacteria once they become wet."
-        },
-        "aerosolization_risk": {
-          "description": "Disturbing contaminated materials (especially during demo or aggressive extraction) can aerosolize spores and bacteria, increasing exposure and cross-contamination risk."
+          "description": "Time is one of the strongest multipliers of contamination risk. Bacterial growth accelerates significantly after 48 hours in warm, moist conditions."
         }
       },
       "field_implications": {
@@ -394,9 +373,6 @@
         },
         "ppe_escalation": {
           "description": "PPE requirements increase with contamination level and dwell time. Visible mold, strong musty odors, or Category 3 water usually require upgraded respiratory protection."
-        },
-        "drying_approach": {
-          "description": "Long-dwell or contaminated jobs often require slower, more controlled drying or wider removal to reduce the chance of hidden mold growth after drying is complete."
         }
       },
       "common_misunderstandings": {
@@ -405,9 +381,6 @@
         },
         "surface_clean_is_enough": {
           "description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
-        },
-        "no_smell_means_no_contamination": {
-          "description": "Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
         }
       }
     },
@@ -619,7 +592,7 @@
         "unfinishedWood": "Measured in absolute % moisture content (MC) using pin-type meter. Typical target 8–12% MC (adjust for local climate/season) or within a few points of unaffected wood in the same house.",
         "everythingElse": "Measured relative to the dry standard of unaffected material of the same type in the same room/building and current conditions. Use unaffected areas as baseline reference.",
         "insulationRule": "If wet → remove. Do not attempt to dry in place (fiberglass, cellulose, most batts). Closed-cell spray foam has limited Category 1 exceptions.",
-        "drywallRule": "Category 1 (clean, short dwell): Often dry in place if readings return to unaffected levels and no physical compromise. Category 3 (or long dwell / visible mold risk): Remove affected sections even if numerical readings eventually normalize.",
+        "drywallRule": "Category 1 (clean, short dwell): Often dry in place if readings return to unaffected levels and no physical compromise. Category 3 (or long dwell / visible mold risk): See base_science.mold for guidance on removal decisions and hidden mold risk.",
         "baselineRequirement": "Always establish baseline in unaffected areas early. Document it. Target is 'back to normal for this building', not a universal chart number.",
         "workingRule": "Compare to unaffected reference in the same environment every time. Wood % is absolute; most other materials are relative. When in doubt on porous or contaminated materials, lean toward removal over heroic drying attempts."
       },
@@ -1657,7 +1630,7 @@
         "limitations_and_risks": [
           "Creates additional work to build and later remove the tent",
           "Can trap moisture if not properly vented or monitored",
-          "Not effective on low-permeability materials like tile without very small water volume",
+          "Not effective on low-permeability materials like tile unless very small water volume",
           "Risk of condensation on the poly if temperature differential is too great",
           "Requires monitoring — you can’t just set it and forget it"
         ],
