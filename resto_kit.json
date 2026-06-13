@@ -1657,6 +1657,40 @@
     "general_cleaning": {
       "It could be ANYTHING": "This is considered self evident and infinate in variety to the point that there is no right way. Think about protecting yourself, material and bodily cost, proper chemicals and applications, and bodily efficiency in time and wear. This section can be expanded later."
     },
+    "trash_management_and_logistics": {
+    "description": "Efficient trash and debris management is a frequently overlooked but critical part of restoration. It affects job site cleanliness, safety, crew efficiency, and how professional the job looks to the customer.",
+    "coreApproaches": {
+      "cleanAsYouGo": "Remove trash after completing each task or area. Preferred when customers or occupants are still active in the home. Keeps the site safer, cleaner, and more professional.",
+      "lightweightWaste": "For small lightweight trash like tape wrappers, plastic, and paper, some techs prefer to drop waste directly into a trash bag as they work rather than letting it accumulate on the floor.",
+      "batchThenClean": "Demo and bag material for most of the day, then do a full cleanup at the end of the day. More efficient for pure production but creates a much messier site during work hours."
+    },
+    "dailyHandling": {
+      "staging": "Stage trash during the day, ideally right behind the work vehicle or in an approved area (driveway/sidewalk with permission).",
+      "hauling": "Load up and haul trash back to the shop at the end of the day after tools are secured. Try to leave with a full vehicle load whenever possible."
+    },
+    "vehicleLoading": {
+      "dumpTruck": "Excellent for heavy debris. Stone, gypsum Crete, or self-leveler should only be filled halfway. Drywall, wood, and general construction debris can generally be filled normally. Always factor in weight when mixing materials.",
+      "cargoVan": "Default for most residential jobs. Much easier to overload without realizing it."
+    },
+    "contaminatedMaterial": {
+      "description": "All contaminated debris must be properly sealed before leaving the work area.",
+      "methods": [
+        "Double-bag the material",
+        "Wipe down the exterior of the bags with a sanitizing rag"
+      ],
+      "location": "This process should be done inside the decon chamber before the bags exit containment."
+    },
+    "equipmentDecisions": {
+      "van": "Default method for nearly all residential jobs.",
+      "dumpster": "Consider only on large multi-room or whole-house guts that will generate significantly more than one full vehicle load per day.",
+      "chute": "Primarily for commercial jobs more than two stories high with heavy debris volume."
+    },
+    "keyPrinciples": [
+      "Maintain clear walkways at all times.",
+      "Match your trash removal rhythm to the occupancy of the home.",
+      "The truck or van is often the real bottleneck, not how fast you can bag material."
+    ]
+  },
     "final_verification": {
       "description": "Final checks to confirm materials have reached acceptable moisture levels and no hidden issues remain before customer sign-off.",
       "key_activities": [
