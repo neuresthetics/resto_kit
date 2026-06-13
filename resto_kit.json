@@ -590,12 +590,38 @@
     "dryStandardsByMaterial": {
       "corePrinciple": {
   "definition": "The target moisture level for affected materials. Per S500, the dry standard is established from unaffected materials of the same type in the same building and current conditions. The drying goal is to return affected materials to that dry standard (or as close as reasonably achievable).",
-  "class4Guidance": {
-  "description": "Specialty drying situations with deeply bound moisture in low-permeability materials.",
-  "examples": ["Concrete slabs", "Hardwood flooring", "Plaster/lath", "Engineered wood with thick cores"],
-  "approach": "Lower velocity directed airflow, moderate heat where safe, extended drying time, and possibly desiccants. Monitor with both surface and deeper readings. Be patient — these materials release moisture slowly.",
-  "voiceNote": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification after opening low evaporation layers."
-},
+
+  "wood": {
+    "measurement": "Absolute % moisture content (MC) using pin-type meter at appropriate depth.",
+    "target": "8–12% MC (adjust for local climate and season) or within 2–4 points of unaffected wood of the same species in the same house.",
+    "priority": "high"
+  },
+
+  "nonWoodMaterials": {
+    "measurement": "Relative to the dry standard of unaffected material of the same type in the same room/building under current conditions.",
+    "baselineRequirement": "Always establish and document baseline readings in unaffected areas on Day 1. The target is 'back to normal for this building', not a universal chart number."
+  },
+
+  "insulationRule": {
+    "rule": "Wet insulation (fiberglass, cellulose, most batts) = remove. Do not attempt to dry in place.",
+    "exceptions": "Closed-cell spray foam has limited exceptions on clean, short-dwell Category 1 jobs only.",
+    "priority": "critical"
+  },
+
+  "drywallRule": {
+    "category1ShortDwell": "May be dried in place if readings return to unaffected levels and no musty odor or physical compromise develops.",
+    "category2or3OrLongDwell": "Remove affected sections. See base_science.mold for hidden mold considerations.",
+    "priority": "high"
+  },
+
+  "class4SpecialtyDrying": {
+    "description": "Class 4 losses involve deeply bound moisture in low-porosity or low-permeability materials (concrete, hardwood, plaster, etc.). Normal open-room drying is usually insufficient.",
+    "approach": "Use lower-velocity directed airflow, moderate controlled heat where safe, extended timelines, and sometimes desiccants. Monitor both surface and deeper readings. Be patient — these materials release moisture slowly.",
+    "voiceNote": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification."
+  },
+
+  "workingRule": "Compare to unaffected reference in the same environment every monitoring visit. Wood is absolute %MC. Most other materials are relative. When in doubt on porous materials, long-dwell jobs, or Category 2/3 water: lean toward removal over heroic drying attempts. Callbacks and mold claims cost far more than demo."
+}
   "wood": "Measured in absolute % moisture content (MC) using pin-type meter at appropriate depth. Typical target: 8–12% MC (adjust for local climate and season) or within 2–4 points of unaffected wood of the same species in the same house.",
   
   "nonWoodMaterials": "Measured relative to the dry standard of unaffected material of the same type in the same room/building under current conditions. Always establish and document baseline readings in unaffected areas on Day 1.",
