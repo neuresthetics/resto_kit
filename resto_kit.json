@@ -1655,8 +1655,17 @@
       "voice_considerations": "This is one of the highest-value phases for daily support. Structure monitoring as a repeatable checklist the tech can follow verbally."
     },
     "general_cleaning": {
-      "It could be ANYTHING": "This is considered self evident and infinate in variety to the point that there is no right way. Think about protecting yourself, material and bodily cost, proper chemicals and applications, and bodily efficiency in time and wear. This section can be expanded later."
-    },
+    "description": "General cleaning on restoration jobs. Keep it simple — your goal is to return the area to pre-loss condition or better.",
+    "coreApproach": "Work **top to bottom** and **outside in**. Start with ceilings and high areas, then work your way down the walls, and finish with the floors.",
+    "practicalTips": [
+      "Follow the wall around the room in one direction so you don’t miss anything.",
+      "Clean one logical section at a time before moving on.",
+      "Always read the label on the chemical you’re using. It tells you required PPE, proper dilution, dwell time, and what surfaces it’s safe for.",
+      "Dilute chemicals correctly — failing to do so is a very common mistake.",
+      "Carry a trash bag with you for small debris when it makes sense."
+    ],
+    "voiceNote": "Top to bottom, outside in. Read the label on your chemicals."
+  },
     "trash_management_and_logistics": {
     "description": "Efficient trash and debris management is a frequently overlooked but critical part of restoration. It affects job site cleanliness, safety, crew efficiency, and how professional the job looks to the customer.",
     "coreApproaches": {
