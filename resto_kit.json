@@ -589,13 +589,27 @@
     },
     "dryStandardsByMaterial": {
       "corePrinciple": {
-        "unfinishedWood": "Measured in absolute % moisture content (MC) using pin-type meter. Typical target 8–12% MC (adjust for local climate/season) or within a few points of unaffected wood in the same house.",
-        "everythingElse": "Measured relative to the dry standard of unaffected material of the same type in the same room/building and current conditions. Use unaffected areas as baseline reference.",
-        "insulationRule": "If wet → remove. Do not attempt to dry in place (fiberglass, cellulose, most batts). Closed-cell spray foam has limited Category 1 exceptions.",
-        "drywallRule": "Category 1 (clean, short dwell): Often dry in place if readings return to unaffected levels and no physical compromise. Category 3 (or long dwell / visible mold risk): See base_science.mold for guidance on removal decisions and hidden mold risk.",
-        "baselineRequirement": "Always establish baseline in unaffected areas early. Document it. Target is 'back to normal for this building', not a universal chart number.",
-        "workingRule": "Compare to unaffected reference in the same environment every time. Wood % is absolute; most other materials are relative. When in doubt on porous or contaminated materials, lean toward removal over heroic drying attempts."
-      },
+  "definition": "The target moisture level for affected materials. Per S500, the dry standard is established from unaffected materials of the same type in the same building and current conditions. The drying goal is to return affected materials to that dry standard (or as close as reasonably achievable).",
+  "class4Guidance": {
+  "description": "Specialty drying situations with deeply bound moisture in low-permeability materials.",
+  "examples": ["Concrete slabs", "Hardwood flooring", "Plaster/lath", "Engineered wood with thick cores"],
+  "approach": "Lower velocity directed airflow, moderate heat where safe, extended drying time, and possibly desiccants. Monitor with both surface and deeper readings. Be patient — these materials release moisture slowly.",
+  "voiceNote": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification after opening low evaporation layers."
+},
+  "wood": "Measured in absolute % moisture content (MC) using pin-type meter at appropriate depth. Typical target: 8–12% MC (adjust for local climate and season) or within 2–4 points of unaffected wood of the same species in the same house.",
+  
+  "nonWoodMaterials": "Measured relative to the dry standard of unaffected material of the same type in the same room/building under current conditions. Always establish and document baseline readings in unaffected areas on Day 1.",
+  
+  "insulationRule": "Wet insulation (fiberglass, cellulose, most batts) = remove. Do not attempt to dry in place. Closed-cell spray foam has limited exceptions on clean, short-dwell Category 1 jobs only.",
+  
+  "drywallRule": "Category 1, short dwell, no physical compromise: May be dried in place if readings return to unaffected levels and no musty odor or softness develops. Category 2/3, long dwell, or visible mold risk: Remove affected sections. See base_science.mold for hidden mold considerations.",
+  
+  "class4Specialty": "Class 4 losses involve deeply bound moisture in low-porosity materials (concrete, hardwood, plaster, etc.). These require specialized drying methods, lower-velocity airflow, extended timelines, and sometimes heat or desiccants. Do not expect normal open-room drying to succeed quickly.",
+  
+  "baselineRequirement": "Always establish baseline readings in unaffected areas early on Day 1. Document location, readings, and photos. The target is 'back to normal for this building', not a universal chart number.",
+  
+  "workingRule": "Compare to unaffected reference in the same environment every monitoring visit. Wood is absolute %MC. Most other materials are relative. When in doubt on porous materials, long-dwell jobs, or Category 2/3 water: lean toward removal over heroic drying attempts. Callbacks and mold claims cost far more than demo."
+},
       "materials": {
         "insulation": {
           "rule": "Wet insulation = remove. Do not dry.",
@@ -1646,6 +1660,7 @@
         "Is moisture rising or new issues appearing?"
       ],
       "practical_guidance": [
+        "Document the drying process daily (equipment performance, moisture readings at consistent locations, adjustments made). Final verification must show materials have met the established dry standard with supporting data and photos. 'It felt dry' is not defensible.",
         "Walk every drying job the exact same way every day. Start at the dehumidifier, record inlet vs outlet grains, check every air mover, take moisture readings in the same locations as Day 1, and make at least one intentional adjustment.",
         "Check dehumidifier performance every morning — a healthy unit should typically pull 15–25 grains on an active job.",
         "Pay special attention to commonly missed wet areas: under and behind cabinets, subfloor underneath base plates, California corners, inside vanity kickboards, and under shower pans.",
