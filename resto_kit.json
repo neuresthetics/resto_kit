@@ -623,7 +623,8 @@
 				"exceptions": "Closed-cell spray foam sometimes salvageable on Category 1 if not heavily saturated and caught early. Rigid board: case-by-case, often removed on Cat 2/3.",
 				"measurement": "Visual + moisture meter on adjacent materials + odor. If surrounding materials wet and insulation was in contact, assume wet.",
 				"voiceNote": "If the insulation got wet on anything but the cleanest, shortest Category 1 job, I'm pulling it. Drying it is false economy and a mold lawsuit waiting to happen.",
-				"priority": "critical"
+				"priority": "critical",
+				"dry_standard_ref": "dry_standards_by_material.insulation_rule"
 			},
 			"drywall": {
 				"category1": {
@@ -642,7 +643,8 @@
 					"Previous water damage that was 'dried' but still smells or stains"
 				],
 				"voiceNote": "Drywall wet from a clean supply line leak for 36 hours — dry in place or cut out sections?",
-				"priority": "high"
+				"priority": "high",
+				"dry_standard_ref": "dry_standards_by_material.drywall_rule"
 			},
 			"unfinishedWoodFramingSubfloor": {
 				"target": "8–12% MC typical (adjust for climate). Within 2–4 points of unaffected unfinished wood in the same house.",
