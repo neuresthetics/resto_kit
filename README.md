@@ -11,7 +11,7 @@ This repo exists to make daily work easier and more consistent. It holds my pers
 ## Development
 
 ```json
-```json
+
 {
   "framework": "resto_kit",
   "meta": {
@@ -1321,6 +1321,6 @@ This repo exists to make daily work easier and more consistent. It holds my pers
     "mindset": {}
   }
 }
-```
+
 
 ```
