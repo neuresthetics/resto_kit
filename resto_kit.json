@@ -90,414 +90,413 @@
 		}
 	},
 	"base_science": {
-		"psychrometry": {
-			"description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
-			"core_concepts": {
-				"temperature": {
-					"term": "Temperature",
-					"description": "A measure of heat energy. Higher temperatures increase the air’s capacity to hold moisture and accelerate evaporation rates."
-				},
-				"relative_humidity": {
-					"term": "Relative Humidity (RH)",
-					"description": "The percentage of moisture the air is currently holding compared to the maximum it could hold at that temperature. RH alone does not tell you how much moisture is actually in the air."
-				},
-				"grains_per_pound": {
-					"term": "Grains Per Pound (GPP)",
-					"description": "The actual mass of water vapor in the air per pound of dry air. This is one of the most useful measurements for drying because it directly reflects moisture content regardless of temperature."
-				},
-				"dew_point": {
-					"term": "Dew Point",
-					"description": "The temperature at which air becomes saturated and moisture begins to condense. Useful for identifying condensation risk and hidden moisture issues."
-				},
-				"vapor_pressure": {
-					"term": "Vapor Pressure",
-					"description": "The partial pressure exerted by water vapor in the air. Moisture moves from areas of higher vapor pressure to areas of lower vapor pressure."
-				}
-			},
-			"key_relationships": {
-				"vapor_pressure_gradient": {
-					"description": "The driving force behind drying. Moisture will move from materials into the air when the vapor pressure in the material is higher than in the surrounding air."
-				},
-				"temperature_effect": {
-					"description": "Warmer air can hold more moisture. Raising temperature increases evaporation potential, but only if the moisture can be removed from the air (via dehumidification or ventilation)."
-				},
-				"rh_vs_gpp": {
-					"description": "Relative Humidity can be misleading. Two spaces can have the same RH but very different actual moisture levels (GPP) if their temperatures are different."
-				}
-			},
-			"field_implications": {
-				"drying_strategy": {
-					"description": "Effective drying requires creating and maintaining a vapor pressure gradient. This is achieved by moving air across wet surfaces and removing moisture from the air with dehumidifiers."
-				},
-				"monitoring_value": {
-					"description": "GPP and temperature readings are more useful than RH alone when evaluating drying progress and equipment performance."
-				},
-				"small_spaces": {
-					"description": "Small rooms can overheat quickly. High temperatures without sufficient dehumidification can slow drying by increasing the air’s moisture-holding capacity without removing the moisture."
-				}
-			},
-			"common_misunderstandings": {
-				"rh_is_enough": {
-					"description": "Many techs rely too heavily on relative humidity. RH does not tell you how much moisture is actually in the air or how much drying potential exists."
-				},
-				"hot_air_dries_faster": {
-					"description": "Heat alone does not dry materials. Heat increases evaporation only when paired with airflow and moisture removal from the air."
-				}
-			}
-		},
-		"moisture_physics": {
-			"description": "How water interacts with, moves through, and is held by different building materials. This determines how easily moisture can be removed and how long it takes.",
-			"core_concepts": {
-				"porosity": {
-					"term": "Porosity",
-					"description": "The amount of empty space (pores) within a material. Higher porosity generally means the material can absorb and hold more water."
-				},
-				"permeability": {
-					"term": "Permeability",
-					"description": "How easily water can flow through a material. Some materials are highly permeable (carpet pad), while others are not (vinyl, closed-cell foam)."
-				},
-				"wicking": {
-					"term": "Wicking",
-					"description": "The movement of water through a material due to capillary action. Water can travel horizontally and vertically through porous materials, often far beyond the visible wet area."
-				},
-				"free_water": {
-					"term": "Free Water",
-					"description": "Liquid water held in pores or on surfaces that can be removed relatively easily through extraction or evaporation."
-				},
-				"bound_moisture": {
-					"term": "Bound Moisture",
-					"description": "Moisture held within the cellular or molecular structure of a material (especially wood). It requires more energy and time to release."
-				},
-				"absorption_vs_adsorption": {
-					"term": "Absorption vs Adsorption",
-					"description": "Absorption is water soaking into the material. Adsorption is water clinging to the surface of pores. Both affect how difficult a material is to dry."
-				}
-			},
-			"key_relationships": {
-				"material_type_matters": {
-					"description": "Different materials absorb, hold, and release water very differently. Particle board and fiberglass insulation behave very differently than dimensional lumber or concrete."
-				},
-				"time_and_penetration": {
-					"description": "The longer water is in contact with a material, the deeper it penetrates. This is especially true with porous materials like drywall, wood, and insulation."
-				},
-				"vapor_barriers": {
-					"description": "Materials like LVP, sheet vinyl, and some coatings can trap moisture underneath, making drying from above very difficult or impossible without removal or lifting."
-				}
-			},
-			"field_implications": {
-				"drying_difficulty": {
-					"description": "Materials with high porosity and permeability (carpet pad, fiberglass, cellulose) are generally easier to extract from but harder to fully dry once saturated."
-				},
-				"removal_decisions": {
-					"description": "Some materials (particle board, heavily saturated fiberglass, long-term wet cellulose) are often more practical to remove than to attempt drying."
-				},
-				"hidden_moisture_risk": {
-					"description": "Water can travel long distances through wicking. Always check beyond the visibly wet area, especially under flooring and behind baseboards."
-				},
-				"vapor_barrier_problems": {
-					"description": "Flooring systems with vapor barriers (LVP, sheet vinyl, rubber-backed carpet) often require edge lifting or partial removal to allow proper drying underneath."
-				}
-			},
-			"common_misunderstandings": {
-				"all_materials_dry_the_same": {
-					"description": "Many techs treat all wet materials similarly. In reality, drying strategies must change based on material type, porosity, and how the water entered."
-				},
-				"surface_dry_means_dry": {
-					"description": "A material can feel dry on the surface while still holding significant moisture deeper inside (especially wood and thick materials)."
-				},
-				"extraction_fixes_everything": {
-					"description": "Extraction removes free water effectively, but bound moisture and deeply wicked water often remain and require proper airflow and time to release."
-				}
-			}
-		},
-		"evaporation_principles": {
-			"description": "The physical process by which liquid water turns into vapor and moves from materials into the air. Understanding evaporation is essential for effective drying.",
-			"core_concepts": {
-				"evaporation": {
-					"term": "Evaporation",
-					"description": "The process of liquid water changing into water vapor. This requires energy (heat) and occurs at the surface of the water."
-				},
-				"boundary_layer": {
-					"term": "Boundary Layer",
-					"description": "A thin layer of humid air that forms directly on wet surfaces. This layer slows down evaporation unless it is disrupted by airflow."
-				},
-				"vapor_pressure_gradient": {
-					"term": "Vapor Pressure Gradient",
-					"description": "The difference in vapor pressure between the material and the surrounding air. This is the primary driving force for moisture to leave the material."
-				},
-				"air_movement": {
-					"term": "Air Movement",
-					"description": "The mechanical disruption of the boundary layer and delivery of drier air to wet surfaces. Air movement is what makes evaporation practical on jobs."
-				}
-			},
-			"key_relationships": {
-				"airflow_and_evaporation": {
-					"description": "Air movement increases evaporation rate by removing the humid boundary layer and replacing it with drier air. Without airflow, evaporation slows dramatically even if the air is dry."
-				},
-				"temperature_and_evaporation": {
-					"description": "Higher temperatures increase the rate of evaporation by giving water molecules more energy to escape into the air. However, heat without moisture removal can be counterproductive."
-				},
-				"humidity_and_evaporation": {
-					"description": "Lower humidity (lower GPP) in the air creates a stronger vapor pressure gradient, allowing moisture to leave materials more easily."
-				},
-				"air_movers_vs_dehumidifiers": {
-					"description": "Air movers move moisture off materials into the air. Dehumidifiers remove that moisture from the air. Both are needed for effective drying."
-				}
-			},
-			"field_implications": {
-				"air_mover_placement": {
-					"description": "Air movers should be positioned to create directed airflow across wet surfaces rather than just circulating air in the room. Aim for consistent coverage without dead zones."
-				},
-				"boundary_layer_disruption": {
-					"description": "The main job of air movers is to break up the boundary layer. Simply having fans running in a space is not enough if they are not moving air directly across wet materials."
-				},
-				"small_room_overheating": {
-					"description": "In small spaces, too much heat combined with insufficient dehumidification can slow drying by increasing the air’s moisture-holding capacity without removing the moisture."
-				},
-				"equipment_balance": {
-					"description": "Too many air movers without enough dehumidification can create high humidity. Too much dehumidification without good airflow leaves moisture trapped in the boundary layer."
-				}
-			},
-			"common_misunderstandings": {
-				"more_air_is_always_better": {
-					"description": "Excessive airflow can sometimes be counterproductive, especially on materials with bound moisture. Very high velocity can sometimes create a new boundary layer or cause uneven drying."
-				},
-				"fans_dry_by_themselves": {
-					"description": "Fans alone do not remove moisture from the space. They only move it into the air. Without dehumidification or ventilation, the space will eventually reach equilibrium and stop drying."
-				},
-				"pointing_fans_at_walls": {
-					"description": "Pointing air movers directly at walls from a distance is often ineffective. The air loses velocity before it reaches the surface. Angled or parallel airflow is usually more effective."
-				}
-			}
-		},
-		"material_behavior": {
-			"description": "How different building materials and contents respond to water, drying, contamination, and time. Material behavior heavily influences removal vs drying decisions and drying strategies.",
-			"drywall": {
-				"description": "Drywall (gypsum board) has a paper facing that wicks water quickly and acts as food for mold. The gypsum core softens when saturated. Once soft or moldy, it is usually removed rather than dried."
-			},
-			"dimensional_lumber": {
-				"description": "Framing lumber can absorb significant water but is relatively resilient. It can often be dried if addressed before significant swelling, checking, or mold growth occurs. Check for hidden moisture in checks and end grain."
-			},
-			"hardwood_flooring": {
-				"description": "Hardwood can cup, swell, and check when wet. Long-term saturation or significant cupping often leads to replacement rather than drying. Engineered hardwood behaves differently than solid hardwood."
-			},
-			"particle_board_and_mdf": {
-				"description": "Particle board and MDF swell and disintegrate when wet. They are almost never worth attempting to dry once significantly saturated. Replacement is usually the practical choice."
-			},
-			"concrete_and_slabs": {
-				"description": "Concrete absorbs water slowly but releases it even more slowly. It can hold moisture for extended periods under flooring. Good airflow and dehumidification are critical. Moisture can also wick up from below the slab."
-			},
-			"insulation": {
-				"fiberglass": {
-					"description": "Fiberglass holds water like a sponge and loses R-value when wet. It is difficult to fully dry once saturated and is often removed, especially on Category 2/3 or mold jobs."
-				},
-				"cellulose": {
-					"description": "Cellulose is highly absorbent and prone to settling and mold growth when wet. Removal is usually recommended on contaminated or long-dwell jobs."
-				},
-				"closed_cell_spray_foam": {
-					"description": "Closed-cell spray foam is much more resistant to water. It can often be dried if not heavily saturated, though open-cell foam usually requires removal when wet."
-				}
-			},
-			"carpet_and_pad": {
-				"description": "Carpet can sometimes be cleaned and dried if extracted quickly. Pad is much more problematic — it holds water, wicks it, and grows mold rapidly. Pad is usually removed when truly wet."
-			},
-			"lvp_and_sheet_vinyl": {
-				"description": "These materials themselves do not absorb much water, but they create a vapor barrier. Water easily gets underneath and is very difficult to dry without lifting edges or removing sections. Removing the entire room is best."
-			},
-			"tile_and_grout": {
-				"description": "Tile itself (ceramic or porcelain) absorbs very little water, but grout is porous and can hold moisture. Water commonly gets underneath tile from wet carpet, pad, or LVP and is difficult to dry without intervention.",
-				"grout_readings": {
-					"description": "Do not insert moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface and compare readings to known dry areas."
-				},
-				"fiber_cement_false_readings": {
-					"description": "Fiber cement board is commonly used under tile and contains many screws. These screws often cause false-positive wet readings on pinless moisture meters. Verify with multiple spots and known dry areas."
-				},
-				"thermal_camera_limitations": {
-					"description": "Thermal cameras are often ineffective under tile because the tile acts as a thermal barrier. Temperature differences may not appear unless the tile is exposed to air. Rely more on pinless readings, feel, and sound when tapping."
-				},
-				"drying_approach": {
-					"description": "Drying under tile is difficult. Water often requires lifting edges, creating weep holes, or removing sections of tile to allow proper airflow and drying. In many cases, especially with long dwell or contamination, removal is more practical."
-				},
-				"field_note": {
-					"description": "If tile is wet across a large area with no obvious edge, check whether it is installed over fiber cement board. Multiple screw readings can make the entire floor appear wet when it may not be."
-				}
-			},
-			"thinset": {
-				"description": "Thinset (cementitious tile mortar) is a distinct material layer. Its installation method and condition heavily influence how water moves under tile floors. Thinset is not tile and not grout.",
-				"core_behavior": {
-					"porosity_and_wicking": "Thinset is porous and can wick water. Cracks, poor bonds, perimeter gaps, and penetrations often become pathways for water to travel under the thinset layer.",
-					"bonding_issues": "Water can break the bond between thinset and substrate or between thinset and tile, leading to loose, cracked, or hollow-sounding areas.",
-					"liner_interaction": "When thinset is installed over a liner or uncoupling membrane, water can travel between thinset and liner, or under the liner entirely and sit on top of the underlayment or subfloor. The liner can then act as a vapor barrier from above."
-				},
-				"water_under_liner_scenario": {
-					"description": "Water migrates under the liner (below the thinset) and sits on top of the underlayment or subfloor.",
-					"drying_difficulty": "High. The liner often blocks upward vapor drive, making drying from the tile side slow or ineffective. Hidden moisture in the underlayment is common and easy to miss without removal.",
-					"typical_outcome": "Full removal of tile + thinset + liner is frequently required to properly assess and dry (or replace) the affected underlayment and subfloor, especially on Category 2/3 or long-dwell jobs."
-				},
-				"important_caveats": {
-					"no_guarantees": "The presence or absence of a liner/membrane does not guarantee one outcome or the other. Some direct-to-plywood thinset installs still trap water badly, while some liner systems dry better than expected. Always verify actual conditions.",
-					"check_installation": "Check edges, remove a small test section of tile + thinset if needed, and physically inspect whether water has gone under any liner and reached the underlayment. Do not rely on assumptions about how the floor was built.",
-					"risk_vs_cost": "When in doubt, new thinset is almost always cheaper than dry rot, hidden mold, or a callback. Lean toward removal on anything beyond very clean, short-dwell Category 1 losses where you can clearly verify limited water migration."
-				},
-				"field_implications": {
-					"assessment": "On tile floors with water intrusion, do not assume water is only sitting between thinset and liner. Check for water under the liner on top of the underlayment. Pull a test piece early if the floor has any dwell time or is Category 2/3.",
-					"removal_vs_drying": "When water has reached under a liner (or when conditions are uncertain), removal of tile + thinset + liner is usually the lower-risk and more defensible approach than attempting to dry through the assembly.",
-					"false_security": "A tile floor can read mostly dry on the surface while significant moisture remains under the liner on the underlayment. Surface readings alone are not reliable."
-				},
-				"voice_note": "Thinset isn't just glue. The presence of a liner doesn't automatically mean one thing, and the absence of one doesn't mean you're safe either. Check the actual installation. When you're not sure, new thinset is way cheaper than dry rot or a mold callback later.",
-				"priority": "high"
-			},
-			"electronics_and_appliances": {
-				"description": "High risk of hidden corrosion, especially when exposed to acidic smoke + moisture. Many items fail weeks or months later even if they initially work. Replacement is often the safer recommendation."
-			},
-			"fabrics_and_upholstery": {
-				"description": "Can often be cleaned and dried if addressed quickly. Heavy smoke (especially protein or wet smoke) and long-term contamination frequently make replacement more practical than cleaning."
-			},
-			"documents_and_photos": {
-				"description": "Water can cause inks to run and pages to stick. Normal drying often causes additional damage. Freeze-drying or professional document restoration is often worth it for important items."
-			},
-			"key_relationships": {
-				"material_type_drives_decisions": {
-					"description": "The same amount of water can require completely different approaches depending on the material. Particle board and fiberglass often justify removal where dimensional lumber might be dried."
-				},
-				"time_changes_behavior": {
-					"description": "Materials that might be salvageable with quick response often become unsalvageable after extended dwell time due to mold, swelling, or deep penetration."
-				}
-			},
-			"field_implications": {
-				"removal_vs_drying": {
-					"description": "When deciding whether to remove or dry, consider material type, contamination level, dwell time, and how reliably the material can be returned to a stable condition."
-				},
-				"vapor_barriers": {
-					"description": "Flooring with vapor barriers (LVP, sheet vinyl) often requires physical intervention (lifting, cutting, or removal) to allow proper drying underneath."
-				},
-				"electronics_caution": {
-					"description": "Be conservative with electronics and appliances after smoke + water exposure. Hidden corrosion is common and failure can occur long after the job is complete."
-				}
-			}
-		},
-		"dry_standards_by_material": {
-			"core_principle": {
-				"definition": "The target moisture level for affected materials. Per S500, the dry standard is established from unaffected materials of the same type in the same building and current conditions. The drying goal is to return affected materials to that dry standard (or as close as reasonably achievable)."
-			},
-			"wood": {
-				"measurement": "Absolute % moisture content (MC) using pin-type meter at appropriate depth.",
-				"target": "8–12% MC (adjust for local climate and season) or within 2–4 points of unaffected wood of the same species in the same house.",
-				"priority": "high"
-			},
-			"non_wood_materials": {
-				"measurement": "Relative to the dry standard of unaffected material of the same type in the same room/building under current conditions.",
-				"baseline_requirement": "Always establish and document baseline readings in unaffected areas on Day 1. The target is 'back to normal for this building', not a universal chart number."
-			},
-			"insulation_rule": {
-				"rule": "Wet insulation (fiberglass, cellulose, most batts) = remove. Do not attempt to dry in place.",
-				"exceptions": "Closed-cell spray foam has limited exceptions on clean, short-dwell Category 1 jobs only.",
-				"priority": "critical"
-			},
-			"drywall_rule": {
-				"category1_short_dwell": "May be dried in place if readings return to unaffected levels and no musty odor or physical compromise develops.",
-				"category2_or_3_or_long_dwell": "Remove affected sections. See base_science.mold for hidden mold considerations.",
-				"priority": "high"
-			},
-			"class4_specialty_drying": {
-				"description": "Class 4 losses involve deeply bound moisture in low-porosity or low-permeability materials (concrete, hardwood, plaster, etc.). Normal open-room drying is usually insufficient.",
-				"approach": "Use lower-velocity directed airflow, moderate controlled heat where safe, extended timelines, and sometimes desiccants. Monitor both surface and deeper readings. Be patient — these materials release moisture slowly.",
-				"voice_note": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification."
-			}
-		},
-		"contamination_science": {
-			"description": "How contamination levels in water and on materials change over time, and how this affects risk, drying decisions, and removal strategies. See base_science.mold for all mold-specific assessment, risk factors, growth conditions, and remediation guidance.",
-			"core_concepts": {
-				"contamination_level": {
-					"term": "Contamination Level",
-					"description": "The degree to which water or materials contain substances that increase health risk or cause long-term damage. This includes bacteria, mold spores, sewage, organic debris, and chemicals."
-				}
-			},
-			"key_relationships": {
-				"time_and_risk": {
-					"description": "Time is one of the strongest multipliers of contamination risk. Bacterial growth accelerates significantly after 48 hours in warm, moist conditions."
-				}
-			},
-			"field_implications": {
-				"removal_decisions": {
-					"description": "On Category 3 losses or jobs with significant dwell time, removal of porous materials is often more practical and lower risk than attempting to dry them in place."
-				},
-				"containment_urgency": {
-					"description": "Higher contamination levels require earlier and stronger engineering controls (containment, negative pressure, air filtration) to prevent spread."
-				},
-				"ppe_escalation": {
-					"description": "PPE requirements increase with contamination level and dwell time. Visible mold, strong musty odors, or Category 3 water usually require upgraded respiratory protection."
-				}
-			},
-			"common_misunderstandings": {
-				"clean_water_stays_clean": {
-					"description": "Many techs assume that if water started clean, it remains low risk. In reality, clean water sitting for several days can develop significant bacterial and mold growth."
-				},
-				"surface_clean_is_enough": {
-					"description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
-				}
-			}
-		},
-		"airflow_and_ventilation": {
-			"description": "How air movement affects evaporation, drying efficiency, contaminant control, and overall job outcomes. Proper airflow is one of the most important factors in successful drying.",
-			"core_concepts": {
-				"boundary_layer_disruption": {
-					"term": "Boundary Layer Disruption",
-					"description": "Air movement breaks up the thin layer of humid air that forms on wet surfaces. This allows drier air to contact the material and increases the evaporation rate."
-				},
-				"directed_airflow": {
-					"term": "Directed Airflow",
-					"description": "Air movement aimed specifically across wet surfaces rather than just circulating air within a space. Directed airflow is significantly more effective for drying."
-				},
-				"general_circulation": {
-					"term": "General Circulation",
-					"description": "Moving air throughout a space without specific focus on wet surfaces. This is less effective for drying and can sometimes spread contaminants if not controlled."
-				},
-				"negative_pressure_interaction": {
-					"term": "Negative Pressure Interaction",
-					"description": "Airflow from drying equipment must be balanced with containment and negative pressure systems. Poor balance can cause containment failure or reduced drying performance."
-				}
-			},
-			"key_relationships": {
-				"airflow_and_dehumidification": {
-					"description": "Air movers and dehumidifiers work as a team. Air movers move moisture off materials into the air. Dehumidifiers remove that moisture from the air. One without the other is much less effective."
-				},
-				"airflow_and_contamination": {
-					"description": "Air movement can spread contaminants if not properly controlled. On Category 2/3 or mold jobs, airflow must be managed within containment and often with air filtration."
-				},
-				"velocity_vs_volume": {
-					"description": "High-velocity directed airflow is often more effective than high-volume general airflow for drying specific surfaces. Very high velocity can sometimes create new issues on certain materials."
-				},
-				"small_space_dynamics": {
-					"description": "Small rooms heat up and become humid quickly. Airflow strategies must account for limited space, risk of overheating, and the need for temperature control."
-				}
-			},
-			"field_implications": {
-				"air_mover_placement": {
-					"description": "Position air movers to create consistent airflow across wet surfaces. Common patterns include walls of air, circular patterns, or angled airflow toward wet materials. Avoid dead zones and short-circuiting."
-				},
-				"equipment_balance": {
-					"description": "Too much airflow without enough dehumidification can raise humidity. Too little airflow leaves moisture trapped near surfaces. Balance equipment based on job size, material types, and contamination level."
-				},
-				"containment_considerations": {
-					"description": "On contaminated jobs, airflow must stay within containment. Negative pressure and air scrubbers should be running before aggressive air movement begins."
-				},
-				"monitoring_airflow": {
-					"description": "Check airflow daily by feel and observation. Reposition equipment as drying progresses and wet areas change. What worked on day one may not be optimal on day three."
-				}
-			},
-			"common_misunderstandings": {
-				"more_fans_is_always_better": {
-					"description": "Adding more air movers without proper placement or dehumidification support often creates turbulence, short-circuiting, or uneven drying rather than faster results."
-				},
-				"pointing_fans_directly_at_walls": {
-					"description": "Aiming air movers straight at walls from a distance is usually ineffective. The air loses speed before reaching the surface. Angled or parallel airflow is generally more efficient."
-				},
-				"fans_remove_moisture": {
-					"description": "Fans do not remove moisture from the space — they only move it into the air. Without dehumidification or ventilation, the space will stop drying once equilibrium is reached."
-				}
-			}
-		},
+    "psychrometry": {
+        "description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
+        "core_concepts": {
+            "temperature": {
+                "term": "Temperature",
+                "description": "A measure of heat energy. Higher temperatures increase the air’s capacity to hold moisture and accelerate evaporation rates."
+            },
+            "relative_humidity": {
+                "term": "Relative Humidity (RH)",
+                "description": "The percentage of moisture the air is currently holding compared to the maximum it could hold at that temperature. RH alone does not tell you how much moisture is actually in the air."
+            },
+            "grains_per_pound": {
+                "term": "Grains Per Pound (GPP)",
+                "description": "The actual mass of water vapor in the air per pound of dry air. This is one of the most useful measurements for drying because it directly reflects moisture content regardless of temperature."
+            },
+            "dew_point": {
+                "term": "Dew Point",
+                "description": "The temperature at which air becomes saturated and moisture begins to condense. Useful for identifying condensation risk and hidden moisture issues."
+            },
+            "vapor_pressure": {
+                "term": "Vapor Pressure",
+                "description": "The partial pressure exerted by water vapor in the air. Moisture moves from areas of higher vapor pressure to areas of lower vapor pressure."
+            }
+        },
+        "key_relationships": {
+            "vapor_pressure_gradient": {
+                "description": "The driving force behind drying. Moisture will move from materials into the air when the vapor pressure in the material is higher than in the surrounding air."
+            },
+            "temperature_effect": {
+                "description": "Warmer air can hold more moisture. Raising temperature increases evaporation potential, but only if the moisture can be removed from the air (via dehumidification or ventilation)."
+            },
+            "rh_vs_gpp": {
+                "description": "Relative Humidity can be misleading. Two spaces can have the same RH but very different actual moisture levels (GPP) if their temperatures are different."
+            }
+        },
+        "field_implications": {
+            "drying_strategy": {
+                "description": "Effective drying requires creating and maintaining a vapor pressure gradient. This is achieved by moving air across wet surfaces and removing moisture from the air with dehumidifiers."
+            },
+            "monitoring_value": {
+                "description": "GPP and temperature readings are more useful than RH alone when evaluating drying progress and equipment performance."
+            },
+            "small_spaces": {
+                "description": "Small rooms can overheat quickly. High temperatures without sufficient dehumidification can slow drying by increasing the air’s moisture-holding capacity without removing the moisture."
+            }
+        },
+        "common_misunderstandings": {
+            "rh_is_enough": {
+                "description": "Many techs rely too heavily on relative humidity. RH does not tell you how much moisture is actually in the air or how much drying potential exists."
+            },
+            "hot_air_dries_faster": {
+                "description": "Heat alone does not dry materials. Heat increases evaporation only when paired with airflow and moisture removal from the air."
+            }
+        }
+    },
+    "moisture_physics": {
+        "description": "How water interacts with, moves through, and is held by different building materials. This determines how easily moisture can be removed and how long it takes.",
+        "core_concepts": {
+            "porosity": {
+                "term": "Porosity",
+                "description": "The amount of empty space (pores) within a material. Higher porosity generally means the material can absorb and hold more water."
+            },
+            "permeability": {
+                "term": "Permeability",
+                "description": "How easily water can flow through a material. Some materials are highly permeable (carpet pad), while others are not (vinyl, closed-cell foam)."
+            },
+            "wicking": {
+                "term": "Wicking",
+                "description": "The movement of water through a material due to capillary action. Water can travel horizontally and vertically through porous materials, often far beyond the visible wet area."
+            },
+            "free_water": {
+                "term": "Free Water",
+                "description": "Liquid water held in pores or on surfaces that can be removed relatively easily through extraction or evaporation."
+            },
+            "bound_moisture": {
+                "term": "Bound Moisture",
+                "description": "Moisture held within the cellular or molecular structure of a material (especially wood). It requires more energy and time to release."
+            },
+            "absorption_vs_adsorption": {
+                "term": "Absorption vs Adsorption",
+                "description": "Absorption is water soaking into the material. Adsorption is water clinging to the surface of pores. Both affect how difficult a material is to dry."
+            }
+        },
+        "key_relationships": {
+            "material_type_matters": {
+                "description": "Different materials absorb, hold, and release water very differently. Particle board and fiberglass insulation behave very differently than dimensional lumber or concrete."
+            },
+            "time_and_penetration": {
+                "description": "The longer water is in contact with a material, the deeper it penetrates. This is especially true with porous materials like drywall, wood, and insulation."
+            },
+            "vapor_barriers": {
+                "description": "Materials like LVP, sheet vinyl, and some coatings can trap moisture underneath, making drying from above very difficult or impossible without removal or lifting."
+            }
+        },
+        "field_implications": {
+            "drying_difficulty": {
+                "description": "Materials with high porosity and permeability (carpet pad, fiberglass, cellulose) are generally easier to extract from but harder to fully dry once saturated."
+            },
+            "removal_decisions": {
+                "description": "Some materials (particle board, heavily saturated fiberglass, long-term wet cellulose) are often more practical to remove than to attempt drying."
+            },
+            "hidden_moisture_risk": {
+                "description": "Water can travel long distances through wicking. Always check beyond the visibly wet area, especially under flooring and behind baseboards."
+            },
+            "vapor_barrier_problems": {
+                "description": "Flooring systems with vapor barriers (LVP, sheet vinyl, rubber-backed carpet) often require edge lifting or partial removal to allow proper drying underneath."
+            }
+        },
+        "common_misunderstandings": {
+            "all_materials_dry_the_same": {
+                "description": "Many techs treat all wet materials similarly. In reality, drying strategies must change based on material type, porosity, and how the water entered."
+            },
+            "surface_dry_means_dry": {
+                "description": "A material can feel dry on the surface while still holding significant moisture deeper inside (especially wood and thick materials)."
+            },
+            "extraction_fixes_everything": {
+                "description": "Extraction removes free water effectively, but bound moisture and deeply wicked water often remain and require proper airflow and time to release."
+            }
+        }
+    },
+    "evaporation_principles": {
+        "description": "The physical process by which liquid water turns into vapor and moves from materials into the air. Understanding evaporation is essential for effective drying.",
+        "core_concepts": {
+            "evaporation": {
+                "term": "Evaporation",
+                "description": "The process of liquid water changing into water vapor. This requires energy (heat) and occurs at the surface of the water."
+            },
+            "boundary_layer": {
+                "term": "Boundary Layer",
+                "description": "A thin layer of humid air that forms directly on wet surfaces. This layer slows down evaporation unless it is disrupted by airflow."
+            },
+            "vapor_pressure_gradient": {
+                "term": "Vapor Pressure Gradient",
+                "description": "The difference in vapor pressure between the material and the surrounding air. This is the primary driving force for moisture to leave the material."
+            },
+            "air_movement": {
+                "term": "Air Movement",
+                "description": "The mechanical disruption of the boundary layer and delivery of drier air to wet surfaces. Air movement is what makes evaporation practical on jobs."
+            }
+        },
+        "key_relationships": {
+            "airflow_and_evaporation": {
+                "description": "Air movement increases evaporation rate by removing the humid boundary layer and replacing it with drier air. Without airflow, evaporation slows dramatically even if the air is dry."
+            },
+            "temperature_and_evaporation": {
+                "description": "Higher temperatures increase the rate of evaporation by giving water molecules more energy to escape into the air. However, heat without moisture removal can be counterproductive."
+            },
+            "humidity_and_evaporation": {
+                "description": "Lower humidity (lower GPP) in the air creates a stronger vapor pressure gradient, allowing moisture to leave materials more easily."
+            },
+            "air_movers_vs_dehumidifiers": {
+                "description": "Air movers move moisture off materials into the air. Dehumidifiers remove that moisture from the air. Both are needed for effective drying."
+            }
+        },
+        "field_implications": {
+            "air_mover_placement": {
+                "description": "Air movers should be positioned to create directed airflow across wet surfaces rather than just circulating air in the room. Aim for consistent coverage without dead zones."
+            },
+            "boundary_layer_disruption": {
+                "description": "The main job of air movers is to break up the boundary layer. Simply having fans running in a space is not enough if they are not moving air directly across wet materials."
+            },
+            "small_room_overheating": {
+                "description": "In small spaces, too much heat combined with insufficient dehumidification can slow drying by increasing the air’s moisture-holding capacity without removing the moisture."
+            },
+            "equipment_balance": {
+                "description": "Too many air movers without enough dehumidification can create high humidity. Too much dehumidification without good airflow leaves moisture trapped in the boundary layer."
+            }
+        },
+        "common_misunderstandings": {
+            "more_air_is_always_better": {
+                "description": "Excessive airflow can sometimes be counterproductive, especially on materials with bound moisture. Very high velocity can sometimes create a new boundary layer or cause uneven drying."
+            },
+            "fans_dry_by_themselves": {
+                "description": "Fans alone do not remove moisture from the space. They only move it into the air. Without dehumidification or ventilation, the space will eventually reach equilibrium and stop drying."
+            },
+            "pointing_fans_at_walls": {
+                "description": "Pointing air movers directly at walls from a distance is often ineffective. The air loses velocity before it reaches the surface. Angled or parallel airflow is usually more effective."
+            }
+        }
+    },
+    "material_behavior": {
+        "description": "How different building materials and contents respond to water, drying, contamination, and time. Material behavior heavily influences removal vs drying decisions and drying strategies.",
+        "drywall": {
+            "description": "Drywall (gypsum board) has a paper facing that wicks water quickly and acts as food for mold. The gypsum core softens when saturated. Once soft or moldy, it is usually removed rather than dried."
+        },
+        "dimensional_lumber": {
+            "description": "Framing lumber can absorb significant water but is relatively resilient. It can often be dried if addressed before significant swelling, checking, or mold growth occurs. Check for hidden moisture in checks and end grain."
+        },
+        "hardwood_flooring": {
+            "description": "Hardwood can cup, swell, and check when wet. Long-term saturation or significant cupping often leads to replacement rather than drying. Engineered hardwood behaves differently than solid hardwood."
+        },
+        "particle_board_and_mdf": {
+            "description": "Particle board and MDF swell and disintegrate when wet. They are almost never worth attempting to dry once significantly saturated. Replacement is usually the practical choice."
+        },
+        "concrete_and_slabs": {
+            "description": "Concrete absorbs water slowly but releases it even more slowly. It can hold moisture for extended periods under flooring. Good airflow and dehumidification are critical. Moisture can also wick up from below the slab."
+        },
+        "insulation": {
+            "fiberglass": {
+                "description": "Fiberglass holds water like a sponge and loses R-value when wet. It is difficult to fully dry once saturated and is often removed, especially on Category 2/3 or mold jobs."
+            },
+            "cellulose": {
+                "description": "Cellulose is highly absorbent and prone to settling and mold growth when wet. Removal is usually recommended on contaminated or long-dwell jobs."
+            },
+            "closed_cell_spray_foam": {
+                "description": "Closed-cell spray foam is much more resistant to water. It can often be dried if not heavily saturated, though open-cell foam usually requires removal when wet."
+            }
+        },
+        "carpet_and_pad": {
+            "description": "Carpet can sometimes be cleaned and dried if extracted quickly. Pad is much more problematic — it holds water, wicks it, and grows mold rapidly. Pad is usually removed when truly wet."
+        },
+        "lvp_and_sheet_vinyl": {
+            "description": "These materials themselves do not absorb much water, but they create a vapor barrier. Water easily gets underneath and is very difficult to dry without lifting edges or removing sections. Removing the entire room is best."
+        },
+        "tile_and_grout": {
+            "description": "Tile itself (ceramic or porcelain) absorbs very little water, but grout is porous and can hold moisture. Water commonly gets underneath tile from wet carpet, pad, or LVP and is difficult to dry without intervention.",
+            "grout_readings": {
+                "description": "Do not insert moisture meter pins into grout lines — it damages the material. Use pinless mode on the tile surface and compare readings to known dry areas."
+            },
+            "fiber_cement_false_readings": {
+                "description": "Fiber cement board is commonly used under tile and contains many screws. These screws often cause false-positive wet readings on pinless moisture meters. Verify with multiple spots and known dry areas."
+            },
+            "thermal_camera_limitations": {
+                "description": "Thermal cameras are often ineffective under tile because the tile acts as a thermal barrier. Temperature differences may not appear unless the tile is exposed to air. Rely more on pinless readings, feel, and sound when tapping."
+            },
+            "drying_approach": {
+                "description": "Drying under tile is difficult. Water often requires lifting edges, creating weep holes, or removing sections of tile to allow proper airflow and drying. In many cases, especially with long dwell or contamination, removal is more practical."
+            },
+            "field_note": {
+                "description": "If tile is wet across a large area with no obvious edge, check whether it is installed over fiber cement board. Multiple screw readings can make the entire floor appear wet when it may not be."
+            }
+        },
+        "thinset": {
+            "description": "Thinset (cementitious tile mortar) is a distinct material layer. Its installation method and condition heavily influence how water moves under tile floors. Thinset is not tile and not grout.",
+            "core_behavior": {
+                "porosity_and_wicking": "Thinset is porous and can wick water. Cracks, poor bonds, perimeter gaps, and penetrations often become pathways for water to travel under the thinset layer.",
+                "bonding_issues": "Water can break the bond between thinset and substrate or between thinset and tile, leading to loose, cracked, or hollow-sounding areas.",
+                "liner_interaction": "When thinset is installed over a liner or uncoupling membrane, water can travel between thinset and liner, or under the liner entirely and sit on top of the underlayment or subfloor. The liner can then act as a vapor barrier from above."
+            },
+            "water_under_liner_scenario": {
+                "description": "Water migrates under the liner (below the thinset) and sits on top of the underlayment or subfloor.",
+                "drying_difficulty": "High. The liner often blocks upward vapor drive, making drying from the tile side slow or ineffective. Hidden moisture in the underlayment is common and easy to miss without removal."
+            },
+            "important_caveats": {
+                "no_guarantees": "The presence or absence of a liner/membrane does not guarantee one outcome or the other. Some direct-to-plywood thinset installs still trap water badly, while some liner systems dry better than expected. Always verify actual conditions.",
+                "check_installation": "Check edges, remove a small test section of tile + thinset if needed, and physically inspect whether water has gone under any liner and reached the underlayment. Do not rely on assumptions about how the floor was built.",
+                "risk_vs_cost": "When in doubt, new thinset is almost always cheaper than dry rot, hidden mold, or a callback. Lean toward removal on anything beyond very clean, short-dwell Category 1 losses where you can clearly verify limited water migration."
+            },
+            "field_implications": {
+                "assessment": "On tile floors with water intrusion, do not assume water is only sitting between thinset and liner. Check for water under the liner on top of the underlayment. Pull a test piece early if the floor has any dwell time or is Category 2/3.",
+                "removal_vs_drying": "When water has reached under a liner (or when conditions are uncertain), removal of tile + thinset + liner is usually the lower-risk and more defensible approach than attempting to dry through the assembly.",
+                "false_security": "A tile floor can read mostly dry on the surface while significant moisture remains under the liner on the underlayment. Surface readings alone are not reliable."
+            },
+            "voice_note": "Thinset isn't just glue. The presence of a liner doesn't automatically mean one thing, and the absence of one doesn't mean you're safe either. Check the actual installation. When you're not sure, new thinset is way cheaper than dry rot or a mold callback later.",
+            "priority": "high"
+        },
+        "electronics_and_appliances": {
+            "description": "High risk of hidden corrosion, especially when exposed to acidic smoke + moisture. Many items fail weeks or months later even if they initially work. Replacement is often the safer recommendation."
+        },
+        "fabrics_and_upholstery": {
+            "description": "Can often be cleaned and dried if addressed quickly. Heavy smoke (especially protein or wet smoke) and long-term contamination frequently make replacement more practical than cleaning."
+        },
+        "documents_and_photos": {
+            "description": "Water can cause inks to run and pages to stick. Normal drying often causes additional damage. Freeze-drying or professional document restoration is often worth it for important items."
+        },
+        "key_relationships": {
+            "material_type_drives_decisions": {
+                "description": "The same amount of water can require completely different approaches depending on the material. Particle board and fiberglass often justify removal where dimensional lumber might be dried."
+            },
+            "time_changes_behavior": {
+                "description": "Materials that might be salvageable with quick response often become unsalvageable after extended dwell time due to mold, swelling, or deep penetration."
+            }
+        },
+        "field_implications": {
+            "removal_vs_drying": {
+                "description": "When deciding whether to remove or dry, consider material type, contamination level, dwell time, and how reliably the material can be returned to a stable condition."
+            },
+            "vapor_barriers": {
+                "description": "Flooring with vapor barriers (LVP, sheet vinyl) often requires physical intervention (lifting, cutting, or removal) to allow proper drying underneath."
+            },
+            "electronics_caution": {
+                "description": "Be conservative with electronics and appliances after smoke + water exposure. Hidden corrosion is common and failure can occur long after the job is complete."
+            }
+        }
+    },
+    "dry_standards_by_material": {
+        "core_principle": {
+            "definition": "The target moisture level for affected materials. Per S500, the dry standard is established from unaffected materials of the same type in the same building and current conditions. The drying goal is to return affected materials to that dry standard (or as close as reasonably achievable)."
+        },
+        "wood": {
+            "measurement": "Absolute % moisture content (MC) using pin-type meter at appropriate depth.",
+            "target": "8–12% MC (adjust for local climate and season) or within 2–4 points of unaffected wood of the same species in the same house.",
+            "priority": "high"
+        },
+        "non_wood_materials": {
+            "measurement": "Relative to the dry standard of unaffected material of the same type in the same room/building under current conditions.",
+            "baseline_requirement": "Always establish and document baseline readings in unaffected areas on Day 1. The target is 'back to normal for this building', not a universal chart number."
+        },
+        "insulation_rule": {
+            "rule": "Wet insulation (fiberglass, cellulose, most batts) = remove. Do not attempt to dry in place.",
+            "exceptions": "Closed-cell spray foam has limited exceptions on clean, short-dwell Category 1 jobs only.",
+            "priority": "critical"
+        },
+        "drywall_rule": {
+            "category1_short_dwell": "May be dried in place if readings return to unaffected levels and no musty odor or physical compromise develops.",
+            "category2_or_3_or_long_dwell": "Remove affected sections. See base_science.mold for hidden mold considerations.",
+            "priority": "high"
+        },
+        "class4_specialty_drying": {
+            "description": "Class 4 losses involve deeply bound moisture in low-porosity or low-permeability materials (concrete, hardwood, plaster, etc.). Normal open-room drying is usually insufficient.",
+            "approach": "Use lower-velocity directed airflow, moderate controlled heat where safe, extended timelines, and sometimes desiccants. Monitor both surface and deeper readings. Be patient — these materials release moisture slowly.",
+            "voice_note": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification."
+        }
+    },
+    "contamination_science": {
+        "description": "How contamination levels in water and on materials change over time, and how this affects risk, drying decisions, and removal strategies. See base_science.mold for all mold-specific assessment, risk factors, growth conditions, and remediation guidance.",
+        "core_concepts": {
+            "contamination_level": {
+                "term": "Contamination Level",
+                "description": "The degree to which water or materials contain substances that increase health risk or cause long-term damage. This includes bacteria, mold spores, sewage, organic debris, and chemicals."
+            }
+        },
+        "key_relationships": {
+            "time_and_risk": {
+                "description": "Time is one of the strongest multipliers of contamination risk. Bacterial growth accelerates significantly after 48 hours in warm, moist conditions."
+            }
+        },
+        "field_implications": {
+            "removal_decisions": {
+                "description": "On Category 3 losses or jobs with significant dwell time, removal of porous materials is often more practical and lower risk than attempting to dry them in place."
+            },
+            "containment_urgency": {
+                "description": "Higher contamination levels require earlier and stronger engineering controls (containment, negative pressure, air filtration) to prevent spread."
+            },
+            "ppe_escalation": {
+                "description": "PPE requirements increase with contamination level and dwell time. Visible mold, strong musty odors, or Category 3 water usually require upgraded respiratory protection."
+            }
+        },
+        "common_misunderstandings": {
+            "clean_water_stays_clean": {
+                "description": "Many techs assume that if water started clean, it remains low risk. In reality, clean water sitting for several days can develop significant bacterial and mold growth."
+            },
+            "surface_clean_is_enough": {
+                "description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
+            }
+        }
+    },
+    "airflow_and_ventilation": {
+        "description": "How air movement affects evaporation, drying efficiency, contaminant control, and overall job outcomes. Proper airflow is one of the most important factors in successful drying.",
+        "core_concepts": {
+            "boundary_layer_disruption": {
+                "term": "Boundary Layer Disruption",
+                "description": "Air movement breaks up the thin layer of humid air that forms on wet surfaces. This allows drier air to contact the material and increases the evaporation rate."
+            },
+            "directed_airflow": {
+                "term": "Directed Airflow",
+                "description": "Air movement aimed specifically across wet surfaces rather than just circulating air within a space. Directed airflow is significantly more effective for drying."
+            },
+            "general_circulation": {
+                "term": "General Circulation",
+                "description": "Moving air throughout a space without specific focus on wet surfaces. This is less effective for drying and can sometimes spread contaminants if not controlled."
+            },
+            "negative_pressure_interaction": {
+                "term": "Negative Pressure Interaction",
+                "description": "Airflow from drying equipment must be balanced with containment and negative pressure systems. Poor balance can cause containment failure or reduced drying performance."
+            }
+        },
+        "key_relationships": {
+            "airflow_and_dehumidification": {
+                "description": "Air movers and dehumidifiers work as a team. Air movers move moisture off materials into the air. Dehumidifiers remove that moisture from the air. One without the other is much less effective."
+            },
+            "airflow_and_contamination": {
+                "description": "Air movement can spread contaminants if not properly controlled. On Category 2/3 or mold jobs, airflow must be managed within containment and often with air filtration."
+            },
+            "velocity_vs_volume": {
+                "description": "High-velocity directed airflow is often more effective than high-volume general airflow for drying specific surfaces. Very high velocity can sometimes create new issues on certain materials."
+            },
+            "small_space_dynamics": {
+                "description": "Small rooms heat up and become humid quickly. Airflow strategies must account for limited space, risk of overheating, and the need for temperature control."
+            }
+        },
+        "field_implications": {
+            "air_mover_placement": {
+                "description": "Position air movers to create consistent airflow across wet surfaces. Common patterns include walls of air, circular patterns, or angled airflow toward wet materials. Avoid dead zones and short-circuiting."
+            },
+            "equipment_balance": {
+                "description": "Too much airflow without enough dehumidification can raise humidity. Too little airflow leaves moisture trapped near surfaces. Balance equipment based on job size, material types, and contamination level."
+            },
+            "containment_considerations": {
+                "description": "On contaminated jobs, airflow must stay within containment. Negative pressure and air scrubbers should be running before aggressive air movement begins."
+            },
+            "monitoring_airflow": {
+                "description": "Check airflow daily by feel and observation. Reposition equipment as drying progresses and wet areas change. What worked on day one may not be optimal on day three."
+            }
+        },
+        "common_misunderstandings": {
+            "more_fans_is_always_better": {
+                "description": "Adding more air movers without proper placement or dehumidification support often creates turbulence, short-circuiting, or uneven drying rather than faster results."
+            },
+            "pointing_fans_directly_at_walls": {
+                "description": "Aiming air movers straight at walls from a distance is usually ineffective. The air loses speed before reaching the surface. Angled or parallel airflow is generally more efficient."
+            },
+            "fans_remove_moisture": {
+                "description": "Fans do not remove moisture from the space — they only move it into the air. Without dehumidification or ventilation, the space will stop drying once equilibrium is reached."
+            }
+        }
+    },
 		"thermodynamics_basics": {
 			"description": "The basic principles of heat and energy transfer as they relate to drying, dehumidification, and material behavior on restoration jobs.",
 			"core_concepts": {
