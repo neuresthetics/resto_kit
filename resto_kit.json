@@ -5,7 +5,7 @@
 		"repository": "https://github.com/neuresthetic/resto-kit"
 	},
 	"index": {
-		"AI": "read entire document, and produce nested dictionary object of top, second, and third keys across entire document for quick navigation."
+		"AI": "read entire document, and produce nested dictionary object of top, second, and third keys across entire document for quick navigation. This is not for re-insertion, mapping the keys ensures AI brings all the important paths up to context for operation."
 	},
 	"safety": "First.",
 	"primary_scope": "Water, mold.",
@@ -646,20 +646,20 @@
 				"priority": "high",
 				"dry_standard_ref": "dry_standards_by_material.drywall_rule"
 			},
-			"unfinishedWoodFramingSubfloor": {
+			"unfinished_wood_framing_subfloor": {
 				"target": "8–12% MC typical (adjust for climate). Within 2–4 points of unaffected unfinished wood in the same house.",
 				"measurement": "Pin-type meter, multiple depths and locations. Baseline in unaffected framing/subfloor early.",
-				"decisionFactors": {
+				"decision_factors": {
 					"dryable": "Class 1/2, short dwell, Category 1",
-					"oftenRemoveOrTreat": "Long dwell, Category 2/3, visible mold/rot, significant swelling/checking"
+					"often_remove_or_treat": "Long dwell, Category 2/3, visible mold/rot, significant swelling/checking"
 				},
-				"airflowNote": "Bound moisture responds better to lower-velocity airflow + time + moderate heat than high-CFM blasting.",
-				"voiceNote": "Unfinished wood is one of the few things we measure in actual percent. Get your baseline in unaffected framing first — that's your real target.",
+				"airflow_note": "Bound moisture responds better to lower-velocity airflow + time + moderate heat than high-CFM blasting.",
+				"voice_note": "Unfinished wood is one of the few things we measure in actual percent. Get your baseline in unaffected framing first — that's your real target.",
 				"priority": "high"
 			},
-			"hardwoodFlooring": {
+			"hardwood_flooring": {
 				"target": "Within a few percentage points of unaffected hardwood in same environment or per manufacturer EMC specs.",
-				"practicalNotes": [
+				"practical_notes": [
 					"Watch for cupping, crowning, gapping, squeaking, finish failure",
 					"Often requires removal of shoe molding/baseboards for airflow",
 					"Low-velocity or directed airflow usually better than aggressive high-CFM",
@@ -668,119 +668,119 @@
 				"measurement": "Pin or pinless meter calibrated for wood species if possible. Multiple locations, compare to unaffected areas.",
 				"priority": "high"
 			},
-			"engineeredWoodLaminateLVP": {
-				"keyIssue": "These often act as vapor barriers. Surface may read 'dry' while subfloor/underlayment underneath is still wet.",
+			"engineered_wood_laminateLVP": {
+				"key_issue": "These often act as vapor barriers. Surface may read 'dry' while subfloor/underlayment underneath is still wet.",
 				"target": "Subfloor and underlayment back to relative dry standard. Finished surface is secondary.",
 				"approach": "Lift edges or create access to check and dry underneath. On LVP/vinyl over wet subfloor: frequently need to remove or heavily lift.",
-				"voiceNote": "LVP lies to your meter. The plank can read dry while the plywood or OSB underneath is still soaked. You have to get under it or remove it.",
+				"voice_note": "LVP lies to your meter. The plank can read dry while the plywood or OSB underneath is still soaked. You have to get under it or remove it.",
 				"priority": "high"
 			},
-			"concreteSlab": {
+			"concrete_slab": {
 				"target": "Return to equilibrium moisture content consistent with unaffected slab in same building and climate. Concrete naturally reads higher than wood/drywall.",
 				"measurement": "Pinless on surface (relative). Calcium chloride or in-situ RH probes for critical jobs. Good airflow + dehumidification essential.",
-				"practicalReality": "Slow process. Plan for it on slab jobs. Hidden moisture under flooring or in pores is common.",
+				"practical_reality": "Slow process. Plan for it on slab jobs. Hidden moisture under flooring or in pores is common.",
 				"priority": "medium"
 			},
-			"carpetAndPad": {
+			"carpet_and_pad": {
 				"pad": "Almost always remove if saturated (especially Cat 2/3 or >24 hrs). Holds water, wicks it, grows mold extremely fast.",
 				"carpet": "Can sometimes be extracted, cleaned, and dried on Category 1 if addressed very quickly. On Cat 2/3, long dwell, or heavy soiling: usually replace.",
-				"targetIfDrying": "Extract until minimal water return, then dry with good airflow. Check for musty odor development.",
+				"target_if_drying": "Extract until minimal water return, then dry with good airflow. Check for musty odor development.",
 				"priority": "high"
 			},
-			"plasterLath": {
+			"plaster_lath": {
 				"approach": "More conservative and slower drying than drywall. Rapid drying can cause cracking and delamination.",
 				"target": "Relative to unaffected plaster in same area. Low-velocity airflow, avoid rapid temperature swings.",
-				"commonOnOlderHomes": "Expect chicken wire, mixed fasteners, hidden cavities. Carbide multi-tool often needed for demo.",
+				"common_on_older_homes": "Expect chicken wire, mixed fasteners, hidden cavities. Carbide multi-tool often needed for demo.",
 				"priority": "medium"
 			},
 			"cabinetry": {
-				"particleBoardMDF": "Swell and disintegrate when wet. Replace if significantly saturated. Almost never worth trying to save.",
-				"solidWood": "Sometimes dryable and refinishable if caught early (Cat 1, short dwell). High risk of hidden damage inside drawers/voids and finish issues.",
+				"particle_board_MDF": "Swell and disintegrate when wet. Replace if significantly saturated. Almost never worth trying to save.",
+				"solid_wood": "Sometimes dryable and refinishable if caught early (Cat 1, short dwell). High risk of hidden damage inside drawers/voids and finish issues.",
 				"target": "Relative dryness + no swelling, warping, or musty odor inside.",
 				"priority": "high"
 			},
-			"tileStoneOverSubstrate": {
-				"keyIssue": "Tile itself does not absorb much, but traps moisture below (especially on fiber cement or plywood).",
+			"tile_stone_over_substrate": {
+				"key_issue": "Tile itself does not absorb much, but traps moisture below (especially on fiber cement or plywood).",
 				"target": "Substrate back to relative dry standard. Check grout lines, soft spots, hollow sound when tapped.",
 				"measurement": "Pinless on tile surface (compare to known dry areas). Avoid pinning grout. Fiber cement with screws can false-positive.",
-				"commonDecision": "On bathrooms with tile over wet substrate and Cat 2/3 or long dwell — often easier/cheaper to remove tile and substrate than attempt deep drying.",
+				"common_decision": "On bathrooms with tile over wet substrate and Cat 2/3 or long dwell — often easier/cheaper to remove tile and substrate than attempt deep drying.",
 				"priority": "high"
 			},
-			"contentsElectronicsDocumentsFabrics": {
-				"generalRule": "High risk of hidden damage, corrosion (especially smoke + moisture), or mold.",
-				"electronicsAppliances": "High chance of future failure from corrosion. Most replaced on anything beyond very light exposure.",
-				"documentsPhotosBooks": "Air dry flat or professional freeze-drying for important items. Normal drying often causes inks to run or pages to stick.",
-				"fabricsClothingUpholstery": "Can sometimes be cleaned/dried on Cat 1. Heavy smoke, protein smoke, or Cat 3: often replacement or professional specialty cleaning.",
+			"contents_electronics_documents_fabrics": {
+				"general_rule": "High risk of hidden damage, corrosion (especially smoke + moisture), or mold.",
+				"electronics_appliances": "High chance of future failure from corrosion. Most replaced on anything beyond very light exposure.",
+				"documents_photos_books": "Air dry flat or professional freeze-drying for important items. Normal drying often causes inks to run or pages to stick.",
+				"fabrics_clothing_upholstery": "Can sometimes be cleaned/dried on Cat 1. Heavy smoke, protein smoke, or Cat 3: often replacement or professional specialty cleaning.",
 				"target": "Clean, dry, no odor, no visible secondary damage. Document heavily before moving.",
 				"priority": "high"
 			}
 		},
-		"quickReferenceTable": [
+		"quick_reference_table": [
 			{
 				"material": "Insulation (fiberglass/cellulose)",
 				"measurement": "Visual + adjacent",
 				"target": "N/A — remove if wet",
-				"wetRemove": "Yes (almost always)",
+				"wet_remove": "Yes (almost always)",
 				"notes": "Closed-cell foam limited exceptions"
 			},
 			{
 				"material": "Drywall",
 				"measurement": "Relative to unaffected",
 				"target": "Unaffected drywall in same area",
-				"wetRemove": "Cat 3 or long dwell",
+				"wet_remove": "Cat 3 or long dwell",
 				"notes": "Cat 1 often dry-in-place"
 			},
 			{
 				"material": "Unfinished Wood / Framing",
 				"measurement": "Absolute % MC",
 				"target": "8–12% or within few pts of unaffected wood",
-				"wetRemove": "Case-by-case",
+				"wet_remove": "Case-by-case",
 				"notes": "Compare to same-house baseline"
 			},
 			{
 				"material": "Hardwood Flooring",
 				"measurement": "% MC or relative",
 				"target": "Within few pts of unaffected hardwood",
-				"wetRemove": "Significant cupping",
+				"wet_remove": "Significant cupping",
 				"notes": "Low-velocity airflow preferred"
 			},
 			{
 				"material": "Concrete Slab",
 				"measurement": "Relative",
 				"target": "Equilibrium with unaffected slab",
-				"wetRemove": "Rarely",
+				"wet_remove": "Rarely",
 				"notes": "Slow release; good airflow critical"
 			},
 			{
 				"material": "Carpet Pad",
 				"measurement": "Visual + extraction",
 				"target": "N/A — remove if saturated",
-				"wetRemove": "Yes",
+				"wet_remove": "Yes",
 				"notes": "Holds water & grows mold fast"
 			},
 			{
 				"material": "Particle Board / MDF",
 				"measurement": "Visual + swelling",
 				"target": "N/A — replace if swollen",
-				"wetRemove": "Yes",
+				"wet_remove": "Yes",
 				"notes": "Irreversible swelling"
 			},
 			{
 				"material": "LVP / Sheet Vinyl",
 				"measurement": "Check subfloor",
 				"target": "Subfloor relative dry standard",
-				"wetRemove": "Often (to access)",
+				"wet_remove": "Often (to access)",
 				"notes": "Vapor barrier problem"
 			},
 			{
 				"material": "Electronics",
 				"measurement": "Functional + visual",
 				"target": "No hidden corrosion risk",
-				"wetRemove": "High risk",
+				"wet_remove": "High risk",
 				"notes": "Usually replace on smoke+moisture"
 			}
 		],
-		"workingRulesSummary": [
+		"working_rules_summary": [
 			"Insulation wet = remove. No exceptions on standard jobs.",
 			"Drywall Cat 3 (or long dwell / mold risk) = remove sections even if it eventually dries numerically.",
 			"Wood is % MC absolute; everything else is relative to unaffected reference in the same building.",
@@ -788,7 +788,7 @@
 			"When in doubt on porous materials, long-dwell jobs, or Cat 2/3: lean toward removal over heroic drying. Callbacks and mold claims cost more than demo.",
 			"Document baseline, progress, and final readings with locations and photos. 'It felt dry' is not defensible."
 		],
-		"voiceUsageExamples": [
+		"voice_usage_examples": [
 			"Wet fiberglass insulation in exterior walls on a Category 2 job that's been sitting 48 hours — remove or try to dry?",
 			"Drywall wet from overhead clean water leak for two days — dry in place or cut?",
 			"Hardwood floor MC 19% vs unaffected 11% in same room — continue drying or recommend replacement?",
@@ -1241,10 +1241,10 @@
 				"Negative air return filter installation: Use the same size filter as your negative air machine. Tape it securely from the outside of the containment with airflow pointing inward. Then go inside and cut the plastic on the right, left, and bottom edges to create an inward-pulling flap.",
 				"Negative air transition: Once contaminants have been removed and cleaning is complete, switch the negative air machine to static/recirculation mode inside the room. This helps retain the warm, dry air inside the space."
 			],
-			"zipperDoors": {
-				"singleZipper": "Place the zipper so the bottom sits right where the plastic meets the floor. Cut two 45-degree angles about 18 inches wide at the bottom (starting roughly 4 inches outside each side of the zipper) to create a flap with no trip hazard. Run the zipper up 2–4 feet, then add another set of 45-degree angles near the top, leaving 1–2 feet at the ceiling. This creates a wide C-shaped opening that’s easy to scoot equipment through.",
-				"doubleZipper": "Install two zippers 3–4 feet apart running straight up and down. Cut straight across the bottom between them. This creates a full-width door that can be rolled up, which is much better when moving furniture, dealing with accessibility, or frequently moving equipment in and out.",
-				"placementNote": "Place doorways in locations that are convenient for both workflow and the customer, if they need to move through the area."
+			"zipper_doors": {
+				"single_zipper": "Place the zipper so the bottom sits right where the plastic meets the floor. Cut two 45-degree angles about 18 inches wide at the bottom (starting roughly 4 inches outside each side of the zipper) to create a flap with no trip hazard. Run the zipper up 2–4 feet, then add another set of 45-degree angles near the top, leaving 1–2 feet at the ceiling. This creates a wide C-shaped opening that’s easy to scoot equipment through.",
+				"double_zipper": "Install two zippers 3–4 feet apart running straight up and down. Cut straight across the bottom between them. This creates a full-width door that can be rolled up, which is much better when moving furniture, dealing with accessibility, or frequently moving equipment in and out.",
+				"placement_note": "Place doorways in locations that are convenient for both workflow and the customer, if they need to move through the area."
 			},
 			"types": [
 				"Simple doorway/area isolation",
