@@ -5,7 +5,7 @@
 		"repository": "https://github.com/neuresthetic/resto-kit"
 	},
 	"index": {
-		"AI": "read entire document, and produce nested dictionary object of top, second, and third keys across entire document for quick navigation. This is not for re-insertion, mapping the keys ensures AI brings all the important paths up to context for operation."
+		"AI": "read entire document, and produce nested dictionary object of top and second keys across entire document for quick navigation. This is not for re-insertion, mapping the keys ensures AI brings all the important paths up to context for operation."
 	},
 	"safety": "First.",
 	"primary_scope": "Water, mold.",
