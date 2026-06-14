@@ -1,5 +1,6 @@
 {
 	"framework": "resto_kit",
+
 	"meta": {
 		"description": "Core knowledge structure for RestoKit voice assistant. Separates foundational science from operational job flow. This framework is built as a guide and a friend, not a boss or manager. It’s written like a seasoned tech sitting next to you in the truck — giving you practical advice, field tips, and keeping you out of trouble without micromanaging every move. The goal is to help you get the job done right while thinking for yourself.",
 		"repository": "https://github.com/neuresthetic/resto-kit"
@@ -90,7 +91,7 @@
 		}
 	},
 	"base_science": {
-    "psychrometry": {
+    	"psychrometry": {
         "description": "The study of the physical and thermodynamic properties of moist air, and how those properties affect moisture movement in materials during drying.",
         "core_concepts": {
             "temperature": {
@@ -144,8 +145,8 @@
                 "description": "Heat alone does not dry materials. Heat increases evaporation only when paired with airflow and moisture removal from the air."
             }
         }
-    },
-    "moisture_physics": {
+    	},
+    	"moisture_physics": {
         "description": "How water interacts with, moves through, and is held by different building materials. This determines how easily moisture can be removed and how long it takes.",
         "core_concepts": {
             "porosity": {
@@ -209,8 +210,8 @@
                 "description": "Extraction removes free water effectively, but bound moisture and deeply wicked water often remain and require proper airflow and time to release."
             }
         }
-    },
-    "evaporation_principles": {
+    	},
+    	"evaporation_principles": {
         "description": "The physical process by which liquid water turns into vapor and moves from materials into the air. Understanding evaporation is essential for effective drying.",
         "core_concepts": {
             "evaporation": {
@@ -269,8 +270,8 @@
                 "description": "Pointing air movers directly at walls from a distance is often ineffective. The air loses velocity before it reaches the surface. Angled or parallel airflow is usually more effective."
             }
         }
-    },
-    "material_behavior": {
+    	},
+    	"material_behavior": {
         "description": "How different building materials and contents respond to water, drying, contamination, and time. Material behavior heavily influences removal vs drying decisions and drying strategies.",
         "drywall": {
             "description": "Drywall (gypsum board) has a paper facing that wicks water quickly and acts as food for mold. The gypsum core softens when saturated. Once soft or moldy, it is usually removed rather than dried."
@@ -374,8 +375,8 @@
                 "description": "Be conservative with electronics and appliances after smoke + water exposure. Hidden corrosion is common and failure can occur long after the job is complete."
             }
         }
-    },
-    "dry_standards_by_material": {
+    	},
+    	"dry_standards_by_material": {
         "core_principle": {
             "definition": "The target moisture level for affected materials. Per S500, the dry standard is established from unaffected materials of the same type in the same building and current conditions. The drying goal is to return affected materials to that dry standard (or as close as reasonably achievable)."
         },
@@ -403,8 +404,8 @@
             "approach": "Use lower-velocity directed airflow, moderate controlled heat where safe, extended timelines, and sometimes desiccants. Monitor both surface and deeper readings. Be patient — these materials release moisture slowly.",
             "voice_note": "Class 4 means the moisture is bound deep in the material. Blasting it with high CFM usually doesn't help much. Think low and slow with good heat and dehumidification."
         }
-    },
-    "contamination_science": {
+    	},
+    	"contamination_science": {
         "description": "How contamination levels in water and on materials change over time, and how this affects risk, drying decisions, and removal strategies. See base_science.mold for all mold-specific assessment, risk factors, growth conditions, and remediation guidance.",
         "core_concepts": {
             "contamination_level": {
@@ -436,8 +437,8 @@
                 "description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
             }
         }
-    },
-    "airflow_and_ventilation": {
+    	},
+    	"airflow_and_ventilation": {
         "description": "How air movement affects evaporation, drying efficiency, contaminant control, and overall job outcomes. Proper airflow is one of the most important factors in successful drying.",
         "core_concepts": {
             "boundary_layer_disruption": {
@@ -496,7 +497,7 @@
                 "description": "Fans do not remove moisture from the space — they only move it into the air. Without dehumidification or ventilation, the space will stop drying once equilibrium is reached."
             }
         }
-    },
+    	},
 		"thermodynamics_basics": {
 			"description": "The basic principles of heat and energy transfer as they relate to drying, dehumidification, and material behavior on restoration jobs.",
 			"core_concepts": {
