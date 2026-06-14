@@ -322,6 +322,31 @@
 					"description": "If tile is wet across a large area with no obvious edge, check whether it is installed over fiber cement board. Multiple screw readings can make the entire floor appear wet when it may not be."
 				}
 			},
+			"thinset": {
+				"description": "Thinset (cementitious tile mortar) is a distinct material layer. Its installation method and condition heavily influence how water moves under tile floors. Thinset is not tile and not grout.",
+				"core_behavior": {
+					"porosity_and_wicking": "Thinset is porous and can wick water. Cracks, poor bonds, perimeter gaps, and penetrations often become pathways for water to travel under the thinset layer.",
+					"bonding_issues": "Water can break the bond between thinset and substrate or between thinset and tile, leading to loose, cracked, or hollow-sounding areas.",
+					"liner_interaction": "When thinset is installed over a liner or uncoupling membrane, water can travel between thinset and liner, or under the liner entirely and sit on top of the underlayment or subfloor. The liner can then act as a vapor barrier from above."
+				},
+				"water_under_liner_scenario": {
+					"description": "Water migrates under the liner (below the thinset) and sits on top of the underlayment or subfloor.",
+					"drying_difficulty": "High. The liner often blocks upward vapor drive, making drying from the tile side slow or ineffective. Hidden moisture in the underlayment is common and easy to miss without removal.",
+					"typical_outcome": "Full removal of tile + thinset + liner is frequently required to properly assess and dry (or replace) the affected underlayment and subfloor, especially on Category 2/3 or long-dwell jobs."
+				},
+				"important_caveats": {
+					"no_guarantees": "The presence or absence of a liner/membrane does not guarantee one outcome or the other. Some direct-to-plywood thinset installs still trap water badly, while some liner systems dry better than expected. Always verify actual conditions.",
+					"check_installation": "Check edges, remove a small test section of tile + thinset if needed, and physically inspect whether water has gone under any liner and reached the underlayment. Do not rely on assumptions about how the floor was built.",
+					"risk_vs_cost": "When in doubt, new thinset is almost always cheaper than dry rot, hidden mold, or a callback. Lean toward removal on anything beyond very clean, short-dwell Category 1 losses where you can clearly verify limited water migration."
+				},
+				"field_implications": {
+					"assessment": "On tile floors with water intrusion, do not assume water is only sitting between thinset and liner. Check for water under the liner on top of the underlayment. Pull a test piece early if the floor has any dwell time or is Category 2/3.",
+					"removal_vs_drying": "When water has reached under a liner (or when conditions are uncertain), removal of tile + thinset + liner is usually the lower-risk and more defensible approach than attempting to dry through the assembly.",
+					"false_security": "A tile floor can read mostly dry on the surface while significant moisture remains under the liner on the underlayment. Surface readings alone are not reliable."
+				},
+				"voice_note": "Thinset isn't just glue. The presence of a liner doesn't automatically mean one thing, and the absence of one doesn't mean you're safe either. Check the actual installation. When you're not sure, new thinset is way cheaper than dry rot or a mold callback later.",
+				"priority": "high"
+			},
 			"electronics_and_appliances": {
 				"description": "High risk of hidden corrosion, especially when exposed to acidic smoke + moisture. Many items fail weeks or months later even if they initially work. Replacement is often the safer recommendation."
 			},
@@ -616,13 +641,116 @@
 				}
 			}
 		},
+		"mold": {
+			"description": "Practical field knowledge for recognizing, assessing, and managing mold on water damage and restoration jobs. Focuses on conditions required for growth, risk factors on water jobs, decision-making, and control measures. Last updated: 2026-06-11.",
+			"core_concepts": {
+				"conditions_for_growth": {
+					"term": "Conditions for Growth",
+					"description": "Mold requires four conditions simultaneously: sustained moisture in materials, temperature (most common indoor molds grow well between 68–86°F / 20–30°C), time (significant risk often starts after 24–48 hours), and nutrients/substrate (porous organic materials like drywall paper, wood, carpet, insulation, and dust)."
+				},
+				"microbial_amplification": {
+					"term": "Microbial Amplification",
+					"description": "Rapid growth of bacteria and mold that occurs when water, organic material (food source), warmth, and time are present together."
+				},
+				"dwell_time_effect": {
+					"term": "Dwell Time Effect",
+					"description": "The longer water sits in a structure, the higher the contamination and mold risk becomes, even if it started as clean water. After 48–72 hours in warm conditions, risk often increases significantly."
+				},
+				"category_migration": {
+					"term": "Category Migration",
+					"description": "A water loss can effectively move up in category over time. Category 1 water sitting for several days can behave like Category 2 or 3 due to bacterial and mold growth."
+				},
+				"hidden_mold_risk": {
+					"term": "Hidden Mold Risk",
+					"description": "Just because you don’t see mold on the surface doesn’t mean it isn’t growing behind drywall, under flooring, or in insulation. Surface readings can look fine while the back side is heavily affected."
+				}
+			},
+			"key_relationships": {
+				"time_and_risk": {
+					"description": "Time is one of the strongest multipliers of contamination and mold risk. Bacterial growth and mold amplification accelerate significantly after 48 hours in warm, moist conditions. Moisture + Time + Warmth is the most common dangerous combination on water jobs."
+				},
+				"temperature_and_growth": {
+					"description": "Warmer temperatures speed up microbial growth. Most common indoor molds grow well between roughly 68–86°F (20–30°C)."
+				},
+				"material_as_food_source": {
+					"description": "Porous organic materials (drywall paper, wood, carpet, insulation, and dust) provide food for mold and bacteria once they become wet."
+				},
+				"aerosolization_risk": {
+					"description": "Disturbing contaminated materials (especially during demo or aggressive extraction) can aerosolize spores and bacteria, increasing exposure and cross-contamination risk."
+				},
+				"category_effect_on_risk": {
+					"description": "Category 1 can still grow mold if it sits long enough. Category 2 has higher risk because it already has some organic content. Category 3 often already has mold or conditions that will produce it fast and usually requires more aggressive material removal."
+				}
+			},
+			"field_implications": {
+				"red_flags_for_hidden_or_active_mold": {
+					"description": "Key indicators that mold may be present or developing, even if not immediately visible on the surface.",
+					"items": [
+						"Musty or earthy smell (even if you can’t see growth)",
+						"Visible mold colonies (black, green, white, orange — color is not reliable for identification)",
+						"Water has been present >48–72 hours in warm conditions",
+						"Previous water damage that was 'dried' but still smells or has staining",
+						"Occupant reports new allergy symptoms, sinus issues, or musty smell since the water event",
+						"Moisture readings stay high in cavities even after equipment has been running properly",
+						"Water came from a source with organic content (sewage, flood with debris, long-standing gray water)"
+					]
+				},
+				"when_to_treat_as_higher_risk": {
+					"description": "Treat the job with elevated mold protocols when any of these conditions are present.",
+					"items": [
+						"Any water loss with visible mold or strong musty odor",
+						"Category 3 water",
+						"Water sitting more than 48–72 hours in warm conditions",
+						"Porous materials that have been wet for extended periods"
+					]
+				},
+				"removal_vs_drying": {
+					"description": "Don’t try to dry moldy materials in place in most cases. Source removal (cutting out affected material) is usually the cleaner, faster, and more defensible approach than attempting to dry and treat in place."
+				},
+				"containment_and_controls": {
+					"description": "Engineering controls required when visible mold or Category 3 water is present.",
+					"requirements": [
+						"Full containment with negative pressure is strongly recommended",
+						"Build a decon chamber (minimum 3x3, ideally 4x4) as an airlock when significant mold is present",
+						"Never move contaminated materials through clean zones without proper bagging",
+						"Use HEPA air scrubbing and negative air to control spores during disturbance"
+					],
+					"ppe": "Upgrade PPE: respirator (N95 minimum, often P100 or higher), Tyvek or equivalent suit, gloves, and eye protection."
+				},
+				"drying_approach_on_mold_jobs": {
+					"description": "Long-dwell or contaminated jobs often require slower, more controlled drying or wider removal to reduce the chance of hidden mold growth after drying is complete."
+				},
+				"field_tips_and_working_rules": {
+					"description": "Practical rules of thumb used by experienced techs on mold and long-dwell water jobs.",
+					"items": [
+						"Time is the enemy. Assume mold risk increases every day the materials stay wet, especially above 70°F and with poor airflow.",
+						"When in doubt on time or hidden moisture, treat it as higher risk. It’s better to contain and remove suspect materials than to dry and hope.",
+						"Category + Time + Warmth = Mold probability. Use this simple mental equation on every job.",
+						"Document conditions and timeline early. Photos of moisture, smell notes, and when the water started help later if mold becomes an issue.",
+						"Ventilation and airflow matter. Stagnant, warm, humid air is mold’s best friend. Moving air and controlling humidity slows growth even before you fully dry the materials.",
+						"Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
+					]
+				}
+			},
+			"common_misunderstandings": {
+				"clean_water_stays_clean": {
+					"description": "Many techs assume that if water started clean, it remains low risk. In reality, clean water sitting for several days can develop significant bacterial and mold growth."
+				},
+				"surface_clean_is_enough": {
+					"description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
+				},
+				"no_smell_means_no_contamination": {
+					"description": "Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
+				}
+			}
+		},
 		"materials": {
 			"insulation": {
 				"rule": "Wet insulation = remove. Do not dry.",
 				"why": "Loses R-value permanently. Extremely high mold risk. Nearly impossible to verify dry throughout. Cost/liability of drying almost always exceeds replacement.",
 				"exceptions": "Closed-cell spray foam sometimes salvageable on Category 1 if not heavily saturated and caught early. Rigid board: case-by-case, often removed on Cat 2/3.",
 				"measurement": "Visual + moisture meter on adjacent materials + odor. If surrounding materials wet and insulation was in contact, assume wet.",
-				"voiceNote": "If the insulation got wet on anything but the cleanest, shortest Category 1 job, I'm pulling it. Drying it is false economy and a mold lawsuit waiting to happen.",
+				"voice_note": "If the insulation got wet on anything but the cleanest, shortest Category 1 job, I'm pulling it. Drying it is false economy and a mold lawsuit waiting to happen.",
 				"priority": "critical",
 				"dry_standard_ref": "dry_standards_by_material.insulation_rule"
 			},
@@ -642,7 +770,7 @@
 					"Musty odor developing",
 					"Previous water damage that was 'dried' but still smells or stains"
 				],
-				"voiceNote": "Drywall wet from a clean supply line leak for 36 hours — dry in place or cut out sections?",
+				"voice_note": "Drywall wet from a clean supply line leak for 36 hours — dry in place or cut out sections?",
 				"priority": "high",
 				"dry_standard_ref": "dry_standards_by_material.drywall_rule"
 			},
@@ -704,6 +832,12 @@
 				"target": "Substrate back to relative dry standard. Check grout lines, soft spots, hollow sound when tapped.",
 				"measurement": "Pinless on tile surface (compare to known dry areas). Avoid pinning grout. Fiber cement with screws can false-positive.",
 				"common_decision": "On bathrooms with tile over wet substrate and Cat 2/3 or long dwell — often easier/cheaper to remove tile and substrate than attempt deep drying.",
+				"thinset_liner_interaction": {
+					"description": "Thinset installed over a liner creates a layered system where water can become trapped under the liner on top of the underlayment.",
+					"under_liner_water": "Water that has migrated under the liner is difficult to dry from above. The liner often functions as a vapor barrier. This condition frequently requires removal of tile + thinset + liner to access and dry or replace the underlayment.",
+					"assessment_tip": "Always investigate whether a liner exists and whether water has gone under it before deciding on demo scope for tile floors.",
+					"voice_note": "Don't assume the water is only between the thinset and liner. On a lot of these jobs it goes under the liner and sits on the underlayment. That's when you usually end up pulling the whole system."
+				},
 				"priority": "high"
 			},
 			"contents_electronics_documents_fabrics": {
@@ -795,109 +929,6 @@
 			"LVP with suspected water underneath from wet carpet — best way to check and dry the subfloor?",
 			"Particle board vanity got wet — realistic outcome and recommendation?"
 		]
-	},
-	"mold": {
-		"description": "Practical field knowledge for recognizing, assessing, and managing mold on water damage and restoration jobs. Focuses on conditions required for growth, risk factors on water jobs, decision-making, and control measures. Last updated: 2026-06-11.",
-		"core_concepts": {
-			"conditions_for_growth": {
-				"term": "Conditions for Growth",
-				"description": "Mold requires four conditions simultaneously: sustained moisture in materials, temperature (most common indoor molds grow well between 68–86°F / 20–30°C), time (significant risk often starts after 24–48 hours), and nutrients/substrate (porous organic materials like drywall paper, wood, carpet, insulation, and dust)."
-			},
-			"microbial_amplification": {
-				"term": "Microbial Amplification",
-				"description": "Rapid growth of bacteria and mold that occurs when water, organic material (food source), warmth, and time are present together."
-			},
-			"dwell_time_effect": {
-				"term": "Dwell Time Effect",
-				"description": "The longer water sits in a structure, the higher the contamination and mold risk becomes, even if it started as clean water. After 48–72 hours in warm conditions, risk often increases significantly."
-			},
-			"category_migration": {
-				"term": "Category Migration",
-				"description": "A water loss can effectively move up in category over time. Category 1 water sitting for several days can behave like Category 2 or 3 due to bacterial and mold growth."
-			},
-			"hidden_mold_risk": {
-				"term": "Hidden Mold Risk",
-				"description": "Just because you don’t see mold on the surface doesn’t mean it isn’t growing behind drywall, under flooring, or in insulation. Surface readings can look fine while the back side is heavily affected."
-			}
-		},
-		"key_relationships": {
-			"time_and_risk": {
-				"description": "Time is one of the strongest multipliers of contamination and mold risk. Bacterial growth and mold amplification accelerate significantly after 48 hours in warm, moist conditions. Moisture + Time + Warmth is the most common dangerous combination on water jobs."
-			},
-			"temperature_and_growth": {
-				"description": "Warmer temperatures speed up microbial growth. Most common indoor molds grow well between roughly 68–86°F (20–30°C)."
-			},
-			"material_as_food_source": {
-				"description": "Porous organic materials (drywall paper, wood, carpet, insulation, and dust) provide food for mold and bacteria once they become wet."
-			},
-			"aerosolization_risk": {
-				"description": "Disturbing contaminated materials (especially during demo or aggressive extraction) can aerosolize spores and bacteria, increasing exposure and cross-contamination risk."
-			},
-			"category_effect_on_risk": {
-				"description": "Category 1 can still grow mold if it sits long enough. Category 2 has higher risk because it already has some organic content. Category 3 often already has mold or conditions that will produce it fast and usually requires more aggressive material removal."
-			}
-		},
-		"field_implications": {
-			"red_flags_for_hidden_or_active_mold": {
-				"description": "Key indicators that mold may be present or developing, even if not immediately visible on the surface.",
-				"items": [
-					"Musty or earthy smell (even if you can’t see growth)",
-					"Visible mold colonies (black, green, white, orange — color is not reliable for identification)",
-					"Water has been present >48–72 hours in warm conditions",
-					"Previous water damage that was 'dried' but still smells or has staining",
-					"Occupant reports new allergy symptoms, sinus issues, or musty smell since the water event",
-					"Moisture readings stay high in cavities even after equipment has been running properly",
-					"Water came from a source with organic content (sewage, flood with debris, long-standing gray water)"
-				]
-			},
-			"when_to_treat_as_higher_risk": {
-				"description": "Treat the job with elevated mold protocols when any of these conditions are present.",
-				"items": [
-					"Any water loss with visible mold or strong musty odor",
-					"Category 3 water",
-					"Water sitting more than 48–72 hours in warm conditions",
-					"Porous materials that have been wet for extended periods"
-				]
-			},
-			"removal_vs_drying": {
-				"description": "Don’t try to dry moldy materials in place in most cases. Source removal (cutting out affected material) is usually the cleaner, faster, and more defensible approach than attempting to dry and treat in place."
-			},
-			"containment_and_controls": {
-				"description": "Engineering controls required when visible mold or Category 3 water is present.",
-				"requirements": [
-					"Full containment with negative pressure is strongly recommended",
-					"Build a decon chamber (minimum 3x3, ideally 4x4) as an airlock when significant mold is present",
-					"Never move contaminated materials through clean zones without proper bagging",
-					"Use HEPA air scrubbing and negative air to control spores during disturbance"
-				],
-				"ppe": "Upgrade PPE: respirator (N95 minimum, often P100 or higher), Tyvek or equivalent suit, gloves, and eye protection."
-			},
-			"drying_approach_on_mold_jobs": {
-				"description": "Long-dwell or contaminated jobs often require slower, more controlled drying or wider removal to reduce the chance of hidden mold growth after drying is complete."
-			},
-			"field_tips_and_working_rules": {
-				"description": "Practical rules of thumb used by experienced techs on mold and long-dwell water jobs.",
-				"items": [
-					"Time is the enemy. Assume mold risk increases every day the materials stay wet, especially above 70°F and with poor airflow.",
-					"When in doubt on time or hidden moisture, treat it as higher risk. It’s better to contain and remove suspect materials than to dry and hope.",
-					"Category + Time + Warmth = Mold probability. Use this simple mental equation on every job.",
-					"Document conditions and timeline early. Photos of moisture, smell notes, and when the water started help later if mold becomes an issue.",
-					"Ventilation and airflow matter. Stagnant, warm, humid air is mold’s best friend. Moving air and controlling humidity slows growth even before you fully dry the materials.",
-					"Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
-				]
-			}
-		},
-		"common_misunderstandings": {
-			"clean_water_stays_clean": {
-				"description": "Many techs assume that if water started clean, it remains low risk. In reality, clean water sitting for several days can develop significant bacterial and mold growth."
-			},
-			"surface_clean_is_enough": {
-				"description": "Wiping surfaces or applying disinfectant does not address contamination that has already penetrated porous materials or grown behind finishes."
-			},
-			"no_smell_means_no_contamination": {
-				"description": "Lack of musty odor does not guarantee low contamination. Mold and bacteria can be present and growing before a noticeable smell develops."
-			}
-		}
 	},
 	"equipment": {
 		"meta": {
@@ -1286,6 +1317,21 @@
 					"Category 1 drywall with short dwell and no physical compromise"
 				]
 			},
+			"chasing_the_water": {
+				"description": "The common practice of progressively discovering and adjusting scope as hidden water is revealed during demo and investigation. Initial visual estimates are often incomplete because water travels into areas that are difficult or impossible to measure without opening them up.",
+				"common_hidden_paths": [
+					"Along the backside of baseplates and bottom plates (where moisture meters often can't reach effectively)",
+					"Interstitial spaces (wall cavities, behind cabinets, under toe kicks, inside vanities)",
+					"Under vapor-barrier flooring (LVP, hardwood over slab, tile) where water wicks laterally",
+					"Behind trim, baseboards, and quarter round",
+					"Into checks, end grain, and voids in wood framing"
+				],
+				"field_reality": "On many jobs, especially Category 2/3 or with any significant dwell time, you will need to expand the original scope as you chase water into hidden areas. This is normal and expected. Locking into the initial estimate too rigidly leads to callbacks and missed damage.",
+				"approach": "Start with the known wet areas and water entry points. As you demo, actively look for and follow water into hidden spaces. Continue expanding until you stop finding active moisture or water staining in previously unopened areas. Document the progression.",
+				"mindset": "Be prepared for scope to grow during the job. 'Chasing the water' is part of doing the job correctly, not scope creep. New material is almost always cheaper than leaving hidden wet assemblies that later develop mold or structural damage.",
+				"voice_note": "Initial scopes are almost always low on these jobs. Water hides behind baseplates, in interstitial spaces, and under flooring you can't read through. You have to chase it. Keep opening things up until you stop finding wet material. It's normal for the scope to grow as you go.",
+				"priority": "high"
+			},
 			"practical_guidance": [
 				"Use a knife on painted and caulked edges when removing finished materials like casing and backsplash to avoid ripping the paint.",
 				"Assess before you cut. Never start cutting without first checking for asbestos, lead, hidden utilities, and structural issues.",
@@ -1485,14 +1531,14 @@
 					"rule": "Test only when necessary",
 					"required": "Test atmosphere anytime gas lines, propane, or sewer gas odors are present.",
 					"recommended": "Carry a 4-gas monitor on every crawlspace job.",
-					"voiceNote": "If there’s a gas line down here, I’m testing. No gas line, no need."
+					"voice_note": "If there’s a gas line down here, I’m testing. No gas line, no need."
 				},
 				"ppe": {
 					"respirator": {
 						"approach": "Use professional judgment based on conditions.",
 						"recommended": "Wear a respirator with a properly rated filter anytime there’s visible dust, disturbed insulation, Category 2/3 water, or musty odors.",
 						"situational": "On a tall, clean, well-maintained Category 1 crawlspace with a fresh vapor barrier, many techs will skip the respirator for quick entries.",
-						"voiceNote": "If it’s dusty or dirty at all, I’m wearing a respirator. If it’s clean and I’m just running in for a minute, I might skip it."
+						"voice_note": "If it’s dusty or dirty at all, I’m wearing a respirator. If it’s clean and I’m just running in for a minute, I might skip it."
 					},
 					"other": [
 						"Knee pads are highly recommended if you want to still be doing this job in ten years.",
@@ -1512,7 +1558,7 @@
 				],
 				"manpower": {
 					"principle": "Many hands makes light work — especially in crawlspaces.",
-					"voiceNote": "If you’ve got four guys on site and the crawlspace can use the help, get three of them down there. Knock it out fast."
+					"voice_note": "If you’ve got four guys on site and the crawlspace can use the help, get three of them down there. Knock it out fast."
 				}
 			},
 			"inspection": {
@@ -1527,14 +1573,14 @@
 					"Condition of the existing vapor barrier (rips, pooling, mold underneath)",
 					"Musty or sewage odors"
 				],
-				"voiceNote": "When I drop into a crawlspace, I’m looking for staining on the joists, sagging insulation, messed up HVAC, broken plumbing straps, and pipe damage — especially on the bottom of pipes from stuff like Drano."
+				"voice_note": "When I drop into a crawlspace, I’m looking for staining on the joists, sagging insulation, messed up HVAC, broken plumbing straps, and pipe damage — especially on the bottom of pipes from stuff like Drano."
 			},
 			"wet_insulation": {
 				"priority": "Critical",
 				"core_rule": "Get wet insulation off the wood framing as fast as possible.",
 				"best_practice": "Remove all wet insulation from the affected area the same day it is dropped.",
 				"field_reality": "If it’s a large area, drop all the wet insulation to the ground immediately, then remove it as soon as practical — even if that means coming back the next day.",
-				"voiceNote": "If there’s wet insulation touching the joists, I want it all on the ground today. Better to drop it all and come back tomorrow than leave any of it hanging on the wood."
+				"voice_note": "If there’s wet insulation touching the joists, I want it all on the ground today. Better to drop it all and come back tomorrow than leave any of it hanging on the wood."
 			},
 			"air_movement_and_pressure": {
 				"core_rule": "Avoid pushing air from the crawlspace up into the living space.",
@@ -1543,7 +1589,7 @@
 					"Never push air into the crawlspace through a vent — this creates positive pressure and can drive contaminants into the house.",
 					"Two good solutions: Place a fan inside the crawlspace and duct it out through a vent, or build containment over the access point with an AFD running inside the contained area."
 				],
-				"voiceNote": "Don’t push crawlspace air up into the house. If I’m piping a dehu in here, I make sure that air gets out through the vents, not back up the hatch."
+				"voice_note": "Don’t push crawlspace air up into the house. If I’m piping a dehu in here, I make sure that air gets out through the vents, not back up the hatch."
 			},
 			"drying_techniques": {
 				"localized_tenting": {
@@ -1555,12 +1601,12 @@
 						"Seal off nearby crawlspace vents in that zone from the outside if needed.",
 						"Particularly effective for drying bound moisture in subfloor from below on slow leak jobs."
 					],
-					"voiceNote": "Got a slow leak that soaked the subfloor? I’m building a little tent under it in the crawlspace and pumping dry air straight to it."
+					"voice_note": "Got a slow leak that soaked the subfloor? I’m building a little tent under it in the crawlspace and pumping dry air straight to it."
 				},
 				"negative_air_setup": {
 					"description": "Optional improvisation for creating airflow/negative pressure.",
 					"method": "Place a regular axial fan with layflat ducting strategically in the crawlspace and run the duct out through a foundation vent. This pulls fresh air in through the hatch and other vents.",
-					"voiceNote": "One trick I like is dropping a fan with layflat ducting and running it out a side vent. Pulls good airflow through the whole space."
+					"voice_note": "One trick I like is dropping a fan with layflat ducting and running it out a side vent. Pulls good airflow through the whole space."
 				}
 			},
 			"cleaning": {
@@ -1572,7 +1618,7 @@
 						"Much faster and easier than using a pump sprayer or spray bottle"
 					],
 					"practical_use": "Run an extension cord into the crawlspace, fog the area thoroughly, then come back through with rags and a wire brush to wipe down the framing.",
-					"voiceNote": "In a crawlspace, I’d rather use the ULV fogger than a pump sprayer any day. Fog it down, then come back through with rags and a wire brush."
+					"voice_note": "In a crawlspace, I’d rather use the ULV fogger than a pump sprayer any day. Fog it down, then come back through with rags and a wire brush."
 				}
 			},
 			"vapor_barrier": {
@@ -1585,13 +1631,13 @@
 						"It must be attached and sealed to the foundation wall",
 						"Terminate at the top of the masonry — do not run it up onto the wood sill plate"
 					],
-					"voiceNote": "When we replace a vapor barrier, it’s not just a recommendation — it’s code."
+					"voice_note": "When we replace a vapor barrier, it’s not just a recommendation — it’s code."
 				}
 			},
 			"ultra_ppe": {
 				"when_to_use": "For crawlspaces with heavy sewage contamination, large insect infestations, extreme filth, or heavy mold.",
 				"setup": "White Tyvek suit → latex gloves taped at wrist → yellow suit over the top → demolition gloves taped over the latex gloves.",
-				"voiceNote": "If this crawlspace is straight nasty — sewage, bugs everywhere — I’m running the double suit setup."
+				"voice_note": "If this crawlspace is straight nasty — sewage, bugs everywhere — I’m running the double suit setup."
 			}
 		},
 		"drying_and_monitoring": {
@@ -1679,15 +1725,15 @@
 		},
 		"general_cleaning": {
 			"description": "General cleaning on restoration jobs. Keep it simple — your goal is to return the area to pre-loss condition or better.",
-			"coreApproach": "Work **top to bottom** and **outside in**. Start with ceilings and high areas, then work your way down the walls, and finish with the floors.",
-			"practicalTips": [
+			"core_approach": "Work **top to bottom** and **outside in**. Start with ceilings and high areas, then work your way down the walls, and finish with the floors.",
+			"practical_tips": [
 				"Follow the wall around the room in one direction so you don’t miss anything.",
 				"Clean one logical section at a time before moving on.",
 				"Always read the label on the chemical you’re using. It tells you required PPE, proper dilution, dwell time, and what surfaces it’s safe for.",
 				"Dilute chemicals correctly — failing to do so is a very common mistake.",
 				"Carry a trash bag with you for small debris when it makes sense."
 			],
-			"voiceNote": "Top to bottom, outside in. Read the label on your chemicals."
+			"voice_note": "Top to bottom, outside in. Read the label on your chemicals."
 		},
 		"trash_management_and_logistics": {
 			"description": "Efficient trash and debris management is a frequently overlooked but critical part of restoration. It affects job site cleanliness, safety, crew efficiency, and how professional the job looks to the customer.",
@@ -1767,8 +1813,10 @@
 		}
 	},
 	"project_manager_timeline": {
+		"dev_note": "This section needs to be dialed in, but it's functional.",
 		"description": "Day-by-day operational timeline from a Project Manager's perspective. Reflects realistic field flow rather than the linear job_functions order. Designed for scoping, daily check-ins, and managing techs.",
 		"notes": "Emergency calls and regular responses both start on 'Day 1'. Demo is usually scheduled for Day 2 or later after testing/approvals. Drying phase typically runs 3–5 days after demo and cleaning.",
+		"scheduling_meets_reality": "If this were a one-person company with one job, you could guarantee perfectly sequential days. In reality, teams deal with fluctuating demand, shifting labor availability, and moving goalposts from the material parties involved. 'Day 2', 'Day 3', etc. should be read as business days or next available days, not literal calendar days.",
 		"days": {
 			"day1": {
 				"name": "Day 1 - Initial Response & Stabilization",
@@ -1781,7 +1829,8 @@
 					"Containment set up (as needed)",
 					"Drying equipment placed and running",
 					"Initial moisture readings and psychrometrics taken",
-					"Samples taken if required"
+					"Samples taken if required",
+					"Typically followed by monitoring days between Day 1 and Day 2, pending samples and approvals, but sometimes as soon as the next day."
 				]
 			},
 			"day2": {
